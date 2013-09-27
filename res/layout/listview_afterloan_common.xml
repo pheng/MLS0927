@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal"
+    android:background="@drawable/selector"
+    android:padding="5dp" >
+
+
+    <TextView
+        android:id="@+id/customerName"
+        android:layout_width="@dimen/listview_item_width"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="客户名称"
+        android:textSize="@dimen/listview_text_size" />
+
+    <net.chinawuyue.mls.InterceptScrollContainer
+        android:id="@+id/scroollContainter"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/customerName"
+        android:focusable="false" >
+
+        <net.chinawuyue.mls.MyHScrollView
+            android:id="@+id/horizontalScrollView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:scrollbars="none" >
+
+           <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:orientation="horizontal" >
+
+			    <TextView
+			        android:id="@+id/customerID"
+			        android:layout_width="@dimen/listview_item_width"
+			        android:layout_height="wrap_content"
+			        android:singleLine="true"
+			        android:text="客户编号"
+			        android:textSize="@dimen/listview_text_size" />
+			
+			    <TextView
+			        android:id="@+id/updateDate"
+			        android:layout_width="@dimen/listview_item_width"
+			        android:layout_height="wrap_content"
+			        android:singleLine="true"
+			        android:text="上次检查完成时间"
+			        android:textSize="@dimen/listview_text_size" />
+			
+			    <TextView
+			        android:id="@+id/inspectTypeName"
+			        android:layout_width="@dimen/listview_item_width"
+			        android:layout_height="wrap_content"
+			        android:singleLine="true"
+			        android:text="贷后检查频率"
+			        android:textSize="@dimen/listview_text_size" />
+			
+			    <TextView
+			        android:id="@+id/inspectDate"
+			        android:layout_width="@dimen/listview_item_width"
+			        android:layout_height="wrap_content"
+			        android:singleLine="true"
+			        android:text="贷后检查截止日期"
+			        android:textSize="@dimen/listview_text_size" />
+			
+			    <TextView
+			        android:id="@+id/inspectUserID"
+			        android:layout_width="@dimen/listview_item_width"
+			        android:layout_height="wrap_content"
+			        android:singleLine="true"
+			        android:text="发起人"
+			        android:textSize="@dimen/listview_text_size" />
+			
+			    <TextView
+			        android:id="@+id/inputUserName"
+			        android:layout_width="@dimen/listview_item_width"
+			        android:layout_height="wrap_content"
+			        android:singleLine="true"
+			        android:text="检查人"
+			        android:textSize="@dimen/listview_text_size" />
+			
+			    <TextView
+			        android:id="@+id/inputOrgName"
+			        android:layout_width="@dimen/listview_item_width"
+			        android:layout_height="wrap_content"
+			        android:singleLine="true"
+			        android:text="检查机构"
+			        android:textSize="@dimen/listview_text_size" />
+            </LinearLayout>
+        </net.chinawuyue.mls.MyHScrollView>
+    </net.chinawuyue.mls.InterceptScrollContainer>
+
+</RelativeLayout>

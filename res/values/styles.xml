@@ -1,0 +1,44 @@
+<resources>
+
+    <style name="MenuDrawer" />
+
+    <style name="MenuDrawer.Widget" />    
+
+    <style name="MenuDrawer.Widget.Title">
+        <item name="android:background">@drawable/md__list_selector_holo_dark</item>
+        <item name="android:textAppearance">?android:attr/textAppearance</item>
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">32dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="MenuDrawerStyle" parent="Widget.MenuDrawer">
+        <item name="mdActiveIndicator">@drawable/menu_arrow</item>
+        <item name="mdMenuSize">250dp</item>
+    </style>    
+    
+    <style name="LoanTitle">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="LoanContent">
+        <item name="android:textSize">15sp</item>
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:shadowRadius">1.0</item>
+    </style>
+    
+    <style name="TextContent">
+        <item name="android:textSize">15sp</item>
+    </style>
+    
+    <style name="TextTitle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+</resources>

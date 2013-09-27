@@ -1,0 +1,32 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="MlsTheme" parent="MlsBase">
+        <item name="menuDrawerStyle">@style/MenuDrawerStyle</item>
+    </style>
+
+    <!-- 父类为Theme.Sherlock.Light，即白底黑字（如果是Theme.Sherlock，则为黑底白字）, 为了兼容考虑，所有样式的相关item需要写2遍 -->
+    <style name="MlsBase" parent="Theme.Sherlock.Light">
+        <item name="actionBarStyle">@style/Widget.DEMO.ActionBar</item>
+        <item name="android:actionBarStyle">@style/Widget.DEMO.ActionBar</item>
+    </style>
+
+    <!-- 标题栏的样式 -->
+    <style name="Widget.DEMO.ActionBar" parent="Widget.Sherlock.ActionBar.Solid">
+        <item name="background">@color/title_color</item>
+        <item name="backgroundStacked">@color/title_color</item>
+        <item name="backgroundSplit">@color/title_color</item>
+        <item name="titleTextStyle">@style/Widget.DEMO.ActionBar.Title</item>
+        <item name="android:background">@color/title_color</item>
+        <item name="android:backgroundStacked">@color/title_color</item>
+        <item name="android:backgroundSplit">@color/title_color</item>
+        <item name="android:titleTextStyle">@style/Widget.DEMO.ActionBar.Title</item>
+        <item name="android:height">@dimen/title_height</item>
+        <item name="height">@dimen/title_height</item>
+    </style>
+
+    <!-- 标题栏的标题样式 -->
+    <style name="Widget.DEMO.ActionBar.Title" parent="@android:TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#fff</item>
+    </style>
+
+</resources>

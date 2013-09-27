@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loginRoot"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/LinearLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:background="@drawable/login_bg"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/RelativeLayout02"
+            android:layout_width="fill_parent"
+            android:layout_height="190dip"
+            android:layout_marginLeft="15.0px"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="68dip"
+            android:background="@drawable/login_back"
+            android:paddingBottom="10dip"
+            android:paddingTop="21dip" >
+
+            <ImageView
+                android:id="@+id/faceImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_head" />
+
+            <EditText
+                android:id="@+id/login_edit_account"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="5dip"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginRight="5.0dip"
+                android:layout_marginTop="5.0dip"
+                android:layout_toRightOf="@+id/faceImg"
+                android:background="@drawable/masi_edit_login"
+                android:hint="@string/strInputAccHint"
+                android:maxLength="40"
+                android:text="E011010"
+                android:paddingLeft="45dip"
+                android:saveEnabled="true" />
+
+            <TextView
+                android:id="@+id/TextView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/login_edit_account"
+                android:layout_alignLeft="@+id/login_edit_account"
+                android:layout_alignTop="@+id/login_edit_account"
+                android:layout_marginRight="15dip"
+                android:gravity="center_vertical"
+                android:paddingLeft="7dip"
+                android:text="@string/strAccInputLabel"
+                android:textColor="#ff3f3f3f"
+                android:textSize="16.0dip" />
+
+            <EditText
+                android:id="@+id/login_edit_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/login_edit_account"
+                android:layout_alignRight="@+id/login_edit_account"
+                android:layout_below="@+id/login_edit_account"
+                android:layout_marginRight="1.0dip"
+                android:background="@drawable/masi_edit_login"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:text="123"
+                android:paddingLeft="45dip"
+                android:saveEnabled="true" />
+
+            <TextView
+                android:id="@+id/TextView02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/login_edit_pwd"
+                android:layout_alignRight="@+id/TextView01"
+                android:layout_alignTop="@+id/login_edit_pwd"
+                android:gravity="center_vertical"
+                android:paddingLeft="7.0sp"
+                android:text="@string/strPswInputLabel"
+                android:textColor="#ff3f3f3f"
+                android:textSize="16.0dip" />
+
+            <CheckBox
+                android:id="@+id/login_cb_savepwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/login_btn_login"
+                android:button="@drawable/masi_btn_check"
+                android:checked="true"
+                android:paddingLeft="25dip"
+                android:text="@string/opt_remember"
+                android:textColor="#ff222222"
+                android:textSize="16dip" />
+
+            <Button
+                android:id="@+id/login_btn_login"
+                android:layout_width="130dip"
+                android:layout_height="39dip"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/TextView02"
+                android:layout_marginRight="12.0dip"
+                android:layout_marginTop="10dip"
+                android:text="@string/login" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="27.0dip"
+        android:background="@color/title_color" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:text="@string/strCopyright" />
+    </RelativeLayout>
+
+</LinearLayout>

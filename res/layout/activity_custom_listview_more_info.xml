@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/LinearLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp" >
+
+        <TextView
+            android:id="@+id/custom_info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/custom_info"
+            android:textColor="@color/red"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#000" />
+  	<ScrollView android:layout_width="fill_parent"
+ 	  android:layout_height="wrap_content"
+ 	  android:scrollbars="none">
+	  <RelativeLayout  
+	  	android:layout_width="wrap_content"
+	  	android:layout_height="wrap_content">
+	  	
+	  	<TextView android:id="@+id/text_customerid"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanTitle"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/CUSTOMERID"/>
+	  	<TextView android:id="@+id/text_customerid_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_customerid"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_customername"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/CUSTOMERNAME"
+	  		android:layout_below="@id/text_customerid"/>
+	  	<TextView android:id="@+id/text_customername_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_customername"
+	  		android:text="text"/>
+	  	
+	  <TextView android:id="@+id/text_customertype"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/CUSTOMERTYPE"
+	  		android:layout_below="@id/text_customername"/>
+	  	<TextView android:id="@+id/text_customertype_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_customertype"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_certtype"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/CERTTYPE"
+	  		android:layout_below="@id/text_customertype"/>
+	  	<TextView android:id="@+id/text_certtype_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_certtype"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_certid"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/CERTID"
+	  		android:layout_below="@id/text_certtype"/>
+	  	<TextView android:id="@+id/text_certid_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_certid"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_add"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/ADD"
+	  		android:layout_below="@id/text_certid"/>
+	  	<TextView android:id="@+id/text_add_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_add"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_tel"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/TEL"
+	  		android:layout_below="@id/text_add"/>
+	  	<TextView android:id="@+id/text_tel_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_tel"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_industrytype"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/INDUSTRYTYPE"
+	  		android:layout_below="@id/text_tel"/>
+	  	<TextView android:id="@+id/text_industrytype_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_industrytype"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_relativetype"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/RELATIVETYPE"
+	  		android:layout_below="@id/text_industrytype"/>
+	  	<TextView android:id="@+id/text_relativetype_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_relativetype"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_relativetname"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/RELATIVETNAME"
+	  		android:layout_below="@id/text_relativetype"/>
+	  	<TextView android:id="@+id/text_relativetname_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_relativetname"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_manageusername"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/MANAGEUSERNAME"
+	  		android:layout_below="@id/text_relativetname"/>
+	  	<TextView android:id="@+id/text_manageusername_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_manageusername"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_manageorgname"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/MANAGEORGNAME"
+	  		android:layout_below="@id/text_manageusername"/>
+	  	<TextView android:id="@+id/text_manageorgname_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_manageorgname"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_inputorgname"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/INPUTORGNAME"
+	  		android:layout_below="@id/text_manageorgname"/>
+	  	<TextView android:id="@+id/text_inputorgname_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_inputorgname"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_inputusername"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/INPUTUSERNAME"
+	  		android:layout_below="@id/text_inputorgname"/>
+	  	<TextView android:id="@+id/text_inputusername_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_inputusername"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_inputdate"
+	  		android:layout_width="150dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/INPUTDATE"
+	  		android:layout_below="@id/text_inputusername"/>
+	  	<TextView android:id="@+id/text_inputdate_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_customerid"
+	  		android:layout_alignBaseline="@id/text_inputdate"
+	  		android:text="text"/>
+	  	
+	  	
+	  	<Button android:id="@+id/btn_cancle"
+	  	    android:layout_width="150dip"
+	  	    android:layout_height="wrap_content"
+	  	    android:layout_below="@id/text_inputdate"
+	  	    android:text="@string/cancle"
+	  	    android:layout_marginTop="10dip"
+	  	    />
+
+	  </RelativeLayout>
+	</ScrollView>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="27.0dip"
+        android:background="@color/title_color" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:text="@string/strCopyright"
+            android:textColor="#FFFFFF" />
+    </RelativeLayout>
+</LinearLayout>

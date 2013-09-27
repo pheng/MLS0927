@@ -1,0 +1,83 @@
+<resources>
+    <string-array name="report_loan_balance">
+        <item >合计</item>
+        <item >本期发放</item>
+        <item >本期收回</item>
+        <item >(50万元(含)以下)合计</item>
+        <item >(50万元(含)以下)本期发放</item>
+        <item >(50万元(含)以下)本期收回</item>
+        <item >(50-500(含)万元)合计</item>
+        <item >(50-500(含)万元)本期发放</item>
+        <item >(50-500(含)万元)本期收回</item>
+        <item >(500万元以上)合计</item>
+        <item >(500万元以上)本期发放</item>
+        <item >(500万元以上)本期收回</item>
+    </string-array>
+    <string-array name="report_business_survey">
+        <item >上年余额</item>
+        <item >本年累放</item>
+        <item >本月累放</item>
+        <item >本期余额</item>
+        <item >到期未收回小计</item>
+        <item >历年到期未收回</item>
+        <item >当年到期未收回</item>
+        <item >本月到期未收回</item>
+    </string-array>
+    <string-array name="report_subject_balance">
+        <item >各项贷款</item>
+        <item >正常</item>
+        <item >关注</item>
+        <item >次级</item>
+        <item >可疑</item>
+        <item >损失</item>
+    </string-array>
+    <string-array name="report_loan_analysis1">
+        <item >各项贷款合计</item>
+        <item >信用小计</item>
+        <item >农户小额信用贷款</item>
+        <item >自然人信用贷款</item>
+        <item >法人信用贷款</item>
+        <item >保证小计</item>
+        <item >自然人保证</item>
+        <item >担保公司保证</item>
+        <item >法人客户保证</item>
+        <item >联保保证及其它</item>
+        <item >抵押</item>
+        <item >质押</item>
+        <item >按余额统计：5万元(含)以下</item>
+        <item >按余额统计：5-100万元</item>
+        <item >按余额统计：100(含)万元-500万元</item>
+        <item >按余额统计：500万元(含)-1000万元</item>
+        <item >按余额统计：1000万元(含)以上</item>
+    </string-array>
+     <string-array name="report_loan_analysis2">
+        <item >各项贷款合计</item>
+        <item >农户贷款小计</item>
+        <item >农户小额信用贷款</item>
+        <item >农户小额担保贷款</item>
+        <item >农户联保贷款</item>
+        <item >其它农户贷款</item>
+        <item >农村经济组织</item>
+        <item >个人贷款小计</item>
+        <item >个体工商户贷款</item>
+        <item >个人住房按揭贷款</item>
+        <item >个人其它按揭贷款</item>
+        <item >其它个人贷款</item>
+        <item >企事业单位贷款(含贴现)</item>
+        <item >其中:贴现小计</item>
+        <item >直贴</item>
+        <item >转贴</item>
+    </string-array>
+ 	<string-array name="report_loan_analysis3">
+        <item >企事业单位贷款(含贴现)</item>
+        <item >大型企业贷款</item>
+        <item >中型企业贷款</item>
+        <item >小型企业贷款</item>
+        <item >微型企业贷款</item>
+        <item >事业单位贷款</item>
+        <item >贴现及其它</item>
+        <item >流动资金</item>
+        <item >固定资产贷款</item>
+        <item >其它</item>
+    </string-array>
+</resources>

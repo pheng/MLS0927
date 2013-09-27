@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  意见修改 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/bg_color"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/LinearLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp" >
+        <TextView
+            android:id="@+id/subscribe_idea_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subscribe_idea"
+            android:textColor="@color/red"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+        	  	
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#000" />
+  	<ScrollView android:layout_width="wrap_content"
+ 	  android:layout_height="wrap_content"
+ 	  android:scrollbars="none">
+	  <RelativeLayout  
+	  	android:layout_width="wrap_content"
+	  	android:layout_height="wrap_content">
+	  	
+	  	<TextView android:id="@+id/text_serialno"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/SERIALNO"
+	  		/>
+	  	<TextView android:id="@+id/text_serialno_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_serialno"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_businesssum"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/BUSINESSSUM"
+	  		android:layout_below="@id/text_serialno"/>
+	  	<TextView android:id="@+id/text_businesssum_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_businesssum"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_approvebusinesssum"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="15dip"
+	  		android:text="@string/APPROVEBUSINESSSUM"
+	  		android:layout_below="@id/text_businesssum"/>
+	  	<EditText android:id="@+id/edit_approvebusinesssum_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="15dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_below="@id/text_businesssum"
+	  		android:layout_alignBaseline="@id/text_approvebusinesssum"
+	  		android:inputType="number"
+	  		android:hint="edit"/>
+	  	
+	  	<TextView android:id="@+id/text_approveratefloat"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/APPROVERATEFLOAT"
+	  		android:layout_below="@id/edit_approvebusinesssum_info"/>
+	  	<EditText android:id="@+id/edit_approveratefloat_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_below="@id/edit_approvebusinesssum_info"
+	  		android:layout_alignBaseline="@id/text_approveratefloat"
+	  		android:inputType="number"
+	  		android:hint="edit"/>
+	  	
+	  	<TextView android:id="@+id/text_approvebusinessrate"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/APPROVEBUSINESSRATE"
+	  		android:layout_below="@id/edit_approveratefloat_info"/>
+	  	<EditText android:id="@+id/edit_approvebusinessrate_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_below="@id/edit_approveratefloat_info"
+	  		android:layout_alignBaseline="@id/text_approvebusinessrate"
+	  		android:inputType="number"
+	  		android:hint="edit"/>
+	  	
+	  	<TextView android:id="@+id/text_approvetermmonth"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/APPROVETERMMONTH"
+	  		android:layout_below="@id/edit_approvebusinessrate_info"/>
+	  	<EditText android:id="@+id/edit_approvetermmonth_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_below="@id/edit_approvebusinessrate_info"
+	  		android:layout_alignBaseline="@id/text_approvetermmonth"
+	  		android:inputType="number"
+	  		android:hint="edit"/>
+	  	
+	  	<TextView android:id="@+id/text_phasechoice"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/PHASECHOICE"
+	  		android:layout_below="@id/edit_approvetermmonth_info"/>
+	  	<RadioGroup
+	  	    android:id="@+id/radiogroup_phasechoice"
+	  	    android:layout_width="180dip"
+	  	    android:layout_height="wrap_content"
+	  	    android:layout_below="@id/edit_approvetermmonth_info"
+	  	    android:layout_toRightOf="@id/text_serialno"
+	  	    android:checkedButton="@+id/ataaw3"
+	  	    android:gravity="center_vertical|center_horizontal"
+	  	    android:orientation="horizontal" >
+				    <RadioButton android:text="同意" 
+				        	android:id="@+id/radio1" 
+				        	android:checked="true"
+				        	style="@style/LoanContent"
+				      		android:layout_width="wrap_content" 
+				      		android:layout_height="wrap_content"></RadioButton> 
+				    <RadioButton android:text="不同意" 
+				        	android:id="@+id/radio2" 
+				        	style="@style/LoanContent"
+				      		android:layout_width="wrap_content" 
+				      		android:layout_height="wrap_content"></RadioButton> 
+		</RadioGroup>
+		
+	  	<TextView android:id="@+id/text_phaseopinion"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/PHASEOPINION"
+	  		android:layout_below="@id/radiogroup_phasechoice"/>
+	  	<EditText android:id="@+id/edit_phaseopinion_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_below="@id/radiogroup_phasechoice"
+	  		android:layout_alignBaseline="@id/text_phaseopinion"
+	  		android:hint="请签署意见"/>
+	  
+	  <Button android:id="@+id/btn_cancle"
+	  	    android:layout_width="100dip"
+	  	    android:layout_height="wrap_content"
+	  	    android:layout_below="@id/edit_phaseopinion_info"
+	  	    android:text="@string/cancle"
+	  	    android:layout_marginTop="10dip"
+	  	    />
+	  <Button android:id="@+id/btn_ok"
+	  	    android:layout_width="100dip"
+	  	    android:layout_height="wrap_content"
+	  	    android:layout_below="@id/edit_phaseopinion_info"
+	  	    android:layout_centerInParent="true"
+	  	    android:text="@string/ok"
+	  	    android:layout_marginTop="10dip"
+	  	    />
+	  	<Button android:id="@+id/btn_submit"
+	  	    android:layout_width="100dip"
+	  	    android:layout_height="wrap_content"
+	  	    android:layout_below="@id/edit_phaseopinion_info"
+	  	    android:layout_alignParentRight="true"
+	  	    android:text="@string/submit"
+	  	    android:layout_marginTop="10dip"
+	  	    />
+	  </RelativeLayout>
+	</ScrollView>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="27.0dip"
+        android:background="@color/title_color" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:text="@string/strCopyright"
+            android:textColor="#FFFFFF" />
+    </RelativeLayout>
+</LinearLayout>

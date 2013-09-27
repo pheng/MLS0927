@@ -182,7 +182,8 @@ public class LoginActivity extends SherlockActivity {
 					isNewUserLogin = true;
 					loginState = false;
 				}
-				if (loginInfo.versionCode.length()>0 &&
+				if (loginInfo.versionCode!=null&&
+						loginInfo.versionCode.length()>0 &&
 						Integer.parseInt(loginInfo.versionCode) > this.getCurrentVersionCode())
 					isUpdate = true;
 			} else {

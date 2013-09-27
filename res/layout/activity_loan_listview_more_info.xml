@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  贷款申请详细信息 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/bg_color"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/LinearLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp" >
+        <TextView
+            android:id="@+id/loan_listview_moretitle_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/strLoan_info"
+            android:textColor="@color/red"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#000" />
+  	<ScrollView android:layout_width="wrap_content"
+ 	  android:layout_height="wrap_content"
+ 	  android:scrollbars="none">
+	  <RelativeLayout  
+	    android:layout_gravity="left"
+	  	android:layout_width="wrap_content"
+	  	android:layout_height="wrap_content">
+
+	  	<TextView android:id="@+id/text_serialno"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		style="@style/LoanTitle"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/SERIALNO"/>
+	  	<TextView android:id="@+id/text_serialno_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		style="@style/LoanContent"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_serialno"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_customerid"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/CUSTOMERID"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_serialno"/>
+	  	<TextView android:id="@+id/text_customerid_info"
+	  	    style="@style/LoanContent"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_customerid"
+	  		android:text="text"/>
+	  	<Button android:id="@+id/btn_more_custom"
+	  	    android:layout_width="wrap_content"
+	  	    android:layout_height="wrap_content"
+	  	    android:layout_alignParentRight="true"
+	  	    android:layout_alignBaseline="@id/text_customerid"
+	  	    android:text="客户详情"
+	  	    />
+	  	
+	  	<TextView android:id="@+id/text_customername"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/CUSTOMERNAME"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_customerid"/>
+	  	<TextView android:id="@+id/text_customername_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_customername"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_businesstype"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/BUSINESSTYPE"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_customername"/>
+	  	<TextView android:id="@+id/text_businesstype_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_businesstype"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  <TextView android:id="@+id/text_direction"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/DIRECTION"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_businesstype"/>
+	  	<TextView android:id="@+id/text_direction_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_direction"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_occurtype"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/OCCURTYPE"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_direction"/>
+	  	<TextView android:id="@+id/text_occurtype_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_occurtype"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  <TextView android:id="@+id/text_businessum"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/BUSINESSSUM"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_occurtype"/>
+	  	<TextView android:id="@+id/text_businessum_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_businessum"
+	  		style="@style/LoanContent"
+	  		android:text="number"/>
+	  	
+	  	<TextView android:id="@+id/text_purpose"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/PURPOSE"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_businessum"/>
+	  	<TextView android:id="@+id/text_purpose_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_purpose"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_iseferfarming"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/ISREFERFARMING"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_purpose"/>
+	  	<TextView android:id="@+id/text_iseferfarming_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_iseferfarming"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_termmonth"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/TERMMONTH"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_iseferfarming"/>
+	  	<TextView android:id="@+id/text_termmonth_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_termmonth"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_ratetype"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/RATETYPE"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_termmonth"/>
+	  	<TextView android:id="@+id/text_ratetype_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_ratetype"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_ratefloat"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/RATEFLOAT"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_ratetype"/>
+	  	<TextView android:id="@+id/text_ratefloat_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_ratefloat"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_businessrate"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/BUSINESSRATE1"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_ratefloat"/>
+	  	<TextView android:id="@+id/text_businessrate_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_businessrate"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_vouchtype"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/VOUCHTYPE"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_businessrate"/>
+	  	<TextView android:id="@+id/text_vouchtype_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_vouchtype"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_ictype"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/ICTYPE"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_vouchtype"/>
+	  	<TextView android:id="@+id/text_ictype_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_ictype"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_paysource"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/PAYSOURCE"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_ictype"/>
+	  	<TextView android:id="@+id/text_paysource_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_paysource"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_inputorgname"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/INPUTORGNAME"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_paysource"/>
+	  	<TextView android:id="@+id/text_inputorgname_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_inputorgname"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_inputusername"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/INPUTUSERNAME"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_inputorgname"/>
+	  	<TextView android:id="@+id/text_inputusername_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_inputusername"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  	
+	  	<TextView android:id="@+id/text_inputdate"
+	  		android:layout_width="140dip"
+	  		android:layout_height="wrap_content"
+	  		android:gravity="right"
+	  		android:layout_marginTop="10dip"
+	  		android:text="@string/INPUTDATE"
+	  		style="@style/LoanTitle"
+	  		android:layout_below="@id/text_inputusername"/>
+	  	<TextView android:id="@+id/text_inputdate_info"
+	  		android:layout_width="180dip"
+	  		android:layout_height="wrap_content"
+	  		android:layout_marginTop="10dip"
+	  		android:layout_toRightOf="@id/text_serialno"
+	  		android:layout_alignBaseline="@id/text_inputdate"
+	  		style="@style/LoanContent"
+	  		android:text="text"/>
+	  
+	  	<Button android:id="@+id/btn_cancle"
+	  	    android:layout_width="150dip"
+	  	    android:layout_height="wrap_content"
+	  	    android:layout_below="@id/text_inputdate"
+	  	    android:text="@string/cancle"
+	  	    android:layout_marginTop="10dip"
+	  	    />
+	  	<Button android:id="@+id/btn_sign_idea"
+	  	    android:layout_width="150dip"
+	  	    android:layout_height="wrap_content"
+	  	    android:layout_below="@id/text_inputdate"
+	  	    android:layout_alignParentRight="true"
+	  	    android:text="签署意见"
+	  	    android:layout_marginTop="10dip"
+	  	    />
+
+	  </RelativeLayout>
+	</ScrollView>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="27.0dip"
+        android:background="@color/title_color" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:text="@string/strCopyright"
+            android:textColor="#FFFFFF" />
+    </RelativeLayout>
+</LinearLayout>

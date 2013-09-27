@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal"
+    android:background="@drawable/selector"
+    android:padding="5dp" >
+
+
+    <TextView
+        android:id="@+id/t_businesstypename"
+        android:layout_width="@dimen/listview_item_width"
+        android:layout_height="wrap_content"
+        android:text="产品名称"
+        android:textSize="@dimen/listview_text_size" />
+
+    <net.chinawuyue.mls.InterceptScrollContainer
+        android:id="@+id/scroollContainter"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/t_businesstypename"
+        android:focusable="false" >
+
+        <net.chinawuyue.mls.MyHScrollView
+            android:id="@+id/horizontalScrollView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/t_superorgid"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="单位编号"
+                    android:textSize="@dimen/listview_text_size"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/t_superorgname"
+                    android:layout_width="@dimen/listview_item_width_l"
+                    android:layout_height="wrap_content"
+                    android:text="单位名称"
+                    android:textSize="@dimen/listview_text_size"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/t_yesorno"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="是否区域产品"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_count1"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="上年余额笔数"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_balance1"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="上年余额金额"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_count2"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="本年累放笔数"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_balance2"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="本年累放金额"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_count3"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="本月累放笔数"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_balance3"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="本月累放金额"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_count4"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="本期余额笔数"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_balance4"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="本期余额金额"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_count5"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="到期未收回小计笔数"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_balance5"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="到期未收回小计金额"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_count6"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="历年到期未收回笔数"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_balance6"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="历年到期未收回金额"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_ratio6"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="历年到期未收回占比"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_count7"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="当年到期未收回笔数"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_balance7"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="当年到期未收回金额"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_ratio7"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="当年到期未收回占比"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_count8"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="本月到期未收回笔数"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_balance8"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="本月到期未收回金额"
+                    android:textSize="@dimen/listview_text_size" />
+
+                <TextView
+                    android:id="@+id/t_ratio8"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="本月到期未收回占比"
+                    android:textSize="@dimen/listview_text_size" />
+            </LinearLayout>
+        </net.chinawuyue.mls.MyHScrollView>
+    </net.chinawuyue.mls.InterceptScrollContainer>
+
+</RelativeLayout>
