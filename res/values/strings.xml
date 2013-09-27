@@ -42,7 +42,8 @@
     <string name="report_loan_analysis3">各项贷款分析表三</string>
     <string name="report_report_setting">报表设置</string>
     <string name="strAfterLoanReport">贷后检查报告</string>
-    <string name="wait">正在刷新...</string>
+    <string name="wait">正在刷新&#8230;</string>
+    <string name="net_error">网络连接错误</string>
     <string name="error">数据读取失败</string>
     <string name="empty">没有符合条件的数据</string>
     <string name="ok">确定</string>
