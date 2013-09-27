@@ -88,7 +88,7 @@ public class ChangePwd implements OnFocusChangeListener,OnClickListener{
 	Handler handler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
 			if(msg.what==-1||msg.obj==null){
-				Toast.makeText(context, "网络连接错误", 1).show();
+				Toast.makeText(context, R.string.error, 1).show();
 			}else{
 				switch(Integer.parseInt(msg.obj.toString())){
 				case 0:
@@ -98,7 +98,7 @@ public class ChangePwd implements OnFocusChangeListener,OnClickListener{
 					Toast.makeText(context, "更新成功", 1).show();
 					break;
 				case -1:
-					Toast.makeText(context, "用户名不存在或密码错误", 1).show();
+					Toast.makeText(context, "原始密码输入错误", 1).show();
 					break;
 				}
 			}

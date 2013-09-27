@@ -160,12 +160,15 @@ public class LoginActivity extends SherlockActivity {
 		JSONObject jsonRes = HttpUtil.doLoginWithDeviceId(usercode, password,deviceId);
 		if (jsonRes != null) {
 			try {
-				loginInfo.userCode = jsonRes.getJSONObject("logininfo").optString("Usercode");
-				loginInfo.lastLoginDate = jsonRes.getJSONObject("logininfo").optString("Lastlogindate");
-				loginInfo.versionCode = jsonRes.getJSONObject("logininfo").optString("versioncode");
-				loginInfo.role = jsonRes.getJSONObject("logininfo").optString("Role");
-				isLocalUser = jsonRes.getJSONObject("logininfo").optString("isLocalUser");
-				if("1".equals(isLocalUser)){
+				if(jsonRes.has("logininfo")){
+					loginInfo.userCode = jsonRes.getJSONObject("logininfo").optString("Usercode");
+					loginInfo.lastLoginDate = jsonRes.getJSONObject("logininfo").optString("Lastlogindate");
+					loginInfo.versionCode = jsonRes.getJSONObject("logininfo").optString("versioncode");
+					loginInfo.role = jsonRes.getJSONObject("logininfo").optString("Role");
+					isLocalUser = jsonRes.getJSONObject("logininfo").optString("isLocalUser");
+				}
+				// 是绑定用户就读取用户信息
+				if(jsonRes.has("userinfo")&&"1".equals(isLocalUser)){
 					loginInfo.userName = jsonRes.getJSONObject("userinfo").optString("USERNAME");
 					loginInfo.count1 = jsonRes.getJSONObject("userinfo").optString("COUNT1");
 					loginInfo.count2 = jsonRes.getJSONObject("userinfo").optString("COUNT2");
@@ -282,11 +285,11 @@ public class LoginActivity extends SherlockActivity {
 		@Override
 		public void run() {
 			boolean loginState = false;
-			if (!isNetError) {
+			//if (!isNetError) {
 				String userName = view_userName.getText().toString();
 				String password = view_password.getText().toString();
 				loginState = validateLocalLogin(userName, password);
-			}
+			//}
 			if (loginState && !isUpdate ) {
 				// 需要传输数据到登陆后的界面
 				Intent intent = new Intent();
