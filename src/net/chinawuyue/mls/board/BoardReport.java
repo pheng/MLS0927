@@ -74,7 +74,7 @@ public class BoardReport extends BaseReport {
 				progressDialog.dismiss();
 			}
 			if (msg.what == -1) {
-				Toast.makeText(context, "ÍøÂçÁ¬½Ó´íÎó", 1).show();
+				Toast.makeText(context, R.string.net_error, 1).show();
 				return;
 			}
 			isNeedUpdate = false;
