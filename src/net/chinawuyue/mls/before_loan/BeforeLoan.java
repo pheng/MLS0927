@@ -132,7 +132,7 @@ public class BeforeLoan implements IXListViewListener {
 			xListRequest.setAPPROVETYPE("030");
 		}
 
-		dialog = ProgressDialog.show(context, "", "正在刷新...");
+		dialog = ProgressDialog.show(context, "", context.getString(R.string.wait));
 		Thread thread = new Thread(new DoFetchThread(xListRequest.getCODENO(),
 				handler, xListRequest.jsonRequest()));
 		thread.start();
@@ -156,7 +156,7 @@ public class BeforeLoan implements IXListViewListener {
 	protected void setAdapter(Boolean successful) {
 		if (!successful) {
 			// 查询数据失败，UI显示
-			Toast.makeText(context, "查询失败！", Toast.LENGTH_SHORT).show();
+			Toast.makeText(context, R.string.error, Toast.LENGTH_SHORT).show();
 			return;
 		}
 		setTitle();
@@ -169,6 +169,11 @@ public class BeforeLoan implements IXListViewListener {
 		xAdapter = new MyAdapter(xItems);
 		this.loanList.setAdapter(xAdapter);
 		xAdapter.notifyDataSetChanged();
+		
+		if(this.xItems.size() == 0){
+			//查询结果为空
+			Toast.makeText(context, R.string.empty, Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	private void setTitle() {
@@ -375,7 +380,7 @@ public class BeforeLoan implements IXListViewListener {
 				FLOWNO = xItems.get(position - 1).getFlowNO();
 				PHASENO = xItems.get(position - 1).getPhaseNO();
 
-				dialog = ProgressDialog.show(context, "", "正在刷新...");
+				dialog = ProgressDialog.show(context, "", context.getString(R.string.wait));
 				Thread thread = new Thread(new DoFetchThread(
 						xLoanDetReq.getCODENO(), loanDetHandler,
 						xLoanDetReq.jsonRequest()));
@@ -400,7 +405,7 @@ public class BeforeLoan implements IXListViewListener {
 				dialog.dismiss();
 			}
 			if (msg.what == -1) {
-				Toast.makeText(context, "网络连接错误", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, R.string.net_error, Toast.LENGTH_SHORT).show();
 				return;
 			}
 			String json = msg.obj.toString();
@@ -427,7 +432,7 @@ public class BeforeLoan implements IXListViewListener {
 			} else {
 				// 查询报告失败，提示用户查询失败
 				Log.d(TAG, "report---RETURNCODE: " + RETURNCODE);
-				Toast.makeText(context, "查询详细失败！", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, "查询贷款详细失败！", Toast.LENGTH_SHORT).show();
 			}
 		};
 	};

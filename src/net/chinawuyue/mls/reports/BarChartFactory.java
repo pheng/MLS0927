@@ -1,5 +1,6 @@
 package net.chinawuyue.mls.reports;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -246,6 +247,11 @@ public class BarChartFactory extends AbstractChart {
 		}
 		if (content.equals(ratio)) {
 			content = ratio + "\n(百分比)";
+		}
+		//保留2位小数
+		DecimalFormat df = new DecimalFormat("0.00");
+		for(int i = 0;i < values.length;i++){
+			values[i]=Double.parseDouble(df.format(values[i]));
 		}
 		return getChartView(values, orgName, new String[] { content }, xLabels,
 				minValue, maxValue*1.3, barColor);

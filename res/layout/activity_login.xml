@@ -43,7 +43,7 @@
                 android:background="@drawable/masi_edit_login"
                 android:hint="@string/strInputAccHint"
                 android:maxLength="40"
-                android:text="E011010"
+                android:text=""
                 android:paddingLeft="45dip"
                 android:saveEnabled="true" />
 
@@ -72,7 +72,7 @@
                 android:background="@drawable/masi_edit_login"
                 android:inputType="textPassword"
                 android:maxLength="16"
-                android:text="123"
+                android:text=""
                 android:paddingLeft="45dip"
                 android:saveEnabled="true" />
 

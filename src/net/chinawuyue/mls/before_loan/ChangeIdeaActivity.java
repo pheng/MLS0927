@@ -283,7 +283,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 		xSignOptRe.setPHASECHOICE(idea);
 		xSignOptRe.setPHASEOPINION(ideadetail);
 		
-		progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", "正在刷新...");
+		progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", ChangeIdeaActivity.this.getString(R.string.wait));
 		Thread thread = new Thread(new DoFetchThread(xSignOptRe.getCODENO(), signOptHandler, xSignOptRe.jsonRequest()));
 		thread.start();
 	}
@@ -324,7 +324,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 			xSignOptRe.setUSERID(loginInfo.userCode);
 			xSignOptRe.setORGID(loginInfo.orgId);
 			
-			progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", "正在刷新...");
+			progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", ChangeIdeaActivity.this.getString(R.string.wait));
 			Thread thread = new Thread(new DoFetchThread(xSignOptRe.getCODENO(), signOptHandler, xSignOptRe.jsonRequest()));
 			thread.start();
 			
@@ -343,7 +343,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 				progressDialog.dismiss();
 			}
 			if (msg.what == -1) {
-				Toast.makeText(getApplicationContext(), "网络连接错误", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), R.string.net_error, Toast.LENGTH_SHORT).show();
 				return;
 			}
 			String json = msg.obj.toString();
@@ -383,7 +383,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 		xSignPerListRe.setSERIALNO(serialNO);
 		xSignPerListRe.setUSERID(loginInfo.userCode);
 		
-		progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", "正在刷新...");
+		progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", ChangeIdeaActivity.this.getString(R.string.wait));
 		Thread thread = new Thread(new DoFetchThread(xSignPerListRe.getCODENO(), getSignPersonListHandler, xSignPerListRe.jsonRequest()));
 		thread.start();
 	}
@@ -395,7 +395,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 				progressDialog.dismiss();
 			}
 			if (msg.what == -1) {
-				Toast.makeText(getApplicationContext(), "网络连接错误", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), R.string.net_error, Toast.LENGTH_SHORT).show();
 				return;
 			}
 			String json = msg.obj.toString();
@@ -487,7 +487,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 					xSubmitRe.setNEXTUSERID(obj.getNEXTUSERID());
 				}
 				
-				progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", "正在刷新...");
+				progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", ChangeIdeaActivity.this.getString(R.string.wait));
 				Thread thread = new Thread(new DoFetchThread(xSubmitRe.getCODENO(), submitHandler, xSubmitRe.jsonRequest()));
 				thread.start();
 				dia.dismiss();
@@ -540,7 +540,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 				progressDialog.dismiss();
 			}
 			if (msg.what == -1) {
-				Toast.makeText(getApplicationContext(), "网络连接错误", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), R.string.net_error, Toast.LENGTH_SHORT).show();
 				return;
 			}
 			String json = msg.obj.toString();

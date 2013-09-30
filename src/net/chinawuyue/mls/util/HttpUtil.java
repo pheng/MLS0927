@@ -37,7 +37,7 @@ public class HttpUtil {
 	private static final String WEB_APP = "/wcf/UserService.svc/ajaxEndpoint/";
 	public static final String URL = BASE_PATH+WEB_APP;
 	private static final String DOWN_PATH = "/download/MLS.txt";
-	public static final int TIMEOUT = 10000;
+	public static final int TIMEOUT = 8000;
 	private static final String ENCODING = "UTF-8";
 
 	/** 发送Post请求，无参数 */

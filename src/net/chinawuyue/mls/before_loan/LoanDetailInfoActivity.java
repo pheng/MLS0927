@@ -233,7 +233,7 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 		xSignOptReq.setPHASENO(PHASENO);
 		xSignOptReq.setOBJECTTYPE(OBJECTTYPE);
 		
-		progressDialog = ProgressDialog.show(LoanDetailInfoActivity.this, "", "正在刷新...");
+		progressDialog = ProgressDialog.show(LoanDetailInfoActivity.this, "", LoanDetailInfoActivity.this.getString(R.string.wait));
 		Thread thread = new Thread(new DoFetchThread(xSignOptReq.getCODENO(), signOptHandler, xSignOptReq.jsonRequest()));
 		thread.start();
 		
@@ -261,7 +261,7 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 				progressDialog.dismiss();
 			}
 			if (msg.what == -1) {
-				Toast.makeText(getApplicationContext(), "网络连接错误", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), R.string.net_error, Toast.LENGTH_SHORT).show();
 				return;
 			}
 			String json = msg.obj.toString();
@@ -318,7 +318,7 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 		//fetch user info from service 
 		xCusDetReq = xRequest.new CustomerDetailRequest(obj.getCustomerID());
 		
-		progressDialog = ProgressDialog.show(LoanDetailInfoActivity.this, "", "正在刷新...");
+		progressDialog = ProgressDialog.show(LoanDetailInfoActivity.this, "", LoanDetailInfoActivity.this.getString(R.string.wait));
 		Thread thread = new Thread(new DoFetchThread(xCusDetReq.getCODENO(), customHandler, xCusDetReq.jsonRequest()));
 		thread.start();
 		
@@ -343,7 +343,7 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 				progressDialog.dismiss();
 			}
 			if (msg.what == -1) {
-				Toast.makeText(getApplicationContext(), "网络连接错误", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), R.string.net_error, Toast.LENGTH_SHORT).show();
 				return;
 			}
 			String json = msg.obj.toString();

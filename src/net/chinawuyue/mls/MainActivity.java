@@ -18,6 +18,7 @@ import net.simonvt.menudrawer.MenuDrawer;
 import net.simonvt.menudrawer.MenuDrawer.OnDrawerStateChangeListener;
 import net.simonvt.menudrawer.Position;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -171,7 +172,6 @@ public class MainActivity extends SherlockActivity {
 
 		// 获得登录信息
 		LoginInfo loginInfo = (LoginInfo)this.getIntent().getSerializableExtra("loginInfo");
-		System.out.println("logininfo:"+loginInfo.role+" userinfo:"+loginInfo.orgId);
 		// 初始化 工作台 数据
 		COUNT1 = loginInfo.count1;
 		COUNT2 = loginInfo.count2;
@@ -184,6 +184,11 @@ public class MainActivity extends SherlockActivity {
 		ActivityUtil.activityList.add(this);
 		ActivityUtil.exitCount = 0;
 		setTodoView();
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
 	}
 
 	/** 控制主菜单滑动收起效果的手势监听器 */
@@ -382,7 +387,6 @@ public class MainActivity extends SherlockActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		Log.d("MenuItem", " " + item.getItemId() + "--" + item.getTitle());
 		switch (item.getItemId()) {
 		case Constant.AfterLoanConstan.KIND_FIRST_UNFINISH:
 		case Constant.AfterLoanConstan.KIND_FIRST_FINISH:
@@ -390,7 +394,6 @@ public class MainActivity extends SherlockActivity {
 		case Constant.AfterLoanConstan.KIND_COMMON_UNFINISH:
 		case Constant.AfterLoanConstan.KIND_COMMON_FINISH:
 		case Constant.AfterLoanConstan.KIND_COMMON_PAST:
-			Log.d(TAG, "afterloan item is click");
 			afterLoan.setAfterLoanView(item.getItemId());
 			mMenuDrawer.setContentView(afterLoan.getAfterLoanView());
 			break;
@@ -528,12 +531,6 @@ public class MainActivity extends SherlockActivity {
 	// 显示工作台界面
 	private void setTodoView() {
 		currentContent = 0;
-//		if (ActivityUtil.view_Todo == null) {
-//			todo.setTodoView();
-//			ActivityUtil.view_Todo = todo.getTodoView();
-//		}
-//		mMenuDrawer.setContentView(ActivityUtil.view_Todo);
-		
 		todo.setTodoView();
 		mMenuDrawer.setContentView(todo.getTodoView());
 	}
@@ -541,12 +538,6 @@ public class MainActivity extends SherlockActivity {
 	// 显示贷款审核界面
 	private void setLoanView(int kind) {
 		currentContent = 1;
-//		if (ActivityUtil.view_BeforeLoan == null) {
-//			beforeLoan.setLoanView(kind);
-//			ActivityUtil.view_BeforeLoan = beforeLoan.getLoanView();
-//		}
-//		mMenuDrawer.setContentView(ActivityUtil.view_BeforeLoan);
-		
 		beforeLoan.setLoanView(kind);
 		mMenuDrawer.setContentView(beforeLoan.getLoanView());
 		// 通过选择操作显示不同的ActionBar菜单
@@ -576,12 +567,6 @@ public class MainActivity extends SherlockActivity {
 	// 显示贷后检查界面
 	private void setAfterLoanView(int kind) {
 		currentContent = 3;
-//		if (ActivityUtil.view_AfterLoan == null) {
-//			afterLoan.setAfterLoanView(kind);
-//			ActivityUtil.view_AfterLoan = afterLoan.getAfterLoanView();
-//		}
-//		mMenuDrawer.setContentView(ActivityUtil.view_AfterLoan);
-		
 		afterLoan.setAfterLoanView(kind);
 		mMenuDrawer.setContentView(afterLoan.getAfterLoanView());
 		// 通过选择操作显示不同的ActionBar菜单
@@ -596,12 +581,6 @@ public class MainActivity extends SherlockActivity {
 	// 显示公告通知界面
 	private void setBoardView() {
 		currentContent = 4;
-//		if (ActivityUtil.view_Board == null) {
-//			boardReport.setReportView(R.layout.activity_report_board);
-//			ActivityUtil.view_Board = boardReport.getReportView();
-//		}
-//		mMenuDrawer.setContentView(ActivityUtil.view_Board);
-		
 		boardReport.setReportView(R.layout.activity_report_board);
 		mMenuDrawer.setContentView(boardReport.getReportView());
 		showMenu();
@@ -610,12 +589,6 @@ public class MainActivity extends SherlockActivity {
 	// 显示系统设置界面
 	private void setSysView() {
 		currentContent = 5;
-//		if (ActivityUtil.view_Sys == null) {
-//			changePwd.setChangePwdView();
-//			ActivityUtil.view_Sys = changePwd.getChangePwdView();
-//		}
-//		mMenuDrawer.setContentView(ActivityUtil.view_Sys);
-		
 		changePwd.setChangePwdView();
 		mMenuDrawer.setContentView(changePwd.getChangePwdView());
 		// 通过选择操作显示不同的ActionBar菜单

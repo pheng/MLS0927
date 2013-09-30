@@ -149,7 +149,7 @@ public class AfterLoan implements IXListViewListener {
 	 */
 	private void getDataForAfterLoan(String codeNo) {
 		// fetch data from service with the request kind
-		progressDialog = ProgressDialog.show(context, "", "正在刷新...");
+		progressDialog = ProgressDialog.show(context, "", context.getString(R.string.wait));
 		xListRequest = xRequest.new ListRequest();
 		xListRequest.setCODENO(codeNo);
 		xListRequest.setUSERID(loginInfo.userCode);
@@ -173,7 +173,7 @@ public class AfterLoan implements IXListViewListener {
 				progressDialog.dismiss();
 			}
 			if (msg.what == -1) {
-				Toast.makeText(context, R.string.error, 1).show();
+				Toast.makeText(context, R.string.net_error, 1).show();
 				return;
 			}
 			String json = msg.obj.toString();
@@ -245,10 +245,9 @@ public class AfterLoan implements IXListViewListener {
 	protected void setAdapter(String jsonData, int mKind) {
 		if (mKind < Constant.AfterLoanConstan.KIND_COMMON) {
 			Boolean successful = parseJsonDataFirst(jsonData);
-
 			if (!successful) {
 				// 查询数据失败，UI显示
-				Toast.makeText(context, "查询失败！", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, R.string.error, Toast.LENGTH_SHORT).show();
 				return;
 			}
 
@@ -260,16 +259,20 @@ public class AfterLoan implements IXListViewListener {
 			}
 			xAdapter = new MyAdapter(xItems);
 			this.afterLoanList.setAdapter(xAdapter);
-			xAdapter.notifyDataSetChanged();// ??????????
+			xAdapter.notifyDataSetChanged();
+			
+			if(this.xItems.size() == 0){
+				//查询结果为空
+				Toast.makeText(context, R.string.empty, Toast.LENGTH_SHORT).show();
+			}
 		} else {
 			Boolean successful = parseJsonDataCommon(jsonData);
-
 			if (!successful) {
 				// 查询数据失败，UI显示
-				Toast.makeText(context, "查询失败！", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, R.string.error, Toast.LENGTH_SHORT).show();
 				return;
 			}
-
+			
 			if (this.xCommonItems.size() > Integer.parseInt(context
 					.getString(R.string.xlistview_pullload_limit))) {
 				this.afterLoanList.setPullLoadEnable(true);
@@ -278,7 +281,12 @@ public class AfterLoan implements IXListViewListener {
 			}
 			xAdapterCommon = new MyAdapterCommon(xCommonItems);
 			this.afterLoanList.setAdapter(xAdapterCommon);
-			xAdapterCommon.notifyDataSetChanged();// ????????????
+			xAdapterCommon.notifyDataSetChanged();
+			
+			if(this.xCommonItems.size() == 0){
+				//查询结果为空
+				Toast.makeText(context, R.string.empty, Toast.LENGTH_SHORT).show();
+			}
 		}
 	}
 
@@ -563,7 +571,7 @@ public class AfterLoan implements IXListViewListener {
 				xReportRequest.setOBJECTTYPE(oBJECTTYPE);
 				xReportRequest.setOBJECTNO(oBJECTNO);
 
-				progressDialog = ProgressDialog.show(context, "", "正在刷新...");
+				progressDialog = ProgressDialog.show(context, "", context.getString(R.string.wait));
 				Thread thread = new Thread(new DoFetchThread(
 						xReportRequest.getCODENO(), rePortHandler,
 						xReportRequest.jsonRequest()));
@@ -580,7 +588,7 @@ public class AfterLoan implements IXListViewListener {
 				progressDialog.dismiss();
 			}
 			if (msg.what == -1) {
-				Toast.makeText(context, "网络连接错误", 1).show();
+				Toast.makeText(context, R.string.net_error, 1).show();
 				return;
 			}
 			String json = msg.obj.toString();

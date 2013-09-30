@@ -117,7 +117,6 @@ public class LoginActivity extends SherlockActivity {
 	/** 保存账户、密码 */
 	private void saveSharePreferences(boolean savePassword) {
 		SharedPreferences share = getSharedPreferences(SHARE_LOGIN_TAG, 0);
-
 		share.edit()
 				.putString(SHARE_LOGIN_USERNAME,
 						view_userName.getText().toString()).commit();
@@ -167,7 +166,6 @@ public class LoginActivity extends SherlockActivity {
 					loginInfo.role = jsonRes.getJSONObject("logininfo").optString("Role");
 					isLocalUser = jsonRes.getJSONObject("logininfo").optString("isLocalUser");
 				}
-				// 是绑定用户就读取用户信息
 				if(jsonRes.has("userinfo")&&"1".equals(isLocalUser)){
 					loginInfo.userName = jsonRes.getJSONObject("userinfo").optString("USERNAME");
 					loginInfo.count1 = jsonRes.getJSONObject("userinfo").optString("COUNT1");
@@ -267,7 +265,7 @@ public class LoginActivity extends SherlockActivity {
 				} 
 				if (isNetError) {
 					Toast.makeText(LoginActivity.this,
-							"登录失败:\n1.请确认有可用的网络连接.\n2.请退出后重新登录.",
+							"登录失败,请确认有可用的网络连接",
 							Toast.LENGTH_SHORT).show();
 				}
 				// 用户名和密码错误
@@ -285,11 +283,11 @@ public class LoginActivity extends SherlockActivity {
 		@Override
 		public void run() {
 			boolean loginState = false;
-			//if (!isNetError) {
+//			if (!isNetError) {
 				String userName = view_userName.getText().toString();
 				String password = view_password.getText().toString();
 				loginState = validateLocalLogin(userName, password);
-			//}
+//			}
 			if (loginState && !isUpdate ) {
 				// 需要传输数据到登陆后的界面
 				Intent intent = new Intent();
