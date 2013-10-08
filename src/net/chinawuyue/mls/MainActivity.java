@@ -88,17 +88,17 @@ public class MainActivity extends SherlockActivity {
 
 		List<Object> items = new ArrayList<Object>();
 		items.add(new Item(this.getString(R.string.strTodo),
-				R.drawable.ic_action_refresh_dark));
+				R.drawable.ic_todo));
 		items.add(new Item(this.getString(R.string.strLoan),
-				R.drawable.ic_action_select_all_dark));
+				R.drawable.ic_loan));
 		items.add(new Item(this.getString(R.string.strReport),
-				R.drawable.ic_action_refresh_dark));
+				R.drawable.ic_report));
 		items.add(new Item(this.getString(R.string.strAfterLoan),
-				R.drawable.ic_action_select_all_dark));
+				R.drawable.ic_afterloan));
 		items.add(new Item(this.getString(R.string.strBoard),
-				R.drawable.ic_action_refresh_dark));
+				R.drawable.ic_board));
 		items.add(new Item(this.getString(R.string.strChangePassword),
-				R.drawable.ic_action_select_all_dark));
+				R.drawable.ic_changepassword));
 		mList = new ListView(this);
 		mAdapter = new MenuAdapter(items);
 		mList.setAdapter(mAdapter);
@@ -304,7 +304,8 @@ public class MainActivity extends SherlockActivity {
 			break;
 		case 1:
 			// 添加贷款审核ActionBar菜单
-			item.setIcon(android.R.drawable.ic_menu_view);
+			item.setIcon(R.drawable.ic_menu_view);
+//			item.setIcon(android.R.drawable.ic_menu_view);
 			submenu.add(0, Constant.BeforeLoanConstan.KIND_UNFINISH, 0, "待审批");
 			submenu.add(0, Constant.BeforeLoanConstan.KIND_REJECT, 0, "被退回");
 			submenu.add(0, Constant.BeforeLoanConstan.KIND_FINISH, 0, "已审批");
@@ -312,7 +313,8 @@ public class MainActivity extends SherlockActivity {
 			break;
 		case 2:
 			// 添加报表查询ActionBar菜单
-			item.setIcon(android.R.drawable.ic_menu_view);
+			item.setIcon(R.drawable.ic_menu_view);
+//			item.setIcon(android.R.drawable.ic_menu_view);
 			submenu.add(0, ITEM1, 0,
 					this.getResources().getString(R.string.report_loan_balance));
 			submenu.add(
@@ -355,7 +357,8 @@ public class MainActivity extends SherlockActivity {
 			break;
 		case 3:
 			// 添加贷后审查ActionBar菜单
-			item.setIcon(android.R.drawable.ic_menu_view);
+			item.setIcon(R.drawable.ic_menu_view);
+//			item.setIcon(android.R.drawable.ic_menu_view);
 			submenu.add(0, Constant.AfterLoanConstan.KIND_FIRST_UNFINISH, 0,
 					"待完成(首次)");
 			submenu.add(0, Constant.AfterLoanConstan.KIND_FIRST_FINISH, 0,
