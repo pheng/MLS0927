@@ -106,7 +106,7 @@ public class LoginActivity extends SherlockActivity {
 		public void onClick(View v) {
 			if (checkInfo()) {
 				proDialog = ProgressDialog.show(LoginActivity.this, "用户登录",
-						"正在连接服务器，请稍候....", true, true);
+						"正在连接服务器，请稍候....", true, false);
 				// 开一个线程进行登录验证,主要是用于失败,成功可以直接通过startAcitivity(Intent)转向
 				Thread loginThread = new Thread(new DoLogin());
 				loginThread.start();

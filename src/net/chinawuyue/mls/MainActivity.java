@@ -6,21 +6,24 @@ import java.util.List;
 import net.chinawuyue.mls.after_loan.AfterLoan;
 import net.chinawuyue.mls.before_loan.BeforeLoan;
 import net.chinawuyue.mls.board.BoardReport;
-import net.chinawuyue.mls.login.LoginActivity;
 import net.chinawuyue.mls.login.LoginInfo;
 import net.chinawuyue.mls.reports.BaseReport;
 import net.chinawuyue.mls.reports.BaseReport.ReportType;
+import net.chinawuyue.mls.reports.BusinessSurveyReport;
+import net.chinawuyue.mls.reports.LoanAnalysis1Report;
+import net.chinawuyue.mls.reports.LoanAnalysis2Report;
+import net.chinawuyue.mls.reports.LoanAnalysis3Report;
+import net.chinawuyue.mls.reports.LoanBalanceReport;
 import net.chinawuyue.mls.reports.ReportSettingDialog;
+import net.chinawuyue.mls.reports.SubjectBalanceReport;
 import net.chinawuyue.mls.sys.ChangePwd;
 import net.chinawuyue.mls.todo.Todo;
 import net.chinawuyue.mls.util.ActivityUtil;
 import net.simonvt.menudrawer.MenuDrawer;
 import net.simonvt.menudrawer.MenuDrawer.OnDrawerStateChangeListener;
 import net.simonvt.menudrawer.Position;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.KeyEvent;
@@ -595,4 +598,20 @@ public class MainActivity extends SherlockActivity {
 		showMenu();
 	}
 
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		clear();
+	}
+	
+	//Çå¿Õ±¨±í¾²Ì¬»º´æ
+	private void clear(){
+		BusinessSurveyReport.reportItems.clear();
+		BoardReport.reportItems.clear();
+		LoanAnalysis1Report.reportItems.clear();
+		LoanAnalysis2Report.reportItems.clear();
+		LoanAnalysis3Report.reportItems.clear();
+		LoanBalanceReport.reportItems.clear();
+		SubjectBalanceReport.reportItems.clear();
+	}
 }

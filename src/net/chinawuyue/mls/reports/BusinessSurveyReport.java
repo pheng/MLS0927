@@ -27,7 +27,7 @@ import android.widget.Toast;
 public class BusinessSurveyReport extends BaseReport {
 
 	// 报表静态缓存
-	private static List<Map<String, Object>> reportItems = new ArrayList<Map<String, Object>>();
+	public static List<Map<String, Object>> reportItems = new ArrayList<Map<String, Object>>();
 	private static ReportRequest reportRequest = new ReportRequest();	// 上次的请求
 	private Context context = null;										// 上下文
 	private ProgressDialog progressDialog = null; 						// 进度对话框

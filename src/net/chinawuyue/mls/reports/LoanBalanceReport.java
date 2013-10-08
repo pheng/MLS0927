@@ -31,7 +31,7 @@ import android.widget.Toast;
 public class LoanBalanceReport extends BaseReport {
 
 	// ±¨±í¾²Ì¬»º´æ
-	private static List<Map<String, Object>> reportItems = new ArrayList<Map<String, Object>>();
+	public static List<Map<String, Object>> reportItems = new ArrayList<Map<String, Object>>();
 	private static ReportRequest reportRequest = new ReportRequest();
 	private Context context;
 	private ProgressDialog progressDialog;

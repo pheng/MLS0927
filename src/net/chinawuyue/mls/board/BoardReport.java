@@ -31,7 +31,7 @@ import android.widget.Toast;
 public class BoardReport extends BaseReport {
 
 	// 报表静态缓存
-	private static List<Map<String, Object>> reportItems = new ArrayList<Map<String, Object>>();
+	public static List<Map<String, Object>> reportItems = new ArrayList<Map<String, Object>>();
 	private Context context = null;
 	private ProgressDialog progressDialog = null;
 	private LoginInfo loginInfo = null;			//登录信息

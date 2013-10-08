@@ -40,7 +40,7 @@ import android.widget.Toast;
 public class SubjectBalanceReport extends BaseReport {
 
 	// 报表静态缓存
-	private static List<Map<String, Object>> reportItems = new ArrayList<Map<String, Object>>();
+	public static List<Map<String, Object>> reportItems = new ArrayList<Map<String, Object>>();
 	// 保存上一次的请求
 	private static ReportRequest reportRequest = new ReportRequest();
 	private Context context = null;
