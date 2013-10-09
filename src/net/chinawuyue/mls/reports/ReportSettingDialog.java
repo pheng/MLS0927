@@ -68,9 +68,7 @@ public class ReportSettingDialog {
 		this.context = context;
 		this.menuDrawer = menuDrawer;
 		this.loginInfo = loginInfo;
-		if(LoginActivity.isNewUserLogin){
-			clearDefault();
-		}
+//		clearDefault();
 		readDefault();
 	}
 

@@ -89,12 +89,8 @@ public class LoginActivity extends SherlockActivity {
 	private void initView(boolean isRememberMe) {
 		SharedPreferences share = getSharedPreferences(SHARE_LOGIN_TAG, 0);
 		String userName = share.getString(SHARE_LOGIN_USERNAME, "");
-		String password = share.getString(SHARE_LOGIN_PASSWORD, "");
 		if (!"".equals(userName)) {
 			view_userName.setText(userName);
-		}
-		if (!"".equals(password)) {
-			view_password.setText(password);
 			view_rememberMe.setChecked(true);
 		}
 		share = null;
@@ -115,25 +111,18 @@ public class LoginActivity extends SherlockActivity {
 	};
 
 	/** 保存账户、密码 */
-	private void saveSharePreferences(boolean savePassword) {
+	private void saveSharePreferences() {
 		SharedPreferences share = getSharedPreferences(SHARE_LOGIN_TAG, 0);
 		share.edit()
 				.putString(SHARE_LOGIN_USERNAME,
 						view_userName.getText().toString()).commit();
-		share.edit().putString("SHARE_USERCNAME", loginInfo.userName).commit();
-		share.edit().putString("SHARE_LASTLOGINTIME", loginInfo.lastLoginDate)
-				.commit();
-		if (savePassword) {
-			share.edit().putString(SHARE_LOGIN_PASSWORD,
-							view_password.getText().toString()).commit();
-		}
 		share = null;
 	}
 
 	/** 清除密码 */
-	private void clearSharePassword() {
+	private void clearSharePreference() {
 		SharedPreferences share = getSharedPreferences(SHARE_LOGIN_TAG, 0);
-		share.edit().putString(SHARE_LOGIN_PASSWORD, "").commit();
+		share.edit().putString(SHARE_LOGIN_USERNAME, "").commit();
 		share = null;
 	}
 
@@ -201,18 +190,16 @@ public class LoginActivity extends SherlockActivity {
 		// 登陆成功
 		if (loginState) {
 			if (view_rememberMe.isChecked()) {
-				saveSharePreferences(true);
-			} else {
-				saveSharePreferences(false);
-			}
+				saveSharePreferences();
+			} 
 		} else {
 			// 如果不是网络错误
 			if (!isNetError) {
-				clearSharePassword();
+				clearSharePreference();
 			}
 		}
 		if (!view_rememberMe.isChecked()) {
-			clearSharePassword();
+			clearSharePreference();
 		}
 		return loginState;
 	}
@@ -273,7 +260,7 @@ public class LoginActivity extends SherlockActivity {
 					Toast.makeText(LoginActivity.this, "登录失败,请输入正确的用户名和密码.",
 							Toast.LENGTH_SHORT).show();
 					// 清除以前的SharePreferences密码
-					clearSharePassword();
+					clearSharePreference();
 				}
 			}
 		}

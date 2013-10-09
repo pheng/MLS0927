@@ -17,7 +17,7 @@
     <string name="strNewPwd1">新密码</string>
     <string name="strNewPwd2">重复新密码</string>
     
-    <string name="opt_remember">记住密码</string>
+    <string name="opt_remember">记住用户号</string>
     <string name="login">登 录</string>
     <string name="xlistview_header_hint_normal">下拉刷新</string>
     <string name="xlistview_header_hint_ready">松开刷新数据</string>
