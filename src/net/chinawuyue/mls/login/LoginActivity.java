@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 import net.chinawuyue.mls.MainActivity;
 import net.chinawuyue.mls.R;
+import net.chinawuyue.mls.undotask.UndoTaskService;
 import net.chinawuyue.mls.util.ActivityUtil;
 import net.chinawuyue.mls.util.HttpUtil;
 
@@ -275,7 +276,15 @@ public class LoginActivity extends SherlockActivity {
 				String password = view_password.getText().toString();
 				loginState = validateLocalLogin(userName, password);
 //			}
-			if (loginState && !isUpdate ) {
+			if (loginState && !isUpdate) {
+				//启动后台任务轮询服务
+				if(loginInfo.role != null && loginInfo.role.equalsIgnoreCase("1")){
+					//董事长级别的用户
+					Intent intentSer = new Intent();
+					intentSer.setClass(LoginActivity.this, UndoTaskService.class);
+					intentSer.putExtra("loginInfo", (Serializable)loginInfo);
+					startService(intentSer);
+				}
 				// 需要传输数据到登陆后的界面
 				Intent intent = new Intent();
 				intent.setClass(LoginActivity.this, MainActivity.class);
