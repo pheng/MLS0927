@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/t_project_name"
-        android:layout_width="@dimen/listview_item_width"
+        android:layout_width="@dimen/listview_item_width_l"
         android:layout_height="wrap_content"
         android:text="工程名称"
         android:textSize="@dimen/listview_text_size" />

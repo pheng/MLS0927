@@ -68,8 +68,7 @@ public class ReportSettingDialog {
 		this.context = context;
 		this.menuDrawer = menuDrawer;
 		this.loginInfo = loginInfo;
-//		clearDefault();
-		readDefault();
+		clearDefault();
 	}
 
 	/**
@@ -146,9 +145,7 @@ public class ReportSettingDialog {
 						// 是否保存默认设置
 						if (cbIsDefault.isChecked()) {
 							saveDefault();
-						} else {
-							clearDefault();
-						}
+						} 
 						report.isNeedUpdate = true;
 						showReport();
 					}
@@ -166,6 +163,7 @@ public class ReportSettingDialog {
 
 	/** 显示报表 */
 	public void showReport() {
+		readDefault();
 		ReportRequest request = new ReportRequest();
 		// 创建请求报文
 		request.setDATE(year + "/" + (month.length() < 2 ? "0" + month : month));

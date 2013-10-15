@@ -271,11 +271,9 @@ public class LoginActivity extends SherlockActivity {
 		@Override
 		public void run() {
 			boolean loginState = false;
-//			if (!isNetError) {
-				String userName = view_userName.getText().toString();
-				String password = view_password.getText().toString();
-				loginState = validateLocalLogin(userName, password);
-//			}
+			String userName = view_userName.getText().toString();
+			String password = view_password.getText().toString();
+			loginState = validateLocalLogin(userName, password);
 			if (loginState && !isUpdate) {
 				//启动后台任务轮询服务
 				if(loginInfo.role != null && loginInfo.role.equalsIgnoreCase("1")){

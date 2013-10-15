@@ -5,7 +5,7 @@
 	<dimen name="listview_item_width">150dp</dimen>
 	<dimen name="listview_item_width_s">100dp</dimen>
 	<dimen name="listview_item_width_ss">50dp</dimen>
-	<dimen name="listview_item_width_l">200dp</dimen>
+	<dimen name="listview_item_width_l">205dp</dimen>
 	<dimen name="listview_item_width_xl">250dp</dimen>
 	<dimen name="listview_item_width_xxl">300dp</dimen>
 	<dimen name="listview_item_width_xxxl">350dp</dimen>
