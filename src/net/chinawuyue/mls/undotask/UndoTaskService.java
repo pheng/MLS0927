@@ -3,6 +3,7 @@ package net.chinawuyue.mls.undotask;
 import net.chinawuyue.mls.MainActivity;
 import net.chinawuyue.mls.R;
 import net.chinawuyue.mls.login.LoginInfo;
+import net.chinawuyue.mls.util.ActivityUtil;
 import net.chinawuyue.mls.util.DoFetchThread;
 
 import org.json.JSONException;
@@ -52,6 +53,7 @@ public class UndoTaskService extends Service{
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		ActivityUtil.serviceList.add(this);
 		Log.d(TAG, "onCreate");
 	}
 	
@@ -69,17 +71,17 @@ public class UndoTaskService extends Service{
 			e.printStackTrace();
 		}
 		Log.d(TAG, "jsonRequst: " + jsonObj.toString());
-		Thread undoThread = new Thread(new UndoThread());
-		undoThread.start();
-//		Thread undoThread = new Thread(new DoFetchThread("XD0009", handler, jsonObj));
+//		Thread undoThread = new Thread(new UndoThread());
 //		undoThread.start();
+		Thread undoThread = new Thread(new DoFetchThread("XD0009", handler, jsonObj));
+		undoThread.start();
 	}
 	
 	@SuppressLint("HandlerLeak")
 	Handler handler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
-			handler.postDelayed(new UndoThread(), REQUEST_TIME);
-//			handler.postDelayed(new DoFetchThread("XD0009", handler, jsonObj), REQUEST_TIME);
+//			handler.postDelayed(new UndoThread(), REQUEST_TIME);
+			handler.postDelayed(new DoFetchThread("XD0009", handler, jsonObj), REQUEST_TIME);
 			if (msg.what == -1) {
 				//network disconnect
 				return;
@@ -159,32 +161,32 @@ public class UndoTaskService extends Service{
 		notManager.notify(NOT_ID, not);
 	}
 	
-	class UndoThread implements Runnable{
-		public UndoThread() {
-		}
-		
-		@Override
-		public void run() {
-			Message msg = handler.obtainMessage();
-			msg.what = 0;
-			Number old1 = count1 + 1;
-			Number old3 = count3 + 3;
-			Number old4 = count4 + 1;
-			JSONObject json = new JSONObject();
-			try {
-				json.put("RETURNCODE", "N");
-				json.put("COUNT1", old1);
-				json.put("COUNT3", old3);
-				json.put("COUNT4", old4);
-			} catch (JSONException e) {
-				msg.what = -1;
-				e.printStackTrace();
-			}
-			msg.obj = json;
-			msg.sendToTarget();
-		}
-		
-	}
+//	class UndoThread implements Runnable{
+//		public UndoThread() {
+//		}
+//		
+//		@Override
+//		public void run() {
+//			Message msg = handler.obtainMessage();
+//			msg.what = 0;
+//			Number old1 = count1 + 1;
+//			Number old3 = count3 + 3;
+//			Number old4 = count4 + 1;
+//			JSONObject json = new JSONObject();
+//			try {
+//				json.put("RETURNCODE", "N");
+//				json.put("COUNT1", old1);
+//				json.put("COUNT3", old3);
+//				json.put("COUNT4", old4);
+//			} catch (JSONException e) {
+//				msg.what = -1;
+//				e.printStackTrace();
+//			}
+//			msg.obj = json;
+//			msg.sendToTarget();
+//		}
+//		
+//	}
 
 	@Override
 	public IBinder onBind(Intent intent) {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.Service;
 import android.content.Context;
 import android.view.View;
 import android.widget.Toast;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 public class ActivityUtil {
 	/**记录打开的Activity*/
 	public static List<Activity> activityList = new ArrayList<Activity>();
+	public static List<Service> serviceList = new ArrayList<Service>();
 	public static int exitCount = 0;
 	/**显示关闭对话框*/
 	public static void showExitDialog(Context context) {
@@ -20,6 +22,10 @@ public class ActivityUtil {
 		}else{
 			for (Activity act : activityList) {
 				act.finish();
+			}
+			
+			for(Service ser : serviceList){
+				ser.stopSelf();
 			}
 		}
 	}
