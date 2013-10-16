@@ -1,8 +1,5 @@
 package net.chinawuyue.mls.before_loan;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -12,15 +9,10 @@ import net.chinawuyue.mls.R;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class CustomInfoActivity extends SherlockActivity{
-	private Button btn_cancle= null;
-	
 	private TextView text_customerid_info = null;
 	private TextView text_customername_info = null;
 	private TextView text_customertype_info = null;
@@ -57,9 +49,6 @@ public class CustomInfoActivity extends SherlockActivity{
 		if(userInfo != null && userInfo.length() > 0){
 			obj = new LoanCusInfoObject(userInfo);
 			inintView();
-			btn_cancle.setOnClickListener(btncancle);
-			
-			btn_cancle.setVisibility(View.GONE);
 		}else{
 			Toast.makeText(getApplicationContext(), "获取客户详情失败，请稍候再试...", Toast.LENGTH_SHORT).show();
 			this.finish();
@@ -92,9 +81,6 @@ public class CustomInfoActivity extends SherlockActivity{
 	}
 
 	private void inintView() {
-		// TODO Auto-generated method stub
-		btn_cancle = (Button)this.findViewById(R.id.btn_cancle);
-		
 		text_customerid_info = (TextView)this.findViewById(R.id.text_customerid_info);
 		text_customername_info = (TextView)this.findViewById(R.id.text_customername_info);
 		text_customertype_info = (TextView)this.findViewById(R.id.text_customertype_info);
@@ -142,43 +128,5 @@ public class CustomInfoActivity extends SherlockActivity{
 		text_inputdate_info.setText(obj.getInputDate());
 		text_inputdate_info.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
 	
-	}
-	//返回
-	private  OnClickListener btncancle = new OnClickListener() {
-		@Override
-		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			CustomInfoActivity.this.finish();
-		}
-	};
-	
-	private String testData() {
-		JSONObject jsonObj = new JSONObject();
-		try {
-			jsonObj.put("ADD", "武汉");
-			jsonObj.put("CERTID", "00010");
-			jsonObj.put("CERTTYPE", "type3");
-			jsonObj.put("CUSTOMERID", "10000");
-			jsonObj.put("CUSTOMERNAME", "小明");
-			jsonObj.put("CUSTOMERTYPE", "type3");
-			jsonObj.put("INDUSTRYTYPE", "type2");
-			jsonObj.put("TEL", "12386627");
-			jsonObj.put("INPUTDATE", "20130101");
-			jsonObj.put("INPUTORGNAME", "org武汉");
-			jsonObj.put("INPUTUSERNAME", "张三");
-			jsonObj.put("ISREFERFARMING", "yes");
-			jsonObj.put("OCCURTYPE", "ocType");
-			jsonObj.put("INPUTDATE", "20130101");
-			jsonObj.put("INPUTORGNAME", "武汉");
-			jsonObj.put("INPUTUSERNAME", "kite");
-			jsonObj.put("MANAGEORGNAME", "武汉");
-			jsonObj.put("MANAGEUSERNAME", "李四");
-			jsonObj.put("RELATIVETNAME", "张三");
-			jsonObj.put("RELATIVETYPE", "type1");
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return jsonObj.toString();
 	}
 }

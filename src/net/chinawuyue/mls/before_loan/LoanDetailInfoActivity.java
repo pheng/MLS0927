@@ -24,18 +24,12 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 //贷款申请
 public class LoanDetailInfoActivity extends SherlockActivity{
 	
 	private static final String TAG = "LoanDetailInfoActivity";
-	private Button btn_cancle = null;
-	private Button btn_more_custom = null;
-	private Button btn_sign_idea = null;
 
 	private TextView text_serialno_info = null;
 	private TextView text_customerid_info = null;
@@ -204,22 +198,6 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 			Toast.makeText(getApplicationContext(), "获取详情失败，请稍后再查...", Toast.LENGTH_SHORT).show();
 			LoanDetailInfoActivity.this.finish();
 		}
-		
-		btn_cancle = (Button)this.findViewById(R.id.btn_cancle);
-		btn_cancle.setOnClickListener(btncancle);
-		
-		btn_more_custom = (Button)this.findViewById(R.id.btn_more_custom);
-		btn_more_custom.setOnClickListener(btnmore_custom);
-		
-		btn_sign_idea = (Button) findViewById(R.id.btn_sign_idea);
-		if(kind == Constant.BeforeLoanConstan.KIND_FINISH){
-			btn_sign_idea.setVisibility(View.GONE);
-		}
-		btn_sign_idea.setOnClickListener(btnSignIdea);
-		
-		btn_cancle.setVisibility(View.GONE);
-		btn_sign_idea.setVisibility(View.GONE);
-		btn_more_custom.setVisibility(View.GONE);
 	}
 	
 	private void signIdea(){
@@ -247,12 +225,6 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 //		intent.setClass(getApplicationContext(), ChangeIdeaActivity.class);
 //		startActivity(intent);
 	}
-	//签署意见
-	private  OnClickListener btnSignIdea = new OnClickListener() {
-		public void onClick(View v) {
-			signIdea();
-		}
-	};
 	
 	@SuppressLint("HandlerLeak")
 	Handler signOptHandler = new Handler() {
@@ -304,15 +276,6 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 		};
 	};
 	
-	//返回
-	private  OnClickListener btncancle = new OnClickListener() {
-		@Override
-		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			LoanDetailInfoActivity.this.finish();
-		}
-	};
-	
 	private void moreCustomInfo(){
 		Log.d(TAG, "moreCustomInfo");
 		//fetch user info from service 
@@ -329,12 +292,6 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 //		intent.setClass(LoanDetailInfoActivity.this, CustomInfoActivity.class);
 //		startActivity(intent);
 	}
-	//申请人详细信息
-	private  OnClickListener btnmore_custom = new OnClickListener() {
-		public void onClick(View v) {
-			moreCustomInfo();
-		}
-	};
 	
 	@SuppressLint("HandlerLeak")
 	Handler customHandler = new Handler() {
@@ -367,34 +324,5 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 			}
 		};
 	};
-	
-	private String testData() {
-		JSONObject jsonObj = new JSONObject();
-		try {
-			jsonObj.put("BUSINESSRATE", 1);
-			jsonObj.put("BUSINESSSUM", 12930);
-			jsonObj.put("BUSINESSTYPE", "type1");
-			jsonObj.put("CUSTOMERID", "100");
-			jsonObj.put("CUSTOMERNAME", "张");
-			jsonObj.put("DIRECTION", "dir");
-			jsonObj.put("ICTYPE", "icType");
-			jsonObj.put("INPUTDATE", "20130101");
-			jsonObj.put("INPUTORGNAME", "org武汉");
-			jsonObj.put("INPUTUSERNAME", "张三");
-			jsonObj.put("ISREFERFARMING", "yes");
-			jsonObj.put("OCCURTYPE", "ocType");
-			jsonObj.put("PAYSOURCE", "work");
-			jsonObj.put("PURPOSE", "purP");
-			jsonObj.put("RATEFLOAT", 0.65);
-			jsonObj.put("RATETYPE", "business");
-			jsonObj.put("SERIALNO", "sNO");
-			jsonObj.put("TERMMONTH", 6);
-			jsonObj.put("VOUCHTYPE", "voType");
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return jsonObj.toString();
-	}
 }
 

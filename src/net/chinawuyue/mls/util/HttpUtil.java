@@ -33,7 +33,7 @@ import android.os.Message;
 
 /**ÍøÂç¹¤¾ßÀà*/
 public class HttpUtil {
-	private static final String BASE_PATH = "http://192.168.2.213:8002";//
+	private static final String BASE_PATH = "http://27.17.37.100:8002";//
 	private static final String WEB_APP = "/wcf/UserService.svc/ajaxEndpoint/";
 	public static final String URL = BASE_PATH+WEB_APP;
 	private static final String DOWN_PATH = "/download/MLS.txt";

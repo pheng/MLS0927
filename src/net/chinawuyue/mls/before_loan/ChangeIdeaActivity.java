@@ -43,10 +43,6 @@ public class ChangeIdeaActivity extends SherlockActivity{
 	
 	private static final String TAG = "ChangeIdeaActivity";
 	
-	private Button btn_cancle= null;
-	private Button btn_ok = null;
-	private Button btn_submit = null;
-	
 	private TextView text_serialno_info = null;
 	private TextView text_businesssum_info = null;
 	
@@ -135,10 +131,8 @@ public class ChangeIdeaActivity extends SherlockActivity{
 		}
 				
 		inintView();
-		btn_cancle.setOnClickListener(btncancle);
-		btn_ok.setOnClickListener(btnok);
-		btn_submit.setOnClickListener(btnsubmit);
 	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub
@@ -196,14 +190,6 @@ public class ChangeIdeaActivity extends SherlockActivity{
 	}
 	
 	private void inintView() {
-		// TODO Auto-generated method stub
-		btn_cancle = (Button)this.findViewById(R.id.btn_cancle);
-		btn_ok = (Button)this.findViewById(R.id.btn_ok);
-		btn_submit= (Button)this.findViewById(R.id.btn_submit);
-		btn_cancle.setVisibility(View.GONE);
-		btn_ok.setVisibility(View.GONE);
-		btn_submit.setVisibility(View.GONE);
-		
 		text_serialno_info = (TextView)this.findViewById(R.id.text_serialno_info);
 		text_serialno_info.setText(serialNO);
 		
@@ -233,18 +219,9 @@ public class ChangeIdeaActivity extends SherlockActivity{
 				radio1.setChecked(false);
 				radio2.setChecked(true);
 			}
-			btn_ok.setText("修改意见");
 		}
 
 	}
-	//返回
-	private  OnClickListener btncancle = new OnClickListener() {
-		@Override
-		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			ChangeIdeaActivity.this.finish();
-		}
-	};
 	
 	//签署意见
 	private void signIdea(){
@@ -287,54 +264,6 @@ public class ChangeIdeaActivity extends SherlockActivity{
 		Thread thread = new Thread(new DoFetchThread(xSignOptRe.getCODENO(), signOptHandler, xSignOptRe.jsonRequest()));
 		thread.start();
 	}
-	//保存签署信息，没有提交到下一批 人员
-	private  OnClickListener btnok = new OnClickListener() {
-		@Override
-		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			ideadetail = edit_phaseopinion_info.getText().toString();
-			businessSum = edit_approvebusinesssum_info.getText().toString();
-			rateFloat = edit_approveratefloat_info.getText().toString();
-			businessRate = edit_approvebusinessrate_info.getText().toString();
-			termMonth = edit_approvetermmonth_info.getText().toString();
-			
-			if(radio1.isChecked()){
-				idea = "同意";
-			}else{
-				idea = "不同意";
-			}
-			
-			//网络请求签署意见
-			xSignOptRe = xRequest.new LoanSignOptionRe();
-			xSignOptRe.setOPINIONTYPE("020");
-			xSignOptRe.setSERIALNO(serialNO);
-			try {
-				xSignOptRe.setAPPROVEBUSINESSRATE(NumberFormat.getInstance().parse(businessRate));
-				xSignOptRe.setAPPROVEBUSINESSSUM(NumberFormat.getInstance().parse(approveSum));
-				xSignOptRe.setAPPROVERATEFLOAT(NumberFormat.getInstance().parse(rateFloat));
-				xSignOptRe.setAPPROVETERMMONTH(NumberFormat.getInstance().parse(termMonth));
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-			xSignOptRe.setPHASECHOICE(idea);
-			xSignOptRe.setPHASEOPINION(ideadetail);
-			xSignOptRe.setFLOWNO(flowNO);
-			xSignOptRe.setPHASENO(phaseNO);
-			xSignOptRe.setOBJECTTYPE(objectType);
-			xSignOptRe.setUSERID(loginInfo.userCode);
-			xSignOptRe.setORGID(loginInfo.orgId);
-			
-			progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", ChangeIdeaActivity.this.getString(R.string.wait));
-			Thread thread = new Thread(new DoFetchThread(xSignOptRe.getCODENO(), signOptHandler, xSignOptRe.jsonRequest()));
-			thread.start();
-			
-			//模拟：请求:修改、提交（保存）意见
-			Log.d(TAG, "修改意见：" + idea + "-"+ approveSum + "-" + rateFloat + "-" +businessRate + "-"
-					+ termMonth + "-" + ideadetail);
-//			//模拟请求成功
-//			flag = true;
-		}
-	};
 	
 	@SuppressLint("HandlerLeak")
 	Handler signOptHandler = new Handler() {
@@ -364,15 +293,6 @@ public class ChangeIdeaActivity extends SherlockActivity{
 		};
 	};
 	
-	//提交案件到下一批次人员
-	private  OnClickListener btnsubmit = new OnClickListener() {
-		@Override
-		public void onClick(View v) {
-			//请求：获得下级审批人员列表
-			getSignPersonList();
-		}
-	};
-
 	protected void getSignPersonList() {
 		//网络请求
 		xSignPerListRe = xRequest.new NextSignPerListRe();

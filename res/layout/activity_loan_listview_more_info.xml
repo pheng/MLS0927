@@ -58,7 +58,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/CUSTOMERID"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_serialno"/>
+	  		android:layout_below="@id/text_serialno_info"/>
 	  	<TextView android:id="@+id/text_customerid_info"
 	  	    style="@style/LoanContent"
 	  		android:layout_width="180dip"
@@ -67,13 +67,6 @@
 	  		android:layout_toRightOf="@id/text_serialno"
 	  		android:layout_alignBaseline="@id/text_customerid"
 	  		android:text="text"/>
-	  	<Button android:id="@+id/btn_more_custom"
-	  	    android:layout_width="wrap_content"
-	  	    android:layout_height="wrap_content"
-	  	    android:layout_alignParentRight="true"
-	  	    android:layout_alignBaseline="@id/text_customerid"
-	  	    android:text="客户详情"
-	  	    />
 	  	
 	  	<TextView android:id="@+id/text_customername"
 	  		android:layout_width="140dip"
@@ -82,7 +75,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/CUSTOMERNAME"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_customerid"/>
+	  		android:layout_below="@id/text_customerid_info"/>
 	  	<TextView android:id="@+id/text_customername_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -99,7 +92,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/BUSINESSTYPE"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_customername"/>
+	  		android:layout_below="@id/text_customername_info"/>
 	  	<TextView android:id="@+id/text_businesstype_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -116,7 +109,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/DIRECTION"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_businesstype"/>
+	  		android:layout_below="@id/text_businesstype_info"/>
 	  	<TextView android:id="@+id/text_direction_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -133,7 +126,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/OCCURTYPE"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_direction"/>
+	  		android:layout_below="@id/text_direction_info"/>
 	  	<TextView android:id="@+id/text_occurtype_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -150,7 +143,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/BUSINESSSUM"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_occurtype"/>
+	  		android:layout_below="@id/text_occurtype_info"/>
 	  	<TextView android:id="@+id/text_businessum_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -167,7 +160,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/PURPOSE"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_businessum"/>
+	  		android:layout_below="@id/text_businessum_info"/>
 	  	<TextView android:id="@+id/text_purpose_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -184,7 +177,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/ISREFERFARMING"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_purpose"/>
+	  		android:layout_below="@id/text_purpose_info"/>
 	  	<TextView android:id="@+id/text_iseferfarming_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -201,7 +194,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/TERMMONTH"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_iseferfarming"/>
+	  		android:layout_below="@id/text_iseferfarming_info"/>
 	  	<TextView android:id="@+id/text_termmonth_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -218,7 +211,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/RATETYPE"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_termmonth"/>
+	  		android:layout_below="@id/text_termmonth_info"/>
 	  	<TextView android:id="@+id/text_ratetype_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -235,7 +228,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/RATEFLOAT"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_ratetype"/>
+	  		android:layout_below="@id/text_ratetype_info"/>
 	  	<TextView android:id="@+id/text_ratefloat_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -252,7 +245,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/BUSINESSRATE1"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_ratefloat"/>
+	  		android:layout_below="@id/text_ratefloat_info"/>
 	  	<TextView android:id="@+id/text_businessrate_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -269,7 +262,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/VOUCHTYPE"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_businessrate"/>
+	  		android:layout_below="@id/text_businessrate_info"/>
 	  	<TextView android:id="@+id/text_vouchtype_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -286,7 +279,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/ICTYPE"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_vouchtype"/>
+	  		android:layout_below="@id/text_vouchtype_info"/>
 	  	<TextView android:id="@+id/text_ictype_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -303,7 +296,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/PAYSOURCE"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_ictype"/>
+	  		android:layout_below="@id/text_ictype_info"/>
 	  	<TextView android:id="@+id/text_paysource_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -320,7 +313,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/INPUTORGNAME"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_paysource"/>
+	  		android:layout_below="@id/text_paysource_info"/>
 	  	<TextView android:id="@+id/text_inputorgname_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -337,7 +330,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/INPUTUSERNAME"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_inputorgname"/>
+	  		android:layout_below="@id/text_inputorgname_info"/>
 	  	<TextView android:id="@+id/text_inputusername_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -354,7 +347,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/INPUTDATE"
 	  		style="@style/LoanTitle"
-	  		android:layout_below="@id/text_inputusername"/>
+	  		android:layout_below="@id/text_inputusername_info"/>
 	  	<TextView android:id="@+id/text_inputdate_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
@@ -363,22 +356,6 @@
 	  		android:layout_alignBaseline="@id/text_inputdate"
 	  		style="@style/LoanContent"
 	  		android:text="text"/>
-	  
-	  	<Button android:id="@+id/btn_cancle"
-	  	    android:layout_width="150dip"
-	  	    android:layout_height="wrap_content"
-	  	    android:layout_below="@id/text_inputdate"
-	  	    android:text="@string/cancle"
-	  	    android:layout_marginTop="10dip"
-	  	    />
-	  	<Button android:id="@+id/btn_sign_idea"
-	  	    android:layout_width="150dip"
-	  	    android:layout_height="wrap_content"
-	  	    android:layout_below="@id/text_inputdate"
-	  	    android:layout_alignParentRight="true"
-	  	    android:text="签署意见"
-	  	    android:layout_marginTop="10dip"
-	  	    />
 
 	  </RelativeLayout>
 	</ScrollView>
