@@ -62,7 +62,11 @@ public class LoginActivity extends SherlockActivity {
 	private ProgressDialog proDialog;
 
 	/** 是否非绑定用户登录*/
+	private boolean isNoBindingUserLogin;
+	
+	/** 是否不同用户登录*/
 	public static boolean isNewUserLogin;
+	private String userName;
 	/** 设备号*/
 	private String deviceId;
 	/** Called when the activity is first created. */
@@ -89,7 +93,7 @@ public class LoginActivity extends SherlockActivity {
 	/** 如果上次做了保存，则读取赋值 */
 	private void initView(boolean isRememberMe) {
 		SharedPreferences share = getSharedPreferences(SHARE_LOGIN_TAG, 0);
-		String userName = share.getString(SHARE_LOGIN_USERNAME, "");
+		userName = share.getString(SHARE_LOGIN_USERNAME, "");
 		if (!"".equals(userName)) {
 			view_userName.setText(userName);
 			view_rememberMe.setChecked(true);
@@ -146,7 +150,8 @@ public class LoginActivity extends SherlockActivity {
 		boolean loginState = false;	
 		String isLocalUser = null;
 		// 连接webservice
-		JSONObject jsonRes = HttpUtil.doLoginWithDeviceId(usercode, password,deviceId);
+//		JSONObject jsonRes = HttpUtil.doLoginWithDeviceId(usercode, password,deviceId);
+		JSONObject jsonRes = HttpUtil.doLogin(usercode, password);
 		if (jsonRes != null) {
 			try {
 				if(jsonRes.has("logininfo")){
@@ -170,7 +175,7 @@ public class LoginActivity extends SherlockActivity {
 				loginState = true;
 				// 非设备绑定的用户 不能登录
 				if(!"1".equals(isLocalUser)){
-					isNewUserLogin = true;
+					isNoBindingUserLogin = true;
 					loginState = false;
 				}
 				if (loginInfo.versionCode!=null&&
@@ -210,7 +215,7 @@ public class LoginActivity extends SherlockActivity {
 		public void handleMessage(Message msg) {
 			isNetError = msg.getData().getBoolean("isNetError");
 			isUpdate = msg.getData().getBoolean("isUpdate");
-			isNewUserLogin = msg.getData().getBoolean("isNewUserLogin");
+			isNoBindingUserLogin = msg.getData().getBoolean("isNewUserLogin");
 			if (proDialog != null) {
 				proDialog.dismiss();
 			}
@@ -246,7 +251,7 @@ public class LoginActivity extends SherlockActivity {
 						});
 				builder.create().show();
 			} else {
-				if (isNewUserLogin){
+				if (isNoBindingUserLogin){
 					Toast.makeText(LoginActivity.this,"非本设备绑定用户不能登录",
 							Toast.LENGTH_SHORT).show();
 					return;
@@ -271,10 +276,12 @@ public class LoginActivity extends SherlockActivity {
 		@Override
 		public void run() {
 			boolean loginState = false;
-			String userName = view_userName.getText().toString();
+			String userName1 = view_userName.getText().toString();
 			String password = view_password.getText().toString();
-			loginState = validateLocalLogin(userName, password);
+			loginState = validateLocalLogin(userName1, password);
 			if (loginState && !isUpdate) {
+				//是否不同用户登录
+				isNewUserLogin = !userName.equals(userName1);
 				//启动后台任务轮询服务
 				if(loginInfo.role != null && loginInfo.role.equalsIgnoreCase("1")){
 					//董事长级别的用户
@@ -296,7 +303,7 @@ public class LoginActivity extends SherlockActivity {
 				Bundle bundle = new Bundle();
 				bundle.putBoolean("isNetError", isNetError);
 				bundle.putBoolean("isUpdate", isUpdate);
-				bundle.putBoolean("isNewUserLogin", isNewUserLogin);
+				bundle.putBoolean("isNewUserLogin", isNoBindingUserLogin);
 				message.setData(bundle);
 				loginHandler.sendMessage(message);
 			}

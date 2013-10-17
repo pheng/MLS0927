@@ -68,7 +68,9 @@ public class ReportSettingDialog {
 		this.context = context;
 		this.menuDrawer = menuDrawer;
 		this.loginInfo = loginInfo;
-		clearDefault();
+		if(LoginActivity.isNewUserLogin)
+			clearDefault();
+		readDefault();
 	}
 
 	/**
@@ -163,7 +165,6 @@ public class ReportSettingDialog {
 
 	/** 显示报表 */
 	public void showReport() {
-		readDefault();
 		ReportRequest request = new ReportRequest();
 		// 创建请求报文
 		request.setDATE(year + "/" + (month.length() < 2 ? "0" + month : month));
@@ -294,6 +295,8 @@ public class ReportSettingDialog {
 	 * @param item
 	 */
 	private void setSpinnerSelection(Spinner sp, String item) {
+		if(item==null)
+			return;
 		int position = 0;
 		for (int i = 0; i < sp.getCount(); i++) {
 			String s = sp.getItemAtPosition(i).toString();
@@ -320,8 +323,12 @@ public class ReportSettingDialog {
 			}
 			isNetError = false;
 			String json = msg.obj.toString();
-			orgItems = parseJSON(json);
-			setAdapter(new OrgAdapter(orgItems));
+			try {
+				orgItems = parseJSON(json);
+				setAdapter(new OrgAdapter(orgItems));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		};
 	};
 

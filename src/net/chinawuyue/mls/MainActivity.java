@@ -560,7 +560,7 @@ public class MainActivity extends SherlockActivity {
 		currentContent = 2;
 		dialog.setReport(reportType);
 		// 如果不采用默认值就显示对话框，否则直接显示报表
-		if (dialog.getOrgId()==null) {
+		if (dialog.getOrgId()==null||"".equals(dialog.getOrgId())) {
 			dialog.showDialog();
 		} else {
 			dialog.showReport();
