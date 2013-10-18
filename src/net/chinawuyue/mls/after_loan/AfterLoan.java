@@ -187,7 +187,7 @@ public class AfterLoan implements IXListViewListener {
 			JSONObject obj = new JSONObject(jsonData);
 
 			String RETURNCODE = obj.optString("RETURNCODE");
-			if (!RETURNCODE.equalsIgnoreCase("N")) {
+			if ((RETURNCODE == null) || (!RETURNCODE.equalsIgnoreCase("N"))) {
 				// 请求失败
 				return false;
 			}
@@ -214,7 +214,7 @@ public class AfterLoan implements IXListViewListener {
 			JSONObject obj = new JSONObject(jsonData);
 
 			String RETURNCODE = obj.optString("RETURNCODE");
-			if (!RETURNCODE.equalsIgnoreCase("N")) {
+			if ((RETURNCODE == null) || (!RETURNCODE.equalsIgnoreCase("N"))) {
 				// 请求失败
 				return false;
 			}
@@ -604,7 +604,7 @@ public class AfterLoan implements IXListViewListener {
 				e.printStackTrace();
 			}
 
-			if (RETURNCODE.equalsIgnoreCase("N")) {
+			if ((RETURNCODE != null) && (RETURNCODE.equalsIgnoreCase("N"))) {
 				// 查询报告成功，跳转到贷后检查报告界面显示
 				Intent intent = new Intent();
 				intent.setClass(context, AfterLoanReportActivity.class);
@@ -613,7 +613,6 @@ public class AfterLoan implements IXListViewListener {
 				context.startActivity(intent);
 			} else {
 				// 查询报告失败，提示用户查询失败
-				Log.d(TAG, "report---RETURNCODE: " + RETURNCODE);
 				Toast.makeText(context, "查询报告失败！", Toast.LENGTH_SHORT).show();
 			}
 		};

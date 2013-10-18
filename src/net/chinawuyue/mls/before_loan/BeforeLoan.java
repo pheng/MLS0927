@@ -190,7 +190,7 @@ public class BeforeLoan implements IXListViewListener {
 		try {
 			JSONObject obj = new JSONObject(json);
 			String RETURNCODE = obj.optString("RETURNCODE");
-			if (!RETURNCODE.equalsIgnoreCase("N")) {
+			if ((RETURNCODE == null) || (!RETURNCODE.equalsIgnoreCase("N"))) {
 				// 请求失败
 				return false;
 			}
@@ -418,7 +418,7 @@ public class BeforeLoan implements IXListViewListener {
 				e.printStackTrace();
 			}
 
-			if (RETURNCODE.equalsIgnoreCase("N")) {
+			if (RETURNCODE != null && RETURNCODE.equalsIgnoreCase("N")) {
 				// 查询报告成功，跳转到贷款详细界面显示
 				Intent intent = new Intent();
 				intent.setClass(context, LoanDetailInfoActivity.class);
@@ -431,7 +431,6 @@ public class BeforeLoan implements IXListViewListener {
 				context.startActivity(intent);
 			} else {
 				// 查询报告失败，提示用户查询失败
-				Log.d(TAG, "report---RETURNCODE: " + RETURNCODE);
 				Toast.makeText(context, "查询贷款详细失败！", Toast.LENGTH_SHORT).show();
 			}
 		};

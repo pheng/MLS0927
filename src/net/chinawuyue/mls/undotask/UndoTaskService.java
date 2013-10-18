@@ -102,7 +102,7 @@ public class UndoTaskService extends Service{
 			JSONObject obj = new JSONObject(json);
 			
 			String RETURNCODE = obj.optString("RETURNCODE");
-			if(!RETURNCODE.equalsIgnoreCase("N")){
+			if(RETURNCODE == null || !RETURNCODE.equalsIgnoreCase("N")){
 				//«Î«Û ß∞‹
 				return ;
 			}

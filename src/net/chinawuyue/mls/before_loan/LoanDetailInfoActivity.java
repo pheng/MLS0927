@@ -245,7 +245,7 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(RETURNCODE.equalsIgnoreCase("N")){
+			if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("N")){
 				Intent intent = new Intent();
 				intent.putExtra("loginInfo", (Serializable)loginInfo);
 				Log.d(TAG, "start cha loginInfo:" + loginInfo.toString());
@@ -254,8 +254,6 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 				intent.setClass(LoanDetailInfoActivity.this, ChangeIdeaActivity.class);
 				startActivity(intent);
 			}else{
-				//请求签署意见失败，提示用户查询失败或者显示申请详细中默认值？？？
-				Log.d(TAG, " signOp---RETURNCODE: " + RETURNCODE);
 				//显示默认值
 				Intent intent = new Intent();
 				intent.putExtra("loginInfo", (Serializable)loginInfo);
@@ -312,14 +310,13 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(RETURNCODE.equalsIgnoreCase("N")){
+			if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("N")){
 				Intent intent = new Intent();
 				intent.putExtra("userInfo", json);
 				intent.setClass(LoanDetailInfoActivity.this, CustomInfoActivity.class);
 				startActivity(intent);
 			}else{
 				//查询报告失败，提示用户查询失败
-				Log.d(TAG, "custom---RETURNCODE: " + RETURNCODE);
 				Toast.makeText(getApplicationContext(), "查询客户详情失败！", Toast.LENGTH_SHORT).show();
 			}
 		};

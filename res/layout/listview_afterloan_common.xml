@@ -12,7 +12,6 @@
         android:id="@+id/customerName"
         android:layout_width="@dimen/listview_item_width"
         android:layout_height="wrap_content"
-        android:singleLine="true"
         android:text="客户名称"
         android:textSize="@dimen/listview_text_size" />
 
@@ -41,7 +40,6 @@
 			        android:id="@+id/customerID"
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
-			        android:singleLine="true"
 			        android:text="客户编号"
 			        android:textSize="@dimen/listview_text_size" />
 			
@@ -49,7 +47,6 @@
 			        android:id="@+id/updateDate"
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
-			        android:singleLine="true"
 			        android:text="上次检查完成时间"
 			        android:textSize="@dimen/listview_text_size" />
 			
@@ -57,7 +54,6 @@
 			        android:id="@+id/inspectTypeName"
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
-			        android:singleLine="true"
 			        android:text="贷后检查频率"
 			        android:textSize="@dimen/listview_text_size" />
 			
@@ -65,7 +61,6 @@
 			        android:id="@+id/inspectDate"
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
-			        android:singleLine="true"
 			        android:text="贷后检查截止日期"
 			        android:textSize="@dimen/listview_text_size" />
 			
@@ -73,7 +68,6 @@
 			        android:id="@+id/inspectUserID"
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
-			        android:singleLine="true"
 			        android:text="发起人"
 			        android:textSize="@dimen/listview_text_size" />
 			
@@ -81,7 +75,6 @@
 			        android:id="@+id/inputUserName"
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
-			        android:singleLine="true"
 			        android:text="检查人"
 			        android:textSize="@dimen/listview_text_size" />
 			
@@ -89,7 +82,6 @@
 			        android:id="@+id/inputOrgName"
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
-			        android:singleLine="true"
 			        android:text="检查机构"
 			        android:textSize="@dimen/listview_text_size" />
             </LinearLayout>

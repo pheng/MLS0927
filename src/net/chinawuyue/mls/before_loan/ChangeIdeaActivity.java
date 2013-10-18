@@ -298,7 +298,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			if(RETURNCODE.equalsIgnoreCase("N")){
+			if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("N")){
 				//意见签署成功
 				Toast.makeText(getApplicationContext(), "签署意见成功，可以进行提交！", Toast.LENGTH_SHORT).show();
 			}else{
@@ -487,24 +487,26 @@ public class ChangeIdeaActivity extends SherlockActivity{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(RETURNCODE.equalsIgnoreCase("N")){
+			if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("N")){
 				//提交成功
 				Toast.makeText(getApplicationContext(), "提交成功！", Toast.LENGTH_SHORT).show();
-			}else if(RETURNCODE.equalsIgnoreCase("SH0001")){
+			}else if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("SH0001")){
 				//提交失败,提示用户错误
 				Toast.makeText(getApplicationContext(), "提交失败，查询用户不存在！", Toast.LENGTH_SHORT).show();
-			}else if(RETURNCODE.equalsIgnoreCase("SH0002")){
+			}else if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("SH0002")){
 				//提交失败,提示用户错误
 				Toast.makeText(getApplicationContext(), "提交失败，交易码不存在！", Toast.LENGTH_SHORT).show();
-			}else if(RETURNCODE.equalsIgnoreCase("SH0003")){
+			}else if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("SH0003")){
 				//提交失败,提示用户错误
 				Toast.makeText(getApplicationContext(), "提交失败，意见未签署！", Toast.LENGTH_SHORT).show();
-			}else if(RETURNCODE.equalsIgnoreCase("SH0004")){
+			}else if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("SH0004")){
 				//提交失败,提示用户错误
 				Toast.makeText(getApplicationContext(), "提交失败，无审批权限！", Toast.LENGTH_SHORT).show();
-			}else if(RETURNCODE.equalsIgnoreCase("SH0005")){
+			}else if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("SH0005")){
 				//提交失败,提示用户错误
 				Toast.makeText(getApplicationContext(), "提交失败，审批流程异常！", Toast.LENGTH_SHORT).show();
+			}else{
+				Toast.makeText(getApplicationContext(), "提交异常！", Toast.LENGTH_SHORT).show();
 			}
 		};
 	};
