@@ -16,21 +16,30 @@ public class AfterLoanReportActivity extends SherlockActivity{
 	private TextView textContent;
 	private static final int ITEM1 = 1;
 	
+	/**
+	 * 报告内容
+	 */
+	private String data = null;
+	
+	/**
+	 * 报告标题
+	 */
+	private String title = null;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_afterloan_report);
 		Intent intent = getIntent();
-		String data = intent.getStringExtra("data");
+		data = intent.getStringExtra("data");
+		title = intent.getStringExtra("title");
 		
 		textTitle = (TextView) findViewById(R.id.text_title);
-		textTitle.setText(data);
+		textTitle.setText(title);
 		
 		textContent = (TextView) findViewById(R.id.text_content);
-		textContent.setText("主要是对贷款审批后至贷款支付完毕各环节进行一次检查说明。包括合同签订、抵押物登记、重要权证保管、贷款发放操作、信贷资金支付方式、信贷资料整理入档与保管等情况进行检查和说明。\n主要是对贷款审批后至贷款支付完毕各环节进行一次检查说明。包括合同签订、抵（质）押物登记（存单国债的止付）、重要权证保管、贷款发放操作、信贷资金支付方式、信贷资料整理入档与保管等情况进行检查和说明。\n "
-				+"    主要是对贷款审批后至贷款支付完毕各环节进行一次检查说明。包括合同签订、抵（质）押物登记（存单国债的止付）、重要权证保管、贷款发放操作、信贷资金支付方式、信贷资料整理入档与保管等情况进行检查和说明。 \n" +
-				"     主要是对贷款审批后至贷款支付完毕各环节进行一次     检查说明。\n    包括合同签订、抵（质）押物登记（存单国债的止付）、重要权证保管、贷款发放操作、信贷资金支付方式、信贷资料整理入档与保管等情况进行检查和说明。  ");
+		textContent.setText(data);
 	}
 	
 	@Override

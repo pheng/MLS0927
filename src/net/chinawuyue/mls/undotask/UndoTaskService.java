@@ -18,7 +18,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.Message;
 import android.util.Log;
 
 public class UndoTaskService extends Service{
@@ -115,7 +114,7 @@ public class UndoTaskService extends Service{
 			e.printStackTrace();
 			return;
 		}
-		
+		Log.d(TAG, "service back count: " + count1 + "--" + count3 + "--" + count4);
 		if((oldCount1 >= 0) && (count1 > oldCount1)){
 			// have new undo loan
 			int num = count1 - oldCount1;
@@ -155,6 +154,11 @@ public class UndoTaskService extends Service{
 		intent.addCategory(Intent.CATEGORY_LAUNCHER);
 		intent.setClass(UndoTaskService.this, MainActivity.class);
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+		
+		//modify the unfinished things count with the new count
+		loginInfo.count1 = String.valueOf(count1);
+		loginInfo.count2 = String.valueOf(count4);
+		
 		intent.putExtra("loginInfo", loginInfo);
 		PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
 		not.setLatestEventInfo(this, "移动信贷通知", "您有新的未处理任务：" + message, contentIntent);

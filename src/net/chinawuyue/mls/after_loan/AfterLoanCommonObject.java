@@ -32,6 +32,11 @@ public class AfterLoanCommonObject {
 	 */
 	private String updateDate;
 	
+	/**
+	 * 贷后检查流水号
+	 */
+	private String iiSerialNo;
+	
 	public AfterLoanCommonObject() {
 		
 	}
@@ -52,6 +57,7 @@ public class AfterLoanCommonObject {
 				this.inspectTypeName = jsonObj.optString("INSPECTTYPENAME");
 				this.inspectUserID = jsonObj.optString("INSPECTUSERID");
 				this.updateDate = jsonObj.optString("UPDATEDATE");
+				this.iiSerialNo = jsonObj.getString("IISERIALNO");
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -120,6 +126,14 @@ public class AfterLoanCommonObject {
 
 	public void setInspectUserID(String inspectUserID) {
 		this.inspectUserID = inspectUserID;
+	}
+
+	public String getIiSerialNo() {
+		return iiSerialNo;
+	}
+
+	public void setIiSerialNo(String iiSerialNo) {
+		this.iiSerialNo = iiSerialNo;
 	}
 
 	/**

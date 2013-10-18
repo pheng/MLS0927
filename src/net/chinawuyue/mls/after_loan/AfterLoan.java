@@ -177,8 +177,7 @@ public class AfterLoan implements IXListViewListener {
 				return;
 			}
 			String json = msg.obj.toString();
-			int mKind = msg.arg1;
-			setAdapter(json, mKind);
+			setAdapter(json);
 		};
 	};
 
@@ -242,8 +241,8 @@ public class AfterLoan implements IXListViewListener {
 		this.afterLoanList.stopLoadMore();
 	}
 
-	protected void setAdapter(String jsonData, int mKind) {
-		if (mKind < Constant.AfterLoanConstan.KIND_COMMON) {
+	protected void setAdapter(String jsonData) {
+		if (kind < Constant.AfterLoanConstan.KIND_COMMON) {
 			Boolean successful = parseJsonDataFirst(jsonData);
 			if (!successful) {
 				// 查询数据失败，UI显示
@@ -560,10 +559,10 @@ public class AfterLoan implements IXListViewListener {
 				String oBJECTNO = null;
 				String oBJECTTYPE = null;
 				if (kind < Constant.AfterLoanConstan.KIND_COMMON) {
-					oBJECTNO = xItems.get(position - 1).getSerialNO();
+					oBJECTNO = xItems.get(position - 1).getIiSerialNo();
 					oBJECTTYPE = "010";
 				} else {
-					oBJECTNO = xCommonItems.get(position - 1).getCustomerID();
+					oBJECTNO = xCommonItems.get(position - 1).getIiSerialNo();
 					oBJECTTYPE = "020";
 				}
 
@@ -594,10 +593,12 @@ public class AfterLoan implements IXListViewListener {
 			String json = msg.obj.toString();
 
 			String phaseOption = null;
+			String userName = null;
 			String RETURNCODE = null;
 			try {
 				JSONObject jsonObj = new JSONObject(json);
 				RETURNCODE = jsonObj.optString("RETURNCODE");
+				userName = jsonObj.optString("USERNAME");
 				phaseOption = jsonObj.optString("PHASEOPINION");
 			} catch (JSONException e) {
 				e.printStackTrace();
@@ -608,6 +609,7 @@ public class AfterLoan implements IXListViewListener {
 				Intent intent = new Intent();
 				intent.setClass(context, AfterLoanReportActivity.class);
 				intent.putExtra("data", phaseOption);
+				intent.putExtra("title", userName + "的检查报告");
 				context.startActivity(intent);
 			} else {
 				// 查询报告失败，提示用户查询失败

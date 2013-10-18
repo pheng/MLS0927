@@ -250,8 +250,23 @@ public class ChangeIdeaActivity extends SherlockActivity{
 		
 		try {
 			xSignOptRe.setAPPROVEBUSINESSRATE(NumberFormat.getInstance().parse(businessRate));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
 			xSignOptRe.setAPPROVEBUSINESSSUM(NumberFormat.getInstance().parse(approveSum));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
 			xSignOptRe.setAPPROVERATEFLOAT(NumberFormat.getInstance().parse(rateFloat));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
 			xSignOptRe.setAPPROVETERMMONTH(NumberFormat.getInstance().parse(termMonth));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block

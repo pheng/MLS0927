@@ -61,6 +61,11 @@ public class AfterLoanObject {
 	 */
 	private String inputOrgName;
 	
+	/**
+	 * 贷后检查流水号
+	 */
+	private String iiSerialNo;
+	
 
 	public AfterLoanObject() {
 		// TODO Auto-generated constructor stub
@@ -90,6 +95,7 @@ public class AfterLoanObject {
 			this.maturity = jsonObj.optString("MATURITY");
 			this.putoutDate = jsonObj.optString("PUTOUTDATE");
 			this.serialNO = jsonObj.optString("SERIALNO");
+			this.iiSerialNo = jsonObj.optString("IISERIALNO");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -203,6 +209,14 @@ public class AfterLoanObject {
 
 	public void setInputOrgName(String inputOrgName) {
 		this.inputOrgName = inputOrgName;
+	}
+
+	public String getIiSerialNo() {
+		return iiSerialNo;
+	}
+
+	public void setIiSerialNo(String iiSerialNo) {
+		this.iiSerialNo = iiSerialNo;
 	}
 	
 	
