@@ -79,7 +79,7 @@ public class ChartActivity extends SherlockActivity {
 		subMenu2.add(0,ITEM7,0,getResources().getString(R.string.pie_chart));
 		subMenu2.add(0,ITEM8,0,getResources().getString(R.string.line_chart));
 		MenuItem subMenu1Item = subMenu1.getItem();
-		subMenu1Item.setIcon(android.R.drawable.ic_menu_view);
+		subMenu1Item.setIcon(R.drawable.ic_menu_view);
 		subMenu1Item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS
 				| MenuItem.SHOW_AS_ACTION_WITH_TEXT);
 		return super.onCreateOptionsMenu(menu);

@@ -5,7 +5,8 @@
     <color name="md__defaultBackground">#FF555555</color>
     
     <color name="red">#E7360E</color>
-    
+    <color name="blue">#0000FF</color>
+    <color name="green">#CC00FF00</color>
     <color name="silver">#FFC0C0C0</color>
     
     <color name="slate_gray">#FF708090</color>

@@ -272,7 +272,7 @@ public class BarChartFactory extends AbstractChart {
 		renderer.setShowGrid(true); // 显示网格
 		SimpleSeriesRenderer r = renderer.getSeriesRendererAt(0);// 获得其中一个渲染器
 		r.setGradientEnabled(true); // 设置颜色渐变
-		r.setGradientStart(maxValue * 0.1, Color.GREEN);
+		r.setGradientStart(maxValue * 0.1, context.getResources().getColor(R.color.green));
 		r.setGradientStop(maxValue * 0.8, Color.BLUE);
 		r.setHighlighted(true); // 设置高亮
 		View view = ChartFactory.getBarChartView(context, // 创建柱状图
