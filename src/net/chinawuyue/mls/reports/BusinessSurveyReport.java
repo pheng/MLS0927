@@ -14,6 +14,8 @@ import org.json.JSONObject;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -201,7 +203,7 @@ public class BusinessSurveyReport extends BaseReport {
 	@Override
 	public void fetchData() {
 		progressDialog = ProgressDialog.show(context, "", context
-				.getResources().getString(R.string.wait));
+				.getResources().getString(R.string.wait),true,true);
 		// 列表项为空或者请求改变时设置需要更新
 		if (reportItems.size() == 0) {
 			isNeedUpdate = true;
@@ -224,10 +226,15 @@ public class BusinessSurveyReport extends BaseReport {
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-					Thread thread = new Thread(new DoFetchThread("RP0007", handler,
-							jsonReq));
+					final DoFetchThread doFetch = new DoFetchThread("RP0007", handler,jsonReq);
+					Thread thread = new Thread(doFetch);
 					thread.start();
-
+					progressDialog.setOnCancelListener(new OnCancelListener(){
+						@Override
+						public void onCancel(DialogInterface dialog) {
+							doFetch.stop();
+						}
+					});
 				} else {
 					if (progressDialog != null) {
 						progressDialog.dismiss();

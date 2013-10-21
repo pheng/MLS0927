@@ -20,6 +20,8 @@ import net.chinawuyue.mls.util.DoFetchThread;
 import net.chinawuyue.mls.util.HttpUtil;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.os.Handler;
 import android.os.Message;
 import android.view.LayoutInflater;
@@ -357,7 +359,7 @@ public class LoanAnalysis2Report extends BaseReport {
 	@Override
 	public void fetchData() {
 		progressDialog = ProgressDialog.show(context, "", context
-				.getResources().getString(R.string.wait));
+				.getResources().getString(R.string.wait),true,true);
 		if (reportItems.size() == 0) {
 			isNeedUpdate = true;
 		}
@@ -378,9 +380,15 @@ public class LoanAnalysis2Report extends BaseReport {
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
-					Thread thread = new Thread(new DoFetchThread("RP0003", handler,
-							jsonReq));
+					final DoFetchThread doFetch = new DoFetchThread("RP0003", handler,jsonReq);
+					Thread thread = new Thread(doFetch);
 					thread.start();
+					progressDialog.setOnCancelListener(new OnCancelListener(){
+						@Override
+						public void onCancel(DialogInterface dialog) {
+							doFetch.stop();
+						}
+					});
 				} else {
 					if (progressDialog != null) {
 						progressDialog.dismiss();

@@ -39,13 +39,14 @@ public class HttpUtil {
 	private static final String DOWN_PATH = "/download/MLS.txt";
 	private static final String ENCODING = "UTF-8";
 	public static final int TIMEOUT = 8000;
+	private HttpPost post = null;
 
 	/** 发送Post请求，无参数 */
-	public static String requestStringForPost(String url) throws Exception {
+	public String requestStringForPost(String url) throws Exception {
 		String result = null;
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpConnectionParams.setConnectionTimeout(httpclient.getParams(), TIMEOUT); // Timeout
-		HttpPost post = new HttpPost(url);
+		post = new HttpPost(url);
 		HttpResponse response = httpclient.execute(post);
 		if (response.getStatusLine().getStatusCode() == 200) {
 			result = EntityUtils.toString(response.getEntity());
@@ -55,12 +56,12 @@ public class HttpUtil {
 	}
 
 	/** 发送Post请求，带参数 */
-	public static String requestStringForPost(String url,
+	public String requestStringForPost(String url,
 			List<NameValuePair> params) throws Exception {
 		String result = null;
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpConnectionParams.setConnectionTimeout(httpclient.getParams(), TIMEOUT); // Timeout
-		HttpPost post = new HttpPost(url);
+		post = new HttpPost(url);
 		// 创建请求参数
 		UrlEncodedFormEntity entity = new UrlEncodedFormEntity(params,
 				HTTP.UTF_8);
@@ -76,12 +77,12 @@ public class HttpUtil {
 	}
 
 	/** 发送Post请求，带JSON参数 */
-	public static String requestStringForPost(String url, JSONObject jsonRequest)
+	public String requestStringForPost(String url, JSONObject jsonRequest)
 			throws Exception {
 		String result = null;
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpConnectionParams.setConnectionTimeout(httpclient.getParams(), TIMEOUT); // Timeout
-		HttpPost post = new HttpPost(url);
+		post = new HttpPost(url);
 		// 创建请求参数
 		ByteArrayEntity se = new ByteArrayEntity(jsonRequest.toString()
 				.getBytes("UTF8"));
@@ -98,8 +99,16 @@ public class HttpUtil {
 		return URLDecoder.decode(result, ENCODING);
 	}
 	
+	public void abort(){
+		try {
+			post.abort();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/** 处理用户登录操作 */
-	public static JSONObject doLogin(String uc, String pwd) {
+	public JSONObject doLogin(String uc, String pwd) {
 		JSONObject jsonRes = null;
 		String url = BASE_PATH + WEB_APP+ "DoLogin";
 		JSONObject jsonReq = new JSONObject();
@@ -121,7 +130,7 @@ public class HttpUtil {
 	}
 	
 	/** 处理用户登录操作 */
-	public static JSONObject doLoginWithDeviceId(String uc, String pwd,String deviceId) {
+	public JSONObject doLoginWithDeviceId(String uc, String pwd,String deviceId) {
 		JSONObject jsonRes = null;
 		String url = BASE_PATH + WEB_APP+ "DoLoginWithDeviceId";
 		JSONObject jsonReq = new JSONObject();
@@ -144,7 +153,7 @@ public class HttpUtil {
 	}
 	
 	/** 处理用户修改密码操作 */
-	public static String changePWD(String usercode, String oldpwd, String newpwd) {
+	public String changePWD(String usercode, String oldpwd, String newpwd) {
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpConnectionParams.setConnectionTimeout(httpclient.getParams(), 5000);
 		HttpPost httppost = new HttpPost(BASE_PATH + WEB_APP + "/ChangePWD");
@@ -174,7 +183,7 @@ public class HttpUtil {
 	}
 	
 	/** 应用自动升级 apk下载 */
-	public static int downAPK() {
+	public int downAPK() {
 		/** 0:下载失败，1：下载完成，2：SD卡未就绪 */
 		int downOK = 0;
 		URL url = null;

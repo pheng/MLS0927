@@ -21,6 +21,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.SharedPreferences.Editor;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -188,7 +189,7 @@ public class ReportSettingDialog {
 	/** 获取数据填充机构菜单 */
 	public void fetchData() {
 		progressDialog = ProgressDialog.show(context, "", context
-				.getResources().getString(R.string.wait));
+				.getResources().getString(R.string.wait),true,true);
 		handler.postDelayed(new Runnable() {
 			public void run() {
 				if (orgItems == null || orgItems.size() == 0) {
@@ -199,9 +200,15 @@ public class ReportSettingDialog {
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
-					Thread thread = new Thread(new DoFetchThread("RP0001",
-							handler, request));
+					final DoFetchThread doFetch = new DoFetchThread("RP0001", handler,request);
+					Thread thread = new Thread(doFetch);
 					thread.start();
+					progressDialog.setOnCancelListener(new OnCancelListener(){
+						@Override
+						public void onCancel(DialogInterface dialog) {
+							doFetch.stop();
+						}
+					});
 				} else {
 					if (progressDialog != null) {
 						progressDialog.dismiss();

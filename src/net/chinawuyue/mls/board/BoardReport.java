@@ -16,6 +16,8 @@ import org.json.JSONObject;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +48,8 @@ public class BoardReport extends BaseReport {
 
 	@Override
 	public void fetchData() {
-		progressDialog = ProgressDialog.show(context, "通知公告", context.getResources().getString(R.string.wait));
+		progressDialog = ProgressDialog.show(context, "", 
+				context.getResources().getString(R.string.wait),true,true);
 		if (reportItems.size() == 0){
 			isNeedUpdate = true;
 		}
@@ -57,8 +60,15 @@ public class BoardReport extends BaseReport {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			Thread thread = new Thread(new DoFetchThread("XD0002",handler,request));
+			final DoFetchThread doFetch = new DoFetchThread("XD0002", handler,request);
+			Thread thread = new Thread(doFetch);
 			thread.start();
+			progressDialog.setOnCancelListener(new OnCancelListener(){
+				@Override
+				public void onCancel(DialogInterface dialog) {
+					doFetch.stop();
+				}
+			});
 		} else {
 			this.setAdapter(new MyAdapter(reportItems));
 			if (progressDialog != null) {

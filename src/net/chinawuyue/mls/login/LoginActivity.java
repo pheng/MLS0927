@@ -16,6 +16,7 @@ import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -69,6 +70,7 @@ public class LoginActivity extends SherlockActivity {
 	private String userName;
 	/** 设备号*/
 	private String deviceId;
+	private HttpUtil httpUtil = null;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -88,6 +90,7 @@ public class LoginActivity extends SherlockActivity {
 		view_loginSubmit.setOnClickListener(submitListener);
 		// 添加本窗体到集合中，方便一起关闭
 		ActivityUtil.activityList.add(this);
+		httpUtil = new HttpUtil();
 	}
 
 	/** 如果上次做了保存，则读取赋值 */
@@ -107,10 +110,16 @@ public class LoginActivity extends SherlockActivity {
 		public void onClick(View v) {
 			if (checkInfo()) {
 				proDialog = ProgressDialog.show(LoginActivity.this, "用户登录",
-						"正在连接服务器，请稍候....", true, false);
+						"正在连接服务器，请稍候....", true, true);
 				// 开一个线程进行登录验证,主要是用于失败,成功可以直接通过startAcitivity(Intent)转向
 				Thread loginThread = new Thread(new DoLogin());
 				loginThread.start();
+				proDialog.setOnCancelListener(new OnCancelListener(){
+					@Override
+					public void onCancel(DialogInterface arg0) {
+						httpUtil.abort();
+					}
+				});
 			}
 		}
 	};
@@ -151,7 +160,7 @@ public class LoginActivity extends SherlockActivity {
 		String isLocalUser = null;
 		// 连接webservice
 //		JSONObject jsonRes = HttpUtil.doLoginWithDeviceId(usercode, password,deviceId);
-		JSONObject jsonRes = HttpUtil.doLogin(usercode, password);
+		JSONObject jsonRes = httpUtil.doLogin(usercode, password);
 		if (jsonRes != null) {
 			try {
 				if(jsonRes.has("logininfo")){
@@ -308,6 +317,7 @@ public class LoginActivity extends SherlockActivity {
 				loginHandler.sendMessage(message);
 			}
 		}
+		
 	}
 
 	@Override
@@ -333,7 +343,7 @@ public class LoginActivity extends SherlockActivity {
 	class downAPK implements Runnable {
 		@Override
 		public void run() {
-			int downOK = HttpUtil.downAPK();
+			int downOK = httpUtil.downAPK();
 			Message message = new Message();
 			Bundle bundle = new Bundle();
 			bundle.putInt("downOK", downOK);
