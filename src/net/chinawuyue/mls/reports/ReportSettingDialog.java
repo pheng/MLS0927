@@ -137,10 +137,15 @@ public class ReportSettingDialog {
 							return;
 						}
 						// 获得月份和机构编号
-						month = spMonth.getSelectedItem().toString();
-						year = spYear.getSelectedItem().toString();
-						unitName = spUnitName.getSelectedItem().toString();
-						Object obj = spOrgName.getSelectedItem();
+						if(spMonth.getAdapter().getCount()>0)
+							month = spMonth.getSelectedItem().toString();
+						if(spYear.getAdapter().getCount()>0)
+							year = spYear.getSelectedItem().toString();
+						if(spUnitName.getAdapter().getCount()>0)
+							unitName = spUnitName.getSelectedItem().toString();
+						Object obj = null;
+						if(spMonth.getAdapter().getCount()>0)	
+							obj = spOrgName.getSelectedItem();
 						if (obj == null)
 							return;
 						queryOrgId = obj.toString();
@@ -326,6 +331,9 @@ public class ReportSettingDialog {
 			try {
 				orgItems = parseJSON(json);
 				setAdapter(new OrgAdapter(orgItems));
+				if(orgItems.size()==0){
+					Toast.makeText(context, R.string.empty_org, 1).show();
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -343,6 +351,7 @@ public class ReportSettingDialog {
 		try {
 			JSONObject obj = new JSONObject(json);
 			JSONArray array = obj.optJSONArray("ARRAY1");
+			if(array!=null)
 			for (int i = 0; i < array.length(); i++) {
 				JSONObject data = array.getJSONObject(i);
 				OrgItem item = new OrgItem();

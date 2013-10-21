@@ -46,6 +46,7 @@
     <string name="net_error">网络连接错误</string>
     <string name="error">数据读取失败</string>
     <string name="empty">没有符合条件的数据</string>
+    <string name="empty_org">没有可以查询的机构</string>
     <string name="ok">确定</string>
     <string name="cancle">取消</string>
     <string name="back">返回</string>

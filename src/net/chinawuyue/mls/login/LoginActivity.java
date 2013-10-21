@@ -221,9 +221,9 @@ public class LoginActivity extends SherlockActivity {
 			}
 			if (isUpdate) {
 				AlertDialog.Builder builder = new Builder(LoginActivity.this);
-				builder.setMessage("发现新版本,请即刻升级!");
+				builder.setMessage("发现新版本,需要现在升级吗？");
 				builder.setTitle("升级提示");
-				builder.setPositiveButton("确认",
+				builder.setPositiveButton("是的",
 						new android.content.DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog,int which) {
@@ -235,7 +235,7 @@ public class LoginActivity extends SherlockActivity {
 								downThread.start();
 							}
 						});
-				builder.setNegativeButton("取消", new android.content.DialogInterface.OnClickListener() {
+				builder.setNegativeButton("下次再说", new android.content.DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog,int which) {
 								dialog.dismiss();
