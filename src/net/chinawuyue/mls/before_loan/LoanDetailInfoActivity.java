@@ -19,7 +19,9 @@ import net.chinawuyue.mls.util.DoFetchThread;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnCancelListener;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
@@ -211,19 +213,16 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 		xSignOptReq.setPHASENO(PHASENO);
 		xSignOptReq.setOBJECTTYPE(OBJECTTYPE);
 		
-		progressDialog = ProgressDialog.show(LoanDetailInfoActivity.this, "", LoanDetailInfoActivity.this.getString(R.string.wait));
-		Thread thread = new Thread(new DoFetchThread(xSignOptReq.getCODENO(), signOptHandler, xSignOptReq.jsonRequest()));
+		progressDialog = ProgressDialog.show(LoanDetailInfoActivity.this, "", LoanDetailInfoActivity.this.getString(R.string.wait), true, true);
+		final DoFetchThread doFetch = new DoFetchThread(xSignOptReq.getCODENO(), signOptHandler, xSignOptReq.jsonRequest());
+		Thread thread = new Thread(doFetch);
 		thread.start();
-		
-//		//模拟数据
-//		Intent intent = new Intent();
-//		intent.putExtra("BUSINESSSUM", obj.getBusinessSum());
-//		intent.putExtra("RATEFLOAT", obj.getRateFloat());
-//		intent.putExtra("BUSINESSRATE", obj.getBusinessRate());
-//		intent.putExtra("TERMMONTH", obj.getTermMonth());
-//		intent.putExtra("SERIALNO", obj.getSerialNO());
-//		intent.setClass(getApplicationContext(), ChangeIdeaActivity.class);
-//		startActivity(intent);
+		progressDialog.setOnCancelListener(new OnCancelListener(){
+			@Override
+			public void onCancel(DialogInterface dialog) {
+				doFetch.stop();
+			}
+		});
 	}
 	
 	@SuppressLint("HandlerLeak")
@@ -279,16 +278,16 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 		//fetch user info from service 
 		xCusDetReq = xRequest.new CustomerDetailRequest(obj.getCustomerID());
 		
-		progressDialog = ProgressDialog.show(LoanDetailInfoActivity.this, "", LoanDetailInfoActivity.this.getString(R.string.wait));
-		Thread thread = new Thread(new DoFetchThread(xCusDetReq.getCODENO(), customHandler, xCusDetReq.jsonRequest()));
+		progressDialog = ProgressDialog.show(LoanDetailInfoActivity.this, "", LoanDetailInfoActivity.this.getString(R.string.wait), true, true);
+		final DoFetchThread doFetch = new DoFetchThread(xCusDetReq.getCODENO(), customHandler, xCusDetReq.jsonRequest());
+		Thread thread = new Thread(doFetch);
 		thread.start();
-		
-		//模拟数据
-//		String userInfo = "";
-//		Intent intent = new Intent();
-//		intent.putExtra("userInfo", userInfo);
-//		intent.setClass(LoanDetailInfoActivity.this, CustomInfoActivity.class);
-//		startActivity(intent);
+		progressDialog.setOnCancelListener(new OnCancelListener(){
+			@Override
+			public void onCancel(DialogInterface dialog) {
+				doFetch.stop();
+			}
+		});
 	}
 	
 	@SuppressLint("HandlerLeak")

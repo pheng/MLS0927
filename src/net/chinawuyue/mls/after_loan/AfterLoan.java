@@ -19,6 +19,8 @@ import org.json.JSONObject;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -71,6 +73,8 @@ public class AfterLoan implements IXListViewListener {
 	private boolean isScrolled = false;
 
 	private LoginInfo loginInfo;
+	
+	private String customerName;
 
 	public AfterLoan(Context context, LoginInfo loginInfo) {
 		this.context = context;
@@ -149,7 +153,7 @@ public class AfterLoan implements IXListViewListener {
 	 */
 	private void getDataForAfterLoan(String codeNo) {
 		// fetch data from service with the request kind
-		progressDialog = ProgressDialog.show(context, "", context.getString(R.string.wait));
+		progressDialog = ProgressDialog.show(context, "", context.getString(R.string.wait), true, true);
 		xListRequest = xRequest.new ListRequest();
 		xListRequest.setCODENO(codeNo);
 		xListRequest.setUSERID(loginInfo.userCode);
@@ -161,9 +165,14 @@ public class AfterLoan implements IXListViewListener {
 			xListRequest.setINSPECTTYPE("030");
 		}
 
-		Thread thread = new Thread(new DoFetchThread(xListRequest.getCODENO(),
-				handler, xListRequest.jsonRequest()));
+		final DoFetchThread doFetch = new DoFetchThread(xListRequest.getCODENO(), handler, xListRequest.jsonRequest());
+		Thread thread = new Thread(doFetch);
 		thread.start();
+		progressDialog.setOnCancelListener(new OnCancelListener() {
+			public void onCancel(DialogInterface dialog) {
+				doFetch.stop();
+			}
+		});
 	}
 
 	@SuppressLint("HandlerLeak")
@@ -561,20 +570,28 @@ public class AfterLoan implements IXListViewListener {
 				if (kind < Constant.AfterLoanConstan.KIND_COMMON) {
 					oBJECTNO = xItems.get(position - 1).getIiSerialNo();
 					oBJECTTYPE = "010";
+					customerName = xItems.get(position - 1).getCustomerName();
 				} else {
 					oBJECTNO = xCommonItems.get(position - 1).getIiSerialNo();
 					oBJECTTYPE = "020";
+					customerName = xCommonItems.get(position - 1).getCustomerName();
 				}
 
 				xReportRequest = xRequest.new ReportRequest();
 				xReportRequest.setOBJECTTYPE(oBJECTTYPE);
 				xReportRequest.setOBJECTNO(oBJECTNO);
 
-				progressDialog = ProgressDialog.show(context, "", context.getString(R.string.wait));
-				Thread thread = new Thread(new DoFetchThread(
+				progressDialog = ProgressDialog.show(context, "", context.getString(R.string.wait), true, true);
+				final DoFetchThread doFectch = new DoFetchThread(
 						xReportRequest.getCODENO(), rePortHandler,
-						xReportRequest.jsonRequest()));
+						xReportRequest.jsonRequest());
+				Thread thread = new Thread(doFectch);
 				thread.start();
+				progressDialog.setOnCancelListener(new OnCancelListener() {
+					public void onCancel(DialogInterface dialog) {
+						doFectch.stop();
+					}
+				});
 			}
 			isScrolled = false;
 		}
@@ -593,12 +610,10 @@ public class AfterLoan implements IXListViewListener {
 			String json = msg.obj.toString();
 
 			String phaseOption = null;
-			String userName = null;
 			String RETURNCODE = null;
 			try {
 				JSONObject jsonObj = new JSONObject(json);
 				RETURNCODE = jsonObj.optString("RETURNCODE");
-				userName = jsonObj.optString("USERNAME");
 				phaseOption = jsonObj.optString("PHASEOPINION");
 			} catch (JSONException e) {
 				e.printStackTrace();
@@ -609,7 +624,7 @@ public class AfterLoan implements IXListViewListener {
 				Intent intent = new Intent();
 				intent.setClass(context, AfterLoanReportActivity.class);
 				intent.putExtra("data", phaseOption);
-				intent.putExtra("title", userName + "的检查报告");
+				intent.putExtra("title", customerName + "的检查报告");
 				context.startActivity(intent);
 			} else {
 				// 查询报告失败，提示用户查询失败

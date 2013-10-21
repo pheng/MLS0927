@@ -21,7 +21,9 @@ import com.actionbarsherlock.view.SubMenu;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -275,9 +277,16 @@ public class ChangeIdeaActivity extends SherlockActivity{
 		xSignOptRe.setPHASECHOICE(idea);
 		xSignOptRe.setPHASEOPINION(ideadetail);
 		
-		progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", ChangeIdeaActivity.this.getString(R.string.wait));
-		Thread thread = new Thread(new DoFetchThread(xSignOptRe.getCODENO(), signOptHandler, xSignOptRe.jsonRequest()));
+		progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", ChangeIdeaActivity.this.getString(R.string.wait), true, true);
+		final DoFetchThread doFetch = new DoFetchThread(xSignOptRe.getCODENO(), signOptHandler, xSignOptRe.jsonRequest());
+		Thread thread = new Thread(doFetch);
 		thread.start();
+		progressDialog.setOnCancelListener(new OnCancelListener(){
+			@Override
+			public void onCancel(DialogInterface dialog) {
+				doFetch.stop();
+			}
+		});
 	}
 	
 	@SuppressLint("HandlerLeak")
@@ -318,9 +327,16 @@ public class ChangeIdeaActivity extends SherlockActivity{
 		xSignPerListRe.setSERIALNO(serialNO);
 		xSignPerListRe.setUSERID(loginInfo.userCode);
 		
-		progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", ChangeIdeaActivity.this.getString(R.string.wait));
-		Thread thread = new Thread(new DoFetchThread(xSignPerListRe.getCODENO(), getSignPersonListHandler, xSignPerListRe.jsonRequest()));
+		progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", ChangeIdeaActivity.this.getString(R.string.wait), true, true);
+		final DoFetchThread doFetch = new DoFetchThread(xSignPerListRe.getCODENO(), getSignPersonListHandler, xSignPerListRe.jsonRequest());
+		Thread thread = new Thread(doFetch);
 		thread.start();
+		progressDialog.setOnCancelListener(new OnCancelListener(){
+			@Override
+			public void onCancel(DialogInterface dialog) {
+				doFetch.stop();
+			}
+		});
 	}
 	
 	@SuppressLint("HandlerLeak")
@@ -422,9 +438,16 @@ public class ChangeIdeaActivity extends SherlockActivity{
 					xSubmitRe.setNEXTUSERID(obj.getNEXTUSERID());
 				}
 				
-				progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", ChangeIdeaActivity.this.getString(R.string.wait));
-				Thread thread = new Thread(new DoFetchThread(xSubmitRe.getCODENO(), submitHandler, xSubmitRe.jsonRequest()));
+				progressDialog = ProgressDialog.show(ChangeIdeaActivity.this, "", ChangeIdeaActivity.this.getString(R.string.wait), true, true);
+				final DoFetchThread doFetch = new DoFetchThread(xSubmitRe.getCODENO(), submitHandler, xSubmitRe.jsonRequest());
+				Thread thread = new Thread(doFetch);
 				thread.start();
+				progressDialog.setOnCancelListener(new OnCancelListener(){
+					@Override
+					public void onCancel(DialogInterface dialog) {
+						doFetch.stop();
+					}
+				});
 				dia.dismiss();
 			}
 		});

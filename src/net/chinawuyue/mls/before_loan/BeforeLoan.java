@@ -20,7 +20,9 @@ import org.json.JSONObject;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.os.Handler;
@@ -132,10 +134,17 @@ public class BeforeLoan implements IXListViewListener {
 			xListRequest.setAPPROVETYPE("030");
 		}
 
-		dialog = ProgressDialog.show(context, "", context.getString(R.string.wait));
-		Thread thread = new Thread(new DoFetchThread(xListRequest.getCODENO(),
-				handler, xListRequest.jsonRequest()));
+		dialog = ProgressDialog.show(context, "", context.getString(R.string.wait), true, true);
+		final DoFetchThread doFetch = new DoFetchThread(xListRequest.getCODENO(),
+				handler, xListRequest.jsonRequest());
+		Thread thread = new Thread(doFetch);
 		thread.start();
+		dialog.setOnCancelListener(new OnCancelListener(){
+			@Override
+			public void onCancel(DialogInterface dialog) {
+				doFetch.stop();
+			}
+		});
 	}
 
 	@SuppressLint("HandlerLeak")
@@ -380,19 +389,18 @@ public class BeforeLoan implements IXListViewListener {
 				FLOWNO = xItems.get(position - 1).getFlowNO();
 				PHASENO = xItems.get(position - 1).getPhaseNO();
 
-				dialog = ProgressDialog.show(context, "", context.getString(R.string.wait));
-				Thread thread = new Thread(new DoFetchThread(
+				dialog = ProgressDialog.show(context, "", context.getString(R.string.wait), true, true);
+				final DoFetchThread doFetch = new DoFetchThread(
 						xLoanDetReq.getCODENO(), loanDetHandler,
-						xLoanDetReq.jsonRequest()));
+						xLoanDetReq.jsonRequest());
+				Thread thread = new Thread(doFetch);
 				thread.start();
-
-				// Ä£ÄâÊý¾Ý
-				// String info = getDataForDetailInfo(serialNO);
-				// Intent intent = new Intent();
-				// intent.putExtra("kind", kind);
-				// intent.putExtra("info", info);
-				// intent.setClass(context, LoanDetailInfoActivity.class);
-				// context.startActivity(intent);
+				dialog.setOnCancelListener(new OnCancelListener(){
+					@Override
+					public void onCancel(DialogInterface dialog) {
+						doFetch.stop();
+					}
+				});
 			}
 			isScrolled = false;
 		}
