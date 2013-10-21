@@ -208,6 +208,9 @@ public class BeforeLoan implements IXListViewListener {
 			if (array == null || array.length() < 1) {
 				return true;
 			}
+			if (xItems != null) {
+				xItems.clear();
+			}
 			for (int i = 0; i < array.length(); i++) {
 				LoanDataObject loanObj = new LoanDataObject(array
 						.optJSONObject(i).toString());
@@ -231,9 +234,6 @@ public class BeforeLoan implements IXListViewListener {
 		xHandler.postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				if (xItems != null) {
-					xItems.clear();
-				}
 				// ÍøÂçÇëÇó
 				getDataForLoan(kind);
 
@@ -364,9 +364,6 @@ public class BeforeLoan implements IXListViewListener {
 	 */
 	public void setDataKind(final int kind) {
 		this.kind = kind;
-		if (xItems != null) {
-			xItems.clear();
-		}
 		xHandler.post(new Runnable() {
 			@Override
 			public void run() {

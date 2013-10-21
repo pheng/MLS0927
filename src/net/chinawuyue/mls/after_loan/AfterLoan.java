@@ -205,6 +205,9 @@ public class AfterLoan implements IXListViewListener {
 			if (array == null || array.length() < 1) {
 				return true;
 			}
+			if (xItems != null) {
+				xItems.clear();
+			}
 			for (int i = 0; i < array.length(); i++) {
 				AfterLoanObject loanObj = new AfterLoanObject(array
 						.getJSONObject(i).toString());
@@ -231,6 +234,9 @@ public class AfterLoan implements IXListViewListener {
 			JSONArray array = obj.optJSONArray("ARRAY1");
 			if (array == null || array.length() < 1) {
 				return true;
+			}
+			if (xCommonItems != null) {
+				xCommonItems.clear();
 			}
 			for (int i = 0; i < array.length(); i++) {
 				AfterLoanCommonObject loanObj = new AfterLoanCommonObject(array
@@ -306,14 +312,8 @@ public class AfterLoan implements IXListViewListener {
 				Log.d(TAG, "onRefresh");
 
 				if (kind < Constant.AfterLoanConstan.KIND_COMMON) {
-					if (xItems != null) {
-						xItems.clear();
-					}
 					getDataForAfterLoan("AL0001");
 				} else {
-					if (xCommonItems != null) {
-						xCommonItems.clear();
-					}
 					getDataForAfterLoan("AL0002");
 				}
 				onLoad();
