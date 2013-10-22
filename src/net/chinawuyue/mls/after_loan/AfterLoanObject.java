@@ -84,18 +84,18 @@ public class AfterLoanObject {
 	private void paserJsonData(String jsonData){
 		try {
 			JSONObject jsonObj = new JSONObject(jsonData);
-			this.balance = jsonObj.optString("BALANCE");
-			this.businessSUM = jsonObj.optString("BUSINESSSUM");
-			this.businessType = jsonObj.optString("BUSINESSTYPE");
-			this.customerID = jsonObj.optString("CUSTOMERID");
-			this.customerName = jsonObj.optString("CUSTOMERNAME");
-			this.inputOrgName = jsonObj.optString("INPUTORGNAME");
-			this.inputUserName = jsonObj.optString("INPUTUSERNAME");
-			this.inspectDateName = jsonObj.optString("INSPECTDATENAME");
-			this.maturity = jsonObj.optString("MATURITY");
-			this.putoutDate = jsonObj.optString("PUTOUTDATE");
-			this.serialNO = jsonObj.optString("SERIALNO");
-			this.iiSerialNo = jsonObj.optString("IISERIALNO");
+			this.balance = jsonObj.optString("BALANCE", "");
+			this.businessSUM = jsonObj.optString("BUSINESSSUM", "");
+			this.businessType = jsonObj.optString("BUSINESSTYPE", "");
+			this.customerID = jsonObj.optString("CUSTOMERID", "");
+			this.customerName = jsonObj.optString("CUSTOMERNAME", "");
+			this.inputOrgName = jsonObj.optString("INPUTORGNAME", "");
+			this.inputUserName = jsonObj.optString("INPUTUSERNAME", "");
+			this.inspectDateName = jsonObj.optString("INSPECTDATENAME", "");
+			this.maturity = jsonObj.optString("MATURITY", "");
+			this.putoutDate = jsonObj.optString("PUTOUTDATE", "");
+			this.serialNO = jsonObj.optString("SERIALNO", "");
+			this.iiSerialNo = jsonObj.optString("IISERIALNO", "");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

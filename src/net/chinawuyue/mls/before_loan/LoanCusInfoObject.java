@@ -90,21 +90,21 @@ public class LoanCusInfoObject {
 	private void parseJsonData(String jsonData) {
 		try {
 			JSONObject jsonObj = new JSONObject(jsonData);
-			this.add = jsonObj.optString("ADD");
-			this.certID = jsonObj.optString("CERTID");
-			this.certType = jsonObj.optString("CERTTYPE");
-			this.customerID = jsonObj.optString("CUSTOMERID");
-			this.customerName = jsonObj.optString("CUSTOMERNAME");
-			this.customerType = jsonObj.optString("CUSTOMERTYPE");
-			this.industryType = jsonObj.optString("INDUSTRYTYPE");
-			this.inputDate = jsonObj.optString("INPUTDATE");
-			this.inputOrgName = jsonObj.optString("INPUTORGNAME");
-			this.inputUserName = jsonObj.optString("INPUTUSERNAME");
-			this.manageOreName = jsonObj.optString("MANAGEORGNAME");
-			this.manageUserName = jsonObj.optString("MANAGEUSERNAME");
-			this.relativeName = jsonObj.optString("RELATIVETNAME");
-			this.relativeType = jsonObj.optString("RELATIVETYPE");
-			this.tel = jsonObj.optString("TEL");
+			this.add = jsonObj.optString("ADD", "");
+			this.certID = jsonObj.optString("CERTID", "");
+			this.certType = jsonObj.optString("CERTTYPE", "");
+			this.customerID = jsonObj.optString("CUSTOMERID", "");
+			this.customerName = jsonObj.optString("CUSTOMERNAME", "");
+			this.customerType = jsonObj.optString("CUSTOMERTYPE", "");
+			this.industryType = jsonObj.optString("INDUSTRYTYPE", "");
+			this.inputDate = jsonObj.optString("INPUTDATE", "");
+			this.inputOrgName = jsonObj.optString("INPUTORGNAME", "");
+			this.inputUserName = jsonObj.optString("INPUTUSERNAME", "");
+			this.manageOreName = jsonObj.optString("MANAGEORGNAME", "");
+			this.manageUserName = jsonObj.optString("MANAGEUSERNAME", "");
+			this.relativeName = jsonObj.optString("RELATIVETNAME", "");
+			this.relativeType = jsonObj.optString("RELATIVETYPE", "");
+			this.tel = jsonObj.optString("TEL", "");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

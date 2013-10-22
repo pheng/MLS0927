@@ -55,6 +55,7 @@ public class BeforeLoan implements IXListViewListener {
 	private Handler xHandler = null;
 	private MyAdapter xAdapter;
 	private int kind = Constant.BeforeLoanConstan.KIND_UNFINISH;
+	private int kindIntent = -1;
 
 	// for request from service
 	private BeforeLoanRequest xRequest;
@@ -193,6 +194,7 @@ public class BeforeLoan implements IXListViewListener {
 		} else if (kind == Constant.BeforeLoanConstan.KIND_FINISH) {
 			mTitleText.setText("“—…Û≈˙");
 		}
+		kindIntent = kind;
 	}
 
 	private Boolean parseJsonData(String json) {
@@ -428,7 +430,7 @@ public class BeforeLoan implements IXListViewListener {
 				Intent intent = new Intent();
 				intent.setClass(context, LoanDetailInfoActivity.class);
 				intent.putExtra("info", json);
-				intent.putExtra("kind", kind);
+				intent.putExtra("kind", kindIntent);
 				intent.putExtra("loginInfo", (Serializable) loginInfo);
 				intent.putExtra("PHASENO", PHASENO);
 				intent.putExtra("OBJECTTYPE", OBJECTTYPE);

@@ -614,7 +614,7 @@ public class AfterLoan implements IXListViewListener {
 			try {
 				JSONObject jsonObj = new JSONObject(json);
 				RETURNCODE = jsonObj.optString("RETURNCODE");
-				phaseOption = jsonObj.optString("PHASEOPINION");
+				phaseOption = jsonObj.optString("PHASEOPINION","");
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}

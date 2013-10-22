@@ -82,16 +82,16 @@ public class LoanDataObject {
 	private void parseJsonData(String jsonData) {
 		try {
 			JSONObject jsonObj = new JSONObject(jsonData);
-			this.businessSUM = jsonObj.optString("BUSINESSSUM");
-			this.businessType = jsonObj.optString("BUSINESSTYPE");
-			this.customerID = jsonObj.optString("CUSTOMERID");
-			this.customerName = jsonObj.optString("CUSTOMERNAME");
-			this.flowNO = jsonObj.optString("FLOWNO");
-			this.inputDate = jsonObj.optString("INPUTDATE");
-			this.manageOrgName = jsonObj.optString("MANAGEORGNAME");
-			this.objectType = jsonObj.optString("OBJECTTYPE");
-			this.phaseNO = jsonObj.optString("PHASENO");
-			this.serialNO = jsonObj.optString("SERIALNO");
+			this.businessSUM = jsonObj.optString("BUSINESSSUM", "");
+			this.businessType = jsonObj.optString("BUSINESSTYPE", "");
+			this.customerID = jsonObj.optString("CUSTOMERID", "");
+			this.customerName = jsonObj.optString("CUSTOMERNAME", "");
+			this.flowNO = jsonObj.optString("FLOWNO", "");
+			this.inputDate = jsonObj.optString("INPUTDATE", "");
+			this.manageOrgName = jsonObj.optString("MANAGEORGNAME", "");
+			this.objectType = jsonObj.optString("OBJECTTYPE", "");
+			this.phaseNO = jsonObj.optString("PHASENO", "");
+			this.serialNO = jsonObj.optString("SERIALNO", "");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

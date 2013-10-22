@@ -188,34 +188,6 @@ public class BeforeLoanRequest {
 			return obj;
 		}
 		
-//		public void jsonParseResponse(String jsonData){
-//			try {
-//				JSONObject obj = new JSONObject(jsonData);
-//				this.RETURNCODE = obj.optString("RETURNCODE");
-//				this.CODENO = obj.optString("CODENO");
-//				this.USERID = obj.optString("USERID");
-//				this.ORGID = obj.optString("ORGID");
-//				if(!RETURNCODE.equalsIgnoreCase("000000")){
-//					return;
-//				}
-//				this.OPINIONTYPE = obj.optString("OPINIONTYPE");
-//				this.SERIALNO = obj.optString("SERIALNO");
-//				this.FLOWNO = obj.optString("FLOWNO");
-//				this.PHASENO = obj.optString("PHASENO");
-//				this.OBJECTTYPE = obj.optString("OBJECTTYPE");
-//				this.APPROVEBUSINESSSUM = (Number) obj.opt("APPROVEBUSINESSSUM");
-//				this.APPROVERATEFLOAT = (Number) obj.opt("APPROVERATEFLOAT");
-//				this.APPROVEBUSINESSRATE = (Number) obj.opt("APPROVEBUSINESSRATE");
-//				this.APPROVETERMMONTH = (Number) obj.opt("APPROVETERMMONTH");
-//				this.PHASECHOICE = obj.optString("PHASECHOICE");
-//				this.PHASEOPINION = obj.optString("PHASEOPINION");
-//
-//			} catch (JSONException e) {
-//				e.printStackTrace();
-//				this.RETURNCODE = "SH";
-//			}
-//		}
-
 		public String getCODENO() {
 			return CODENO;
 		}

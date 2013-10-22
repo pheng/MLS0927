@@ -49,15 +49,15 @@ public class AfterLoanCommonObject {
 		private void paserJsonData(String jsonData){
 			try {
 				JSONObject jsonObj = new JSONObject(jsonData);
-				this.customerID = jsonObj.optString("CUSTOMERID");
-				this.customerName = jsonObj.optString("CUSTOMERNAME");
-				this.inputOrgName = jsonObj.optString("INPUTORGNAME");
-				this.inputUserName = jsonObj.optString("INPUTUSERNAME");
-				this.inspectDate = jsonObj.optString("INSPECTDATE");
-				this.inspectTypeName = jsonObj.optString("INSPECTTYPENAME");
-				this.inspectUserID = jsonObj.optString("INSPECTUSERID");
-				this.updateDate = jsonObj.optString("UPDATEDATE");
-				this.iiSerialNo = jsonObj.getString("IISERIALNO");
+				this.customerID = jsonObj.optString("CUSTOMERID","");
+				this.customerName = jsonObj.optString("CUSTOMERNAME","");
+				this.inputOrgName = jsonObj.optString("INPUTORGNAME","");
+				this.inputUserName = jsonObj.optString("INPUTUSERNAME","");
+				this.inspectDate = jsonObj.optString("INSPECTDATE","");
+				this.inspectTypeName = jsonObj.optString("INSPECTTYPENAME","");
+				this.inspectUserID = jsonObj.optString("INSPECTUSERID","");
+				this.updateDate = jsonObj.optString("UPDATEDATE","");
+				this.iiSerialNo = jsonObj.optString("IISERIALNO","");
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

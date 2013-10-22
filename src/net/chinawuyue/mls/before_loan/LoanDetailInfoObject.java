@@ -54,25 +54,25 @@ public class LoanDetailInfoObject {
 	private void parseJsonData(String data){
 		try {
 			JSONObject jsonObj = new JSONObject(data);
-			this.businessRate = jsonObj.optString("BUSINESSRATE");
-			this.businessSum = jsonObj.optString("BUSINESSSUM");
-			this.businessType = jsonObj.optString("BUSINESSTYPE");
-			this.customerID = jsonObj.optString("CUSTOMERID");
-			this.customerName = jsonObj.optString("CUSTOMERNAME");
-			this.direction = jsonObj.optString("DIRECTION");
-			this.icType = jsonObj.optString("ICTYPE");
-			this.inputDate = jsonObj.optString("INPUTDATE");
-			this.inputOrgName = jsonObj.optString("INPUTORGNAME");
-			this.inputUserName = jsonObj.optString("INPUTUSERNAME");
-			this.isReferFarming = jsonObj.optString("ISREFERFARMING");
-			this.occurType = jsonObj.optString("OCCURTYPE");
-			this.paySource = jsonObj.optString("PAYSOURCE");
-			this.purpose = jsonObj.optString("PURPOSE");
-			this.serialNO = jsonObj.optString("SERIALNO");
-			this.termMonth = jsonObj.optString("TERMMONTH");
-			this.vouchType = jsonObj.optString("VOUCHTYPE");
-			this.rateType = jsonObj.optString("RATETYPE");
-			this.rateFloat = jsonObj.optString("RATEFLOAT");
+			this.businessRate = jsonObj.optString("BUSINESSRATE", "");
+			this.businessSum = jsonObj.optString("BUSINESSSUM", "");
+			this.businessType = jsonObj.optString("BUSINESSTYPE", "");
+			this.customerID = jsonObj.optString("CUSTOMERID", "");
+			this.customerName = jsonObj.optString("CUSTOMERNAME", "");
+			this.direction = jsonObj.optString("DIRECTION", "");
+			this.icType = jsonObj.optString("ICTYPE", "");
+			this.inputDate = jsonObj.optString("INPUTDATE", "");
+			this.inputOrgName = jsonObj.optString("INPUTORGNAME", "");
+			this.inputUserName = jsonObj.optString("INPUTUSERNAME", "");
+			this.isReferFarming = jsonObj.optString("ISREFERFARMING", "");
+			this.occurType = jsonObj.optString("OCCURTYPE", "");
+			this.paySource = jsonObj.optString("PAYSOURCE", "");
+			this.purpose = jsonObj.optString("PURPOSE", "");
+			this.serialNO = jsonObj.optString("SERIALNO", "");
+			this.termMonth = jsonObj.optString("TERMMONTH", "");
+			this.vouchType = jsonObj.optString("VOUCHTYPE", "");
+			this.rateType = jsonObj.optString("RATETYPE", "");
+			this.rateFloat = jsonObj.optString("RATEFLOAT", "");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

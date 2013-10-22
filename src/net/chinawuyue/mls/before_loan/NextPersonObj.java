@@ -20,9 +20,9 @@ public class NextPersonObj {
 	public void jsonParseResponse(String data){
 		try {
 			JSONObject obj = new JSONObject(data);
-			this.NEXTUSERID = obj.optString("NEXTUSERID");
-			this.NEXTORGID = obj.optString("NEXTORGID");
-			this.NEXTUSERNAME = obj.optString("NEXTUSERNAME");
+			this.NEXTUSERID = obj.optString("NEXTUSERID", "");
+			this.NEXTORGID = obj.optString("NEXTORGID", "");
+			this.NEXTUSERNAME = obj.optString("NEXTUSERNAME", "");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

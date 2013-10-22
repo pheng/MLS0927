@@ -175,16 +175,16 @@ public class ChangeIdeaActivity extends SherlockActivity{
 	private void parseJson(String signIdea){
 		try {
 			JSONObject obj = new JSONObject(signIdea);
-			this.flowNO = obj.optString("FLOWNO");
-			this.phaseNO = obj.optString("PHASENO");
-			this.objectType = obj.optString("OBJECTTYPE");
-			this.serialNO = obj.optString("SERIALNO");
-			this.approveSum = obj.optString("APPROVEBUSINESSSUM");
-			this.rateFloat = obj.optString("APPROVERATEFLOAT");
-			this.businessRate = obj.optString("APPROVEBUSINESSRATE");
-			this.termMonth = obj.optString("APPROVETERMMONTH");
-			this.idea = obj.optString("PHASECHOICE");
-			this.ideadetail = obj.optString("PHASEOPINION");
+			this.flowNO = obj.optString("FLOWNO", "");
+			this.phaseNO = obj.optString("PHASENO", "");
+			this.objectType = obj.optString("OBJECTTYPE", "");
+			this.serialNO = obj.optString("SERIALNO", "");
+			this.approveSum = obj.optString("APPROVEBUSINESSSUM", "");
+			this.rateFloat = obj.optString("APPROVERATEFLOAT", "");
+			this.businessRate = obj.optString("APPROVEBUSINESSRATE", "");
+			this.termMonth = obj.optString("APPROVETERMMONTH", "");
+			this.idea = obj.optString("PHASECHOICE", "");
+			this.ideadetail = obj.optString("PHASEOPINION", "");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
