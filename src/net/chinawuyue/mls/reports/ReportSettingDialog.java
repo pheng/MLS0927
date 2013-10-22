@@ -126,8 +126,7 @@ public class ReportSettingDialog {
 		cbIsDefault = (CheckBox) view.findViewById(R.id.cbIsDefault);
 		// 创建对话框
 		AlertDialog.Builder builder = new AlertDialog.Builder(context);
-		builder.setTitle("设置报表")
-				.setView(view)
+		builder	.setView(view)
 				.setCancelable(false)
 				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 					@Override

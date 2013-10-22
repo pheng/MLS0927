@@ -38,8 +38,8 @@ import android.graphics.Paint.Align;
  */
 public abstract class AbstractChart {
 
-   private static final int TEXT_SIZE = 18;
    public static enum ChartType{BARCHART,PIECHART,LINECHART};
+   public static int textSize = 18;
   
   /**
    * Builds an XY multiple dataset using the provided values.
@@ -85,10 +85,10 @@ public abstract class AbstractChart {
   }
 
   protected void setRenderer(XYMultipleSeriesRenderer renderer, int[] colors, PointStyle[] styles) {
-    renderer.setAxisTitleTextSize(TEXT_SIZE);
-    renderer.setChartTitleTextSize(TEXT_SIZE+3);
-    renderer.setLabelsTextSize(TEXT_SIZE);
-    renderer.setLegendTextSize(TEXT_SIZE);
+    renderer.setAxisTitleTextSize(textSize);
+    renderer.setChartTitleTextSize(textSize+3);
+    renderer.setLabelsTextSize(textSize);
+    renderer.setLegendTextSize(textSize);
     renderer.setPointSize(5f);
     renderer.setMargins(new int[] { 20, 30, 15, 20 });
     int length = colors.length;
@@ -128,7 +128,7 @@ public abstract class AbstractChart {
     renderer.setLabelsColor(labelsColor);
     SimpleSeriesRenderer sr = renderer.getSeriesRendererAt(0);
     sr.setDisplayChartValues(true);
-    sr.setChartValuesTextSize(TEXT_SIZE);
+    sr.setChartValuesTextSize(textSize);
     sr.setDisplayChartValuesDistance(0);
     sr.setColor(Color.WHITE);
 	renderer.setXLabels(0);
@@ -221,8 +221,8 @@ public abstract class AbstractChart {
    */
   protected DefaultRenderer buildCategoryRenderer(int[] colors) {
     DefaultRenderer renderer = new DefaultRenderer();
-    renderer.setLabelsTextSize(TEXT_SIZE);
-    renderer.setLegendTextSize(TEXT_SIZE);
+    renderer.setLabelsTextSize(textSize);
+    renderer.setLegendTextSize(textSize);
     renderer.setMargins(new int[] { 20, 30, 15, 0 });
     for (int color : colors) {
       SimpleSeriesRenderer r = new SimpleSeriesRenderer();
@@ -262,10 +262,10 @@ public abstract class AbstractChart {
    */
   protected XYMultipleSeriesRenderer buildBarRenderer(int[] colors) {
     XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
-    renderer.setAxisTitleTextSize(TEXT_SIZE);
-    renderer.setChartTitleTextSize(TEXT_SIZE+3);
-    renderer.setLabelsTextSize(TEXT_SIZE);
-    renderer.setLegendTextSize(TEXT_SIZE);
+    renderer.setAxisTitleTextSize(textSize);
+    renderer.setChartTitleTextSize(textSize+3);
+    renderer.setLabelsTextSize(textSize);
+    renderer.setLegendTextSize(textSize);
     int length = colors.length;
     for (int i = 0; i < length; i++) {
       SimpleSeriesRenderer r = new SimpleSeriesRenderer();

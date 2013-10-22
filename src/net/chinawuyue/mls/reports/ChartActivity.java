@@ -8,6 +8,7 @@ import net.chinawuyue.mls.reports.BaseReport.ReportType;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
@@ -44,6 +45,16 @@ public class ChartActivity extends SherlockActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_chart);
+		//根据屏幕分辨率计算图表字体大小
+		Display dis = this.getWindowManager().getDefaultDisplay();
+		int width = dis.getWidth();
+		int height = dis.getHeight();
+		int w = width > height ? width : height;
+		int rate = (int)(5*((float)w / 200));
+		System.out.println("font:"+rate);
+		rate = rate < 18 ? 18 :rate;
+		AbstractChart.textSize = rate;
+		//读取文字
 		balance = this.getResources().getString(R.string.balance);
 		count = this.getResources().getString(R.string.count);
 		sum = this.getResources().getString(R.string.sum);
