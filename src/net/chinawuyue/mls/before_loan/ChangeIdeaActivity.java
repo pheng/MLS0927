@@ -143,7 +143,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 		mSubMenu.add(0, ITEM2, 0, "提交");
 		mSubMenu.add(0, ITEM3, 0, "返回");
 		MenuItem item = mSubMenu.getItem();
-		item.setIcon(android.R.drawable.ic_menu_view);
+		item.setIcon(R.drawable.ic_menu_view);
 		item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS
 				| MenuItem.SHOW_AS_ACTION_WITH_TEXT);
 		return super.onCreateOptionsMenu(menu);
@@ -351,9 +351,11 @@ public class ChangeIdeaActivity extends SherlockActivity{
 			}
 			String json = msg.obj.toString();
 			String RETURNCODE = "";
+			String ERRORCODE = "";
 			try {
 				JSONObject obj = new JSONObject(json);
 				RETURNCODE = obj.optString("RETURNCODE");
+				ERRORCODE = obj.optString("ERRORCODE");
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -362,7 +364,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 				//请求下一级审批人列表成功--根据不同提交类型选择不同处理？
 				parsePerList(json);
 				showSubmitDialog();
-			}else if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("SH0003")){
+			}else if(ERRORCODE != null && ERRORCODE.equalsIgnoreCase("SH0003")){
 				Toast.makeText(getApplicationContext(), "请先签署意见后在提交！", Toast.LENGTH_LONG).show();
 			}else{
 				//请求下一级审批人列表失败
@@ -503,9 +505,11 @@ public class ChangeIdeaActivity extends SherlockActivity{
 			}
 			String json = msg.obj.toString();
 			String RETURNCODE = "";
+			String ERRORCODE = "";
 			try {
 				JSONObject obj = new JSONObject(json);
 				RETURNCODE = obj.optString("RETURNCODE");
+				ERRORCODE = obj.optString("ERRORCODE");
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -513,19 +517,19 @@ public class ChangeIdeaActivity extends SherlockActivity{
 			if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("N")){
 				//提交成功
 				Toast.makeText(getApplicationContext(), "提交成功！", Toast.LENGTH_SHORT).show();
-			}else if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("SH0001")){
+			}else if(ERRORCODE != null && ERRORCODE.equalsIgnoreCase("SH0001")){
 				//提交失败,提示用户错误
 				Toast.makeText(getApplicationContext(), "提交失败，查询用户不存在！", Toast.LENGTH_SHORT).show();
-			}else if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("SH0002")){
+			}else if(ERRORCODE != null && ERRORCODE.equalsIgnoreCase("SH0002")){
 				//提交失败,提示用户错误
 				Toast.makeText(getApplicationContext(), "提交失败，交易码不存在！", Toast.LENGTH_SHORT).show();
-			}else if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("SH0003")){
+			}else if(ERRORCODE != null && ERRORCODE.equalsIgnoreCase("SH0003")){
 				//提交失败,提示用户错误
 				Toast.makeText(getApplicationContext(), "提交失败，意见未签署！", Toast.LENGTH_SHORT).show();
-			}else if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("SH0004")){
+			}else if(ERRORCODE != null && ERRORCODE.equalsIgnoreCase("SH0004")){
 				//提交失败,提示用户错误
 				Toast.makeText(getApplicationContext(), "提交失败，无审批权限！", Toast.LENGTH_SHORT).show();
-			}else if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("SH0005")){
+			}else if(ERRORCODE != null && ERRORCODE.equalsIgnoreCase("SH0005")){
 				//提交失败,提示用户错误
 				Toast.makeText(getApplicationContext(), "提交失败，审批流程异常！", Toast.LENGTH_SHORT).show();
 			}else{

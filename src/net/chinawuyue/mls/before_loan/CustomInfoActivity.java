@@ -62,7 +62,7 @@ public class CustomInfoActivity extends SherlockActivity{
 		SubMenu mSubMenu = menu.addSubMenu("");
 		mSubMenu.add(0, ITEM1, 0, "·µ»Ø");
 		MenuItem item = mSubMenu.getItem();
-		item.setIcon(android.R.drawable.ic_menu_view);
+		item.setIcon(R.drawable.ic_menu_view);
 		item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS
 				| MenuItem.SHOW_AS_ACTION_WITH_TEXT);
 		return super.onCreateOptionsMenu(menu);
