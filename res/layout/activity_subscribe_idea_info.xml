@@ -161,8 +161,8 @@
 	  	    android:layout_below="@id/edit_approvetermmonth_info"
 	  	    android:layout_toRightOf="@id/text_serialno"
 	  	    android:checkedButton="@+id/ataaw3"
-	  	    android:gravity="center_vertical|center_horizontal"
-	  	    android:orientation="horizontal" >
+	  	    android:gravity="left"
+	  	    android:orientation="vertical" >
 				    <RadioButton android:text="同意" 
 				        	android:id="@+id/radio1" 
 				        	android:checked="true"
