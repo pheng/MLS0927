@@ -258,7 +258,7 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 			// 设置是否滑动到最左边
 			isScrollLeft = l <= 0;
 			// 设置是否滑动过
-			if(l != oldl)
+			if(Math.abs(l-oldl)>1)
 				isScrolled = true;
 		}
 	};

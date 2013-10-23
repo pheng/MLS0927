@@ -8,19 +8,20 @@
     android:padding="5dp" >
 
 
-    <TextView
-        android:id="@+id/t_subjectname"
-        android:layout_width="@dimen/listview_item_width"
-        android:layout_height="wrap_content"
-        android:text="科目名称"
-        style="@style/ListTextStyle" />
+                <TextView
+                    android:id="@+id/t_superorgname"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="单位名称"
+                    style="@style/ListTextStyle" />
+
 
     <net.chinawuyue.mls.InterceptScrollContainer
         android:id="@+id/scroollContainter"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/t_subjectname"
+        android:layout_toRightOf="@id/t_superorgname"
         android:focusable="false" >
 
         <net.chinawuyue.mls.MyHScrollView
@@ -43,13 +44,12 @@
                     android:text="单位编号"
                     style="@style/ListTextStyle"
                     android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/t_superorgname"
-                    android:layout_width="@dimen/listview_item_width"
-                    android:layout_height="wrap_content"
-                    android:text="单位名称"
-                    style="@style/ListTextStyle" />
+    <TextView
+        android:id="@+id/t_subjectname"
+        android:layout_width="@dimen/listview_item_width"
+        android:layout_height="wrap_content"
+        android:text="科目名称"
+        style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_subjectno"
