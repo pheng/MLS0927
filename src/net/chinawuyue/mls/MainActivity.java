@@ -65,7 +65,7 @@ public class MainActivity extends SherlockActivity {
 	private ChangePwd changePwd = null; // 修改密码功能
 	private AfterLoan afterLoan = null; // 贷后检查功能
 	private int currentContent = -1; // 当前显示的内容
-	private ReportType reportType = ReportType.LoanAnalysis1;// 报表类型
+	private ReportType reportType = ReportType.LoanBalance;// 报表类型
 	private ReportSettingDialog dialog = null; // 报表设置对话框
 	private boolean isMenuOpened = false; // 菜单是否打开
 	public String COUNT1 = ""; // 未处理的贷款申请审批笔数
