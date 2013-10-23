@@ -10,7 +10,7 @@
     <color name="silver">#FFC0C0C0</color>
     
     <color name="slate_gray">#FF708090</color>
-    
+    <color name="light_gray">#22708090</color>
     <color name="slate_blue">#FF6A5ACD</color>
     <color name="title_color">#CE0000</color>
     <color name="bg_color">#FDFDFD</color>

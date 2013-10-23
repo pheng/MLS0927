@@ -3,39 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-	<LinearLayout 
-	    android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/strReportSetting"
-                android:textColor="@color/red"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-	</LinearLayout>
-     <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="@color/red" />
+    android:orientation="vertical"
+    android:padding="3dp" >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:background="@color/bg_color"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
         <TextView
-            android:layout_width="@dimen/listview_item_width_s"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="选择机构" />
-        <Spinner
-            android:id="@+id/spOrgName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/strReportSetting"
+            android:textColor="@color/red"
+            android:textSize="30sp"
+            android:textStyle="bold" />
     </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/red" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,13 +37,44 @@
         <TextView
             android:layout_width="@dimen/listview_item_width_s"
             android:layout_height="wrap_content"
-            android:text="选择年份" />
+            android:text="选择机构"
+            android:textSize="@dimen/dialog_text_size" />
+
+        <Spinner
+            android:id="@+id/spOrgName"
+            style="@style/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="@dimen/listview_item_width_s"
+            android:layout_height="wrap_content"
+            android:text="选择年份"
+            android:textSize="@dimen/dialog_text_size" />
 
         <Spinner
             android:id="@+id/spYear"
+            style="@style/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,27 +83,45 @@
         <TextView
             android:layout_width="@dimen/listview_item_width_s"
             android:layout_height="wrap_content"
-            android:text="选择月份" />
+            android:text="选择月份"
+            android:textSize="@dimen/dialog_text_size" />
 
         <Spinner
             android:id="@+id/spMonth"
+            style="@style/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:layout_width="@dimen/listview_item_width_s"
             android:layout_height="wrap_content"
-            android:text="选择金额单位" />
+            android:text="选择金额单位"
+            android:textSize="@dimen/dialog_text_size" />
+
         <Spinner
             android:id="@+id/spUnitName"
+            style="@style/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
- <LinearLayout
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
@@ -87,12 +129,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="设置为默认值(不再提示)" />
+            android:text="设置为默认值(不再提示)"
+            android:textSize="@dimen/dialog_text_size" />
 
         <CheckBox
             android:id="@+id/cbIsDefault"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"/>
+            android:checked="true" />
     </LinearLayout>
+
 </LinearLayout>

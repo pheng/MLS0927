@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="MenuDrawer" />
 
@@ -39,6 +39,10 @@
     <style name="TextTitle">
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+    
+    <style name="spinner">
+        <item name="android:gravity">center_horizontal</item>
     </style>
     
 </resources>
