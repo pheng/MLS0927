@@ -42,7 +42,10 @@
     </style>
     
     <style name="spinner">
-        <item name="android:gravity">center_horizontal</item>
     </style>
     
+    <style name="ListTextStyle">
+        <item name="android:text">@dimen/listview_text_size</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
 </resources>

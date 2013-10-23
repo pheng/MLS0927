@@ -12,7 +12,7 @@
         android:layout_width="@dimen/listview_item_width_s"
         android:layout_height="wrap_content"
         android:text="公告编号"
-        android:textSize="@dimen/listview_text_size" 
+        style="@style/ListTextStyle" 
         android:visibility="gone"/>
 <!-- 
     <TextView
@@ -20,7 +20,7 @@
         android:layout_width="@dimen/listview_item_width"
         android:layout_height="wrap_content"
         android:text="公告名称"
-        android:textSize="@dimen/listview_text_size" />
+        style="@style/ListTextStyle" />
  -->
     <TextView
         android:id="@+id/t_board_title"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:text="公告标题"
         android:layout_weight="2"
-        android:textSize="@dimen/listview_text_size" />
+        style="@style/ListTextStyle" />
 
     <TextView
         android:id="@+id/t_board_time"
@@ -36,6 +36,6 @@
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:text="发布时间"
-        android:textSize="@dimen/listview_text_size" />
+        style="@style/ListTextStyle" />
 
 </LinearLayout>

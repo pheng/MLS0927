@@ -13,7 +13,7 @@
         android:layout_width="@dimen/listview_item_width"
         android:layout_height="wrap_content"
         android:text="客户名称"
-        android:textSize="@dimen/listview_text_size" />
+        style="@style/ListTextStyle" />
 
     <net.chinawuyue.mls.InterceptScrollContainer
         android:id="@+id/scroollContainter"
@@ -41,14 +41,14 @@
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
 			        android:text="申请流水号"
-			        android:textSize="@dimen/listview_text_size" />
+			        style="@style/ListTextStyle" />
 			
 			    <TextView
 			        android:id="@+id/customerID"
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
 			        android:text="客户编号"
-			        android:textSize="@dimen/listview_text_size" />
+			        style="@style/ListTextStyle" />
 			
 			    
 			
@@ -57,42 +57,42 @@
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
 			        android:text="业务品种"
-			        android:textSize="@dimen/listview_text_size" />
+			        style="@style/ListTextStyle" />
 			
 			    <TextView
 			        android:id="@+id/businessSUM"
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
 			        android:text="申请金额"
-			        android:textSize="@dimen/listview_text_size" />
+			        style="@style/ListTextStyle" />
 			
 			    <TextView
 			        android:id="@+id/objectType"
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
 			        android:text="对象类型"
-			        android:textSize="@dimen/listview_text_size" />
+			        style="@style/ListTextStyle" />
 			
 			    <TextView
 			        android:id="@+id/manageUserName"
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
 			        android:text="管户人"
-			        android:textSize="@dimen/listview_text_size" />
+			        style="@style/ListTextStyle" />
 			
 			    <TextView
 			        android:id="@+id/manageOrgName"
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
 			        android:text="管户机构"
-			        android:textSize="@dimen/listview_text_size" />
+			        style="@style/ListTextStyle" />
 			
 			    <TextView
 			        android:id="@+id/inputDate"
 			        android:layout_width="@dimen/listview_item_width"
 			        android:layout_height="wrap_content"
 			        android:text="创建日期"
-			        android:textSize="@dimen/listview_text_size" />
+			        style="@style/ListTextStyle" />
             </LinearLayout>
         </net.chinawuyue.mls.MyHScrollView>
     </net.chinawuyue.mls.InterceptScrollContainer>

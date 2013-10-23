@@ -13,7 +13,7 @@
         android:layout_width="@dimen/listview_item_width"
         android:layout_height="wrap_content"
         android:text="序号"
-        android:textSize="@dimen/listview_text_size"
+        style="@style/ListTextStyle"
         android:visibility="gone" />
 
     <TextView
@@ -21,7 +21,7 @@
         android:layout_width="@dimen/listview_item_width"
         android:layout_height="wrap_content"
         android:text="工程名称"
-        android:textSize="@dimen/listview_text_size" />
+        style="@style/ListTextStyle" />
 
     <net.chinawuyue.mls.InterceptScrollContainer
         android:id="@+id/scroollContainter"
@@ -49,168 +49,168 @@
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="合计笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance1"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="合计余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count2"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="本期发放笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance2"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="本期发放余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count3"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="本期收回笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance3"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="本期收回余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count4"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="(50万元(含)以下)合计笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance4"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="(50万元(含)以下)合计余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count5"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="(50万元(含)以下)本期发放笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance5"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="(50万元(含)以下)本期发放余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count6"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="(50万元(含)以下)本期收回笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance6"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="(50万元(含)以下)本期收回余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count7"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="(50-500(含)万元)合计笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance7"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="(50-500(含)万元)合计余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count8"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="(50-500(含)万元)本期发放笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance8"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="(50-500(含)万元)本期发放余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count9"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="(50-500(含)万元)本期收回笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance9"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="(50-500(含)万元)本期收回余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count10"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="(500万元以上)合计笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance10"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="(500万元以上)合计余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count11"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="(500万元以上)本期发放笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance11"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="(500万元以上)本期发放余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count12"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="(500万元以上)本期收回笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance12"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="(500万元以上)本期收回余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
             </LinearLayout>
         </net.chinawuyue.mls.MyHScrollView>
     </net.chinawuyue.mls.InterceptScrollContainer>

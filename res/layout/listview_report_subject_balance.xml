@@ -13,7 +13,7 @@
         android:layout_width="@dimen/listview_item_width"
         android:layout_height="wrap_content"
         android:text="科目名称"
-        android:textSize="@dimen/listview_text_size" />
+        style="@style/ListTextStyle" />
 
     <net.chinawuyue.mls.InterceptScrollContainer
         android:id="@+id/scroollContainter"
@@ -41,7 +41,7 @@
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="单位编号"
-                    android:textSize="@dimen/listview_text_size"
+                    style="@style/ListTextStyle"
                     android:visibility="gone" />
 
                 <TextView
@@ -49,14 +49,14 @@
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="单位名称"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_subjectno"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="科目编号"
-                    android:textSize="@dimen/listview_text_size"
+                    style="@style/ListTextStyle"
                     android:visibility="gone" />
 
                 <TextView
@@ -64,84 +64,84 @@
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="各项贷款笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance1"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="各项贷款余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count2"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="正常笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance2"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="正常余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count3"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="关注笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance3"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="关注余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count4"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="次级笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance4"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="次级余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count5"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="可疑笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance5"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="可疑余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count6"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="损失笔数"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance6"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="损失余额"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
             </LinearLayout>
         </net.chinawuyue.mls.MyHScrollView>
     </net.chinawuyue.mls.InterceptScrollContainer>

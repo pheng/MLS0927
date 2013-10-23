@@ -13,7 +13,7 @@
         android:layout_width="@dimen/listview_item_width"
         android:layout_height="wrap_content"
         android:text="单位编号"
-        android:textSize="@dimen/listview_text_size"
+        style="@style/ListTextStyle"
         android:visibility="gone" />
 
     <TextView
@@ -21,7 +21,7 @@
         android:layout_width="@dimen/listview_item_width"
         android:layout_height="wrap_content"
         android:text="单位名称"
-        android:textSize="@dimen/listview_text_size" />
+        style="@style/ListTextStyle" />
 
     <net.chinawuyue.mls.InterceptScrollContainer
         android:id="@+id/scroollContainter"
@@ -49,476 +49,476 @@
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="各项贷款合计(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance1"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="各项贷款合计(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum1"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="各项贷款合计(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio1"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="各项贷款合计(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count2"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="信用小计(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance2"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="信用小计(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum2"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="信用小计(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio2"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="信用小计(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count3"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="农户小额信用贷款(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance3"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="农户小额信用贷款(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum3"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="农户小额信用贷款(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio3"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="农户小额信用贷款(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count4"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="自然人信用贷款(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance4"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="自然人信用贷款(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum4"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="自然人信用贷款(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio4"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="自然人信用贷款(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count5"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="法人信用贷款(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance5"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="法人信用贷款(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum5"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="法人信用贷款(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio5"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="法人信用贷款(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count6"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="保证小计(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance6"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="保证小计(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum6"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="保证小计(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio6"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="保证小计(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count7"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="自然人保证(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance7"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="自然人保证(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum7"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="自然人保证(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio7"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="自然人保证(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count8"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="担保公司保证(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance8"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="担保公司保证(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum8"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="担保公司保证(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio8"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="担保公司保证(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count9"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="法人客户保证(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance9"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="法人客户保证(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum9"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="法人客户保证(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio9"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="法人客户保证(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count10"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="联保保证及其它(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance10"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="联保保证及其它(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum10"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="联保保证及其它(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio10"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="联保保证及其它(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count11"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="抵押(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance11"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="抵押(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum11"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="抵押(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio11"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="抵押(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count12"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="质押(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance12"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="质押(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum12"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="质押(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio12"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
                     android:text="质押(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count13"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:5万元(含)以下(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance13"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:5万元(含)以下(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum13"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:5万元(含)以下(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio13"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:5万元(含)以下(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count14"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:5-100万元(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance14"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:5-100万元(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum14"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:5-100万元(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio14"
                     android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:5-100万元(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count15"
                     android:layout_width="@dimen/listview_item_width_xxl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:100(含)万元-500万元(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance15"
                     android:layout_width="@dimen/listview_item_width_xxl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:100(含)万元-500万元(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum15"
                     android:layout_width="@dimen/listview_item_width_xxl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:100(含)万元-500万元(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio15"
                     android:layout_width="@dimen/listview_item_width_xxl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:100(含)万元-500万元(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count16"
                     android:layout_width="@dimen/listview_item_width_xxl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:500万元(含)-1000万元(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance16"
                     android:layout_width="@dimen/listview_item_width_xxl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:500万元(含)-1000万元(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum16"
                     android:layout_width="@dimen/listview_item_width_xxl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:500万元(含)-1000万元(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio16"
                     android:layout_width="@dimen/listview_item_width_xxl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:500万元(含)-1000万元(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_count17"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:1000万元(含)以上(户数)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_balance17"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:1000万元(含)以上(余额)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_sum17"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:1000万元(含)以上(净增)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
 
                 <TextView
                     android:id="@+id/t_ratio17"
                     android:layout_width="@dimen/listview_item_width_xl"
                     android:layout_height="wrap_content"
                     android:text="按余额统计:1000万元(含)以上(同比)"
-                    android:textSize="@dimen/listview_text_size" />
+                    style="@style/ListTextStyle" />
             </LinearLayout>
         </net.chinawuyue.mls.MyHScrollView>
     </net.chinawuyue.mls.InterceptScrollContainer>

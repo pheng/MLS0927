@@ -4,19 +4,23 @@
 
     <color name="md__defaultBackground">#FF555555</color>
     
-    <color name="red">#E7360E</color>
+    <!-- <color name="red">#E7360E</color> -->
+    <color name="red">#7968E7</color>
     <color name="blue">#0000FF</color>
     <color name="green">#CC00FF00</color>
+    <color name="white">#FFFFFF</color>
     <color name="silver">#FFC0C0C0</color>
     
     <color name="slate_gray">#FF708090</color>
     <color name="light_gray">#22708090</color>
     <color name="slate_blue">#FF6A5ACD</color>
-    <color name="title_color">#CE0000</color>
+    <!-- <color name="title_color">#CE0000</color> -->
+    <color name="title_color">#7968E7</color>
     <color name="bg_color">#FDFDFD</color>
     <color name="bg_color2">#ADADAD</color>
     
     <color name="black">#000000</color>
     
-    <color name="list_title_color">#E7360E</color>
+    <!-- <color name="list_title_color">#E7360E</color> -->
+    <color name="list_title_color">#2222FF</color>
 </resources>
