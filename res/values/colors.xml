@@ -18,7 +18,7 @@
     <color name="title_color">#7968E7</color>
     <color name="bg_color">#FDFDFD</color>
     <color name="bg_color2">#ADADAD</color>
-    
+    <color name="login_back">#AAFFFFFF</color>
     <color name="black">#000000</color>
     
     <!-- <color name="list_title_color">#E7360E</color> -->
