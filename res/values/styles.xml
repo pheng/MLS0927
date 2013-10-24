@@ -42,6 +42,7 @@
     </style>
     
     <style name="spinner">
+        <item name="android:background">@drawable/masi_spinner_dialog</item>
     </style>
     
     <style name="ListTextStyle">
