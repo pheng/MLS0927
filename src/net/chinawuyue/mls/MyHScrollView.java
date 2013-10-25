@@ -34,7 +34,12 @@ public class MyHScrollView extends HorizontalScrollView {
 	
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
-		return super.onTouchEvent(ev);
+		try {
+			return super.onTouchEvent(ev);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	@Override

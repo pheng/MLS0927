@@ -79,6 +79,7 @@ public class LoginActivity extends SherlockActivity {
 		//获得设备号
 		TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE); 
 		deviceId = tm.getDeviceId();
+		System.out.println(deviceId);
 		
 		view_userName = (EditText) findViewById(R.id.login_edit_account);
 		view_password = (EditText) findViewById(R.id.login_edit_pwd);
