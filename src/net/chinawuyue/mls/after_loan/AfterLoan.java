@@ -594,6 +594,7 @@ public class AfterLoan implements IXListViewListener {
 				});
 			}
 			isScrolled = false;
+			touchUp = true;
 		}
 	};
 
@@ -639,10 +640,13 @@ public class AfterLoan implements IXListViewListener {
 			HorizontalScrollView headSrcrollView = (HorizontalScrollView) mHead
 					.findViewById(R.id.horizontalScrollView1);
 			headSrcrollView.onTouchEvent(arg1);
+			touchUp = false;
 			return false;
 		}
 	}
 
+	private boolean touchUp = false;
+	
 	class OnScrollChangedListenerImp implements OnScrollChangedListener {
 		MyHScrollView mScrollViewArg;
 
@@ -654,7 +658,7 @@ public class AfterLoan implements IXListViewListener {
 		public void onScrollChanged(int l, int t, int oldl, int oldt) {
 			mScrollViewArg.smoothScrollTo(l, t);
 			isScrollLeft = l <= 0;
-			if(Math.abs(l-oldl)>1)
+			if(Math.abs(l-oldl)>1&&!touchUp)
 				isScrolled = true;
 		}
 	};

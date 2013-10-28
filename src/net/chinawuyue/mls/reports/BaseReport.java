@@ -145,6 +145,7 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 			HorizontalScrollView headSrcrollView = (HorizontalScrollView) mHead
 					.findViewById(R.id.horizontalScrollView1);
 			headSrcrollView.onTouchEvent(arg1);
+			touchUp = false;
 			return false;
 		}
 	}
@@ -218,6 +219,8 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 		this.activityClass = activityClass;
 	}
 
+	private boolean touchUp = false;
+	
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long arg3) {
 		// 没有滑动的情况下点击
@@ -225,6 +228,7 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 			intentTo(pos);
 		}
 		isScrolled = false;
+		touchUp = true;
 	}
 
 	// 跳转到其他界面
@@ -258,7 +262,7 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 			// 设置是否滑动到最左边
 			isScrollLeft = l <= 0;
 			// 设置是否滑动过
-			if(Math.abs(l-oldl)>1)
+			if(Math.abs(l-oldl)>1&&!touchUp)
 				isScrolled = true;
 		}
 	};
