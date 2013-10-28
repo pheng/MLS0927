@@ -292,14 +292,13 @@ public class LoginActivity extends SherlockActivity {
 			if (loginState && !isUpdate) {
 				//是否不同用户登录
 				isNewUserLogin = !userName.equals(userName1);
-				//启动后台任务轮询服务
-				if(loginInfo.role != null && loginInfo.role.equalsIgnoreCase("1")){
-					//董事长级别的用户
-					Intent intentSer = new Intent();
-					intentSer.setClass(LoginActivity.this, UndoTaskService.class);
-					intentSer.putExtra("loginInfo", (Serializable)loginInfo);
-					startService(intentSer);
-				}
+				
+				//启动后台设备、任务轮询服务
+				Intent intentSer = new Intent();
+				intentSer.setClass(LoginActivity.this, UndoTaskService.class);
+				intentSer.putExtra("loginInfo", (Serializable)loginInfo);
+				startService(intentSer);
+				
 				// 需要传输数据到登陆后的界面
 				Intent intent = new Intent();
 				intent.setClass(LoginActivity.this, MainActivity.class);

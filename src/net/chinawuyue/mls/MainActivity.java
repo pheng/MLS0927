@@ -22,8 +22,10 @@ import net.chinawuyue.mls.util.ActivityUtil;
 import net.simonvt.menudrawer.MenuDrawer;
 import net.simonvt.menudrawer.MenuDrawer.OnDrawerStateChangeListener;
 import net.simonvt.menudrawer.Position;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.KeyEvent;
@@ -70,6 +72,7 @@ public class MainActivity extends SherlockActivity {
 	private boolean isMenuOpened = false; // 菜单是否打开
 	public String COUNT1 = ""; // 未处理的贷款申请审批笔数
 	public String COUNT2 = ""; // 待完成贷后检查笔数
+	private static Boolean isDevice = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -175,6 +178,7 @@ public class MainActivity extends SherlockActivity {
 
 		// 获得登录信息
 		LoginInfo loginInfo = (LoginInfo)this.getIntent().getSerializableExtra("loginInfo");
+		isDevice = this.getIntent().getBooleanExtra("isDevice", false);
 		// 初始化 工作台 数据
 		COUNT1 = loginInfo.count1;
 		COUNT2 = loginInfo.count2;
@@ -186,9 +190,25 @@ public class MainActivity extends SherlockActivity {
 		dialog = new ReportSettingDialog(this, mMenuDrawer,loginInfo);
 		ActivityUtil.activityList.add(this);
 		ActivityUtil.exitCount = 0;
-		setTodoView();
 	}
-
+	
+	@Override
+	protected void onNewIntent(Intent intent) {
+		// TODO Auto-generated method stub
+		Log.d(TAG, "onNewIntent-------------");
+		super.onNewIntent(intent);
+		// 获得登录信息
+		LoginInfo loginInfo = (LoginInfo)this.getIntent().getSerializableExtra("loginInfo");
+		Boolean isDevice = this.getIntent().getBooleanExtra("isDevice", false);
+		// 初始化 工作台 数据
+		COUNT1 = loginInfo.count1;
+		COUNT2 = loginInfo.count2;
+		if(isDevice){
+			setSysView();
+			isDevice = false;
+		}
+	}
+	
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
@@ -287,7 +307,14 @@ public class MainActivity extends SherlockActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		this.menu = menu;
-		showMenu();
+		if(isDevice){
+			mMenuDrawer.setActiveView(mList.getChildAt(5), 5);
+			setSysView();
+			isDevice = false;
+		}else{
+			mMenuDrawer.setActiveView(mList.getChildAt(0), 0);
+			setTodoView();
+		}
 		return super.onCreateOptionsMenu(menu);
 	}
 
