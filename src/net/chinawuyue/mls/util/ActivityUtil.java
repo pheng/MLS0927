@@ -20,13 +20,14 @@ public class ActivityUtil {
 		if(++exitCount<2){
 			Toast.makeText(context, "再次按返回将退出程序", 1).show();
 		}else{
+			for(Service ser : serviceList){
+				ser.stopSelf();
+			}
+			
 			for (Activity act : activityList) {
 				act.finish();
 			}
 			
-			for(Service ser : serviceList){
-				ser.stopSelf();
-			}
 		}
 	}
 }

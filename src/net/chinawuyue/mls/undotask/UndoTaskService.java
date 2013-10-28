@@ -249,6 +249,13 @@ public class UndoTaskService extends Service{
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
+		if(not_device != null){
+			notManager.cancel(NOT_ID_DEVICE);
+		}
+		if(not != null){
+			Log.d(TAG, "notification is not null");
+			notManager.cancel(NOT_ID);
+		}
 		System.exit(0);
 	}
 
