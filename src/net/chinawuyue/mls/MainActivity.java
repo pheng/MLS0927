@@ -59,7 +59,7 @@ public class MainActivity extends SherlockActivity {
 	private MenuDrawer mMenuDrawer; // 滑动菜单
 	private MenuAdapter mAdapter;
 	private ListView mList;
-	private Menu menu = null; // ActionBar的菜单
+	private SubMenu submenu = null; // ActionBar的菜单
 	private Todo todo = null; // 工作台功能
 	private BeforeLoan beforeLoan = null; // 贷前审查功能
 	private BaseReport reports = null; // 报表功能
@@ -306,7 +306,7 @@ public class MainActivity extends SherlockActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		this.menu = menu;
+		submenu = menu.addSubMenu("");
 		if(isDevice){
 			mMenuDrawer.setActiveView(mList.getChildAt(5), 5);
 			setSysView();
@@ -320,9 +320,9 @@ public class MainActivity extends SherlockActivity {
 
 	/** 显示ActionBar菜单 */
 	private void showMenu() {
-		menu.clear();
-		SubMenu submenu = menu.addSubMenu("");
-		MenuItem item = (MenuItem) submenu.getItem();
+		submenu.clear();
+		MenuItem item = submenu.getItem();
+		item.setIcon(0);
 		item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS
 				| MenuItem.SHOW_AS_ACTION_WITH_TEXT);
 		switch (currentContent) {
@@ -330,86 +330,32 @@ public class MainActivity extends SherlockActivity {
 			// 添加工作台ActionBar菜单
 			break;
 		case 1:
-			// 添加贷款审核ActionBar菜单
 			item.setIcon(R.drawable.ic_menu_view);
-//			item.setIcon(android.R.drawable.ic_menu_view);
+			// 添加贷款审核ActionBar菜单
 			submenu.add(0, Constant.BeforeLoanConstan.KIND_UNFINISH, 0, "待审批");
 			submenu.add(0, Constant.BeforeLoanConstan.KIND_REJECT, 0, "被退回");
 			submenu.add(0, Constant.BeforeLoanConstan.KIND_FINISH, 0, "已审批");
-			// item.setTitle("审批");
 			break;
 		case 2:
-			// 添加报表查询ActionBar菜单
 			item.setIcon(R.drawable.ic_menu_view);
-//			item.setIcon(android.R.drawable.ic_menu_view);
-			submenu.add(0, ITEM1, 0,
-					this.getResources().getString(R.string.report_loan_balance));
-			submenu.add(
-					0,
-					ITEM2,
-					0,
-					this.getResources().getString(
-							R.string.report_business_survey));
-			submenu.add(
-					0,
-					ITEM3,
-					0,
-					this.getResources().getString(
-							R.string.report_subject_balance));
-			submenu.add(
-					0,
-					ITEM4,
-					0,
-					this.getResources().getString(
-							R.string.report_loan_analysis1));
-			submenu.add(
-					0,
-					ITEM5,
-					0,
-					this.getResources().getString(
-							R.string.report_loan_analysis2));
-			submenu.add(
-					0,
-					ITEM6,
-					0,
-					this.getResources().getString(
-							R.string.report_loan_analysis3));
-			submenu.add(
-					0,
-					ITEM7,
-					0,
-					this.getResources().getString(
-							R.string.report_report_setting));
-			// item.setTitle("报表类型");
+			// 添加报表查询ActionBar菜单
+			submenu.add(0,ITEM1,0,this.getResources().getString(R.string.report_loan_balance));
+			submenu.add(0,ITEM2,0,this.getResources().getString(R.string.report_business_survey));
+			submenu.add(0,ITEM3,0,this.getResources().getString(R.string.report_subject_balance));
+			submenu.add(0,ITEM4,0,this.getResources().getString(R.string.report_loan_analysis1));
+			submenu.add(0,ITEM5,0,this.getResources().getString(R.string.report_loan_analysis2));
+			submenu.add(0,ITEM6,0,this.getResources().getString(R.string.report_loan_analysis3));
+			submenu.add(0,ITEM7,0,this.getResources().getString(R.string.report_report_setting));
 			break;
 		case 3:
-			// 添加贷后审查ActionBar菜单
 			item.setIcon(R.drawable.ic_menu_view);
-//			item.setIcon(android.R.drawable.ic_menu_view);
-			submenu.add(0, Constant.AfterLoanConstan.KIND_FIRST_UNFINISH, 0,
-					"待完成(首次)");
-			submenu.add(0, Constant.AfterLoanConstan.KIND_FIRST_FINISH, 0,
-					"已完成(首次)");
-			submenu.add(0, Constant.AfterLoanConstan.KIND_FIRST_PAST, 0,
-					"过期未完成(首次)");
-			// item.setTitle("首次");
-			submenu.add(0, Constant.AfterLoanConstan.KIND_COMMON_UNFINISH, 0,
-					"待完成(常规)");
-			submenu.add(0, Constant.AfterLoanConstan.KIND_COMMON_FINISH, 0,
-					"已完成(常规)");
-			submenu.add(0, Constant.AfterLoanConstan.KIND_COMMON_PAST, 0,
-					"过期未完成(常规)");
-
-			// SubMenu submenu2 = menu.addSubMenu("常规");
-			// submenu2.add(1, Constant.AfterLoanConstan.KIND_COMMON_UNFINISH,
-			// 1, "待完成");
-			// submenu2.add(1, Constant.AfterLoanConstan.KIND_COMMON_FINISH, 1,
-			// "已完成");
-			// submenu2.add(1, Constant.AfterLoanConstan.KIND_COMMON_PAST, 1,
-			// "过期未完成");
-			// MenuItem itemAfterLoan2 = (MenuItem) submenu2.getItem();
-			// itemAfterLoan2.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS |
-			// MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+			// 添加贷后审查ActionBar菜单
+			submenu.add(0, Constant.AfterLoanConstan.KIND_FIRST_UNFINISH, 0,"待完成(首次)");
+			submenu.add(0, Constant.AfterLoanConstan.KIND_FIRST_FINISH, 0,"已完成(首次)");
+			submenu.add(0, Constant.AfterLoanConstan.KIND_FIRST_PAST, 0,"过期未完成(首次)");
+			submenu.add(0, Constant.AfterLoanConstan.KIND_COMMON_UNFINISH, 0,"待完成(常规)");
+			submenu.add(0, Constant.AfterLoanConstan.KIND_COMMON_FINISH, 0,	"已完成(常规)");
+			submenu.add(0, Constant.AfterLoanConstan.KIND_COMMON_PAST, 0,"过期未完成(常规)");
 			break;
 		case 4:
 			// 添加系统公告ActionBar菜单

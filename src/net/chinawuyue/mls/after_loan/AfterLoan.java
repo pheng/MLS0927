@@ -658,7 +658,7 @@ public class AfterLoan implements IXListViewListener {
 		public void onScrollChanged(int l, int t, int oldl, int oldt) {
 			mScrollViewArg.smoothScrollTo(l, t);
 			isScrollLeft = l <= 0;
-			if(Math.abs(l-oldl)>1&&!touchUp)
+			if(Math.abs(l-oldl)>Constant.MAX_SCROLL_DISTANCE&&!touchUp)
 				isScrolled = true;
 		}
 	};

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import net.chinawuyue.mls.MyHScrollView;
 import net.chinawuyue.mls.MyHScrollView.OnScrollChangedListener;
+import net.chinawuyue.mls.Constant;
 import net.chinawuyue.mls.R;
 import net.chinawuyue.mls.XListView;
 import net.chinawuyue.mls.board.BoardReport;
@@ -262,7 +263,7 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 			// 设置是否滑动到最左边
 			isScrollLeft = l <= 0;
 			// 设置是否滑动过
-			if(Math.abs(l-oldl)>1&&!touchUp)
+			if(Math.abs(l-oldl)>Constant.MAX_SCROLL_DISTANCE&&!touchUp)
 				isScrolled = true;
 		}
 	};

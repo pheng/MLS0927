@@ -376,7 +376,6 @@ public class LoginActivity extends SherlockActivity {
 				Toast.makeText(LoginActivity.this, "没有检测到SD卡,请插卡重试.",
 						Toast.LENGTH_LONG).show();
 			}
-
 		}
 	};
 

@@ -2,6 +2,8 @@ package net.chinawuyue.mls;
 
 public class Constant {
 
+	public static final int MAX_SCROLL_DISTANCE = 1;
+	
 	public static class AfterLoanConstan{
 		public static final int AFTER_LOAN = 1000;
 		
