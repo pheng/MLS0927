@@ -46,7 +46,7 @@ public class BoardActivity extends SherlockActivity {
 		//根据报表不同添加不同的菜单
 		subMenu1.add(0, ITEM1, 0, R.string.back);
 		MenuItem subMenu1Item = subMenu1.getItem();
-		subMenu1Item.setIcon(android.R.drawable.ic_menu_view);
+		subMenu1Item.setIcon(R.drawable.ic_menu_view);
 		subMenu1Item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS
 				| MenuItem.SHOW_AS_ACTION_WITH_TEXT);
 		return super.onCreateOptionsMenu(menu);
