@@ -237,6 +237,9 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 		Intent intent = new Intent(context, activityClass);
 		Bundle bun = new Bundle();
 		// 传值 当行数据和报表类型
+		if(xItems == null || xItems.size() < 1){
+			return;
+		}
 		bun.putSerializable("map", (Serializable) xItems.get(pos - 1));
 		bun.putSerializable("reportType", reportType);
 		intent.putExtras(bun);

@@ -382,6 +382,9 @@ public class BeforeLoan implements IXListViewListener {
 		public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 				long arg3) {
 			if (!isScrolled) {
+				if(xItems == null || xItems.size() < 1){
+					return;
+				}
 				String serialNO = xItems.get(position - 1).getSerialNO();
 				xLoanDetReq = xRequest.new LoanDetailRequest(serialNO);
 				OBJECTTYPE = xItems.get(position - 1).getObjectType();

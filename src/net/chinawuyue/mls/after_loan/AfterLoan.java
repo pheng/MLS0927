@@ -568,10 +568,16 @@ public class AfterLoan implements IXListViewListener {
 				String oBJECTNO = null;
 				String oBJECTTYPE = null;
 				if (kind < Constant.AfterLoanConstan.KIND_COMMON) {
+					if(xItems == null || xItems.size() < 1){
+						return;
+					}
 					oBJECTNO = xItems.get(position - 1).getIiSerialNo();
 					oBJECTTYPE = "010";
 					customerName = xItems.get(position - 1).getCustomerName();
 				} else {
+					if(xCommonItems == null || xCommonItems.size() < 1){
+						return;
+					}
 					oBJECTNO = xCommonItems.get(position - 1).getIiSerialNo();
 					oBJECTTYPE = "020";
 					customerName = xCommonItems.get(position - 1).getCustomerName();
