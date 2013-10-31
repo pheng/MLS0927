@@ -80,6 +80,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 	 * false 意见未签署，显示默认值，用户需要签署意见，才能提交
 	 */
 	private boolean modifyFlag;
+	
 	private BeforeLoanRequest xRequest;
 	private BeforeLoanRequest.LoanSignOptionRe xSignOptRe;
 	private BeforeLoanRequest.NextSignPerListRe xSignPerListRe;
@@ -143,7 +144,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub
 		SubMenu mSubMenu = menu.addSubMenu("");
-		mSubMenu.add(0, ITEM1, 0, "签署意见");
+		mSubMenu.add(0, ITEM1, 0, "保存意见");
 		mSubMenu.add(0, ITEM2, 0, "提交");
 		mSubMenu.add(0, ITEM3, 0, "返回");
 		MenuItem item = mSubMenu.getItem();
@@ -157,7 +158,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case ITEM1:
-			//签署意见
+			//保存意见
 			signIdea();
 			break;
 		case ITEM2:
@@ -326,10 +327,10 @@ public class ChangeIdeaActivity extends SherlockActivity{
 			}
 			if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("N")){
 				//意见签署成功
-				Toast.makeText(getApplicationContext(), "签署意见成功，可以进行提交！", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "意见保存成功，可以进行提交！", Toast.LENGTH_SHORT).show();
 			}else{
 				//请求签署意见失败,提示用户错误
-				Toast.makeText(getApplicationContext(), "请求签署意见失败,请稍后重试！", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "意见修改,请稍后重试！", Toast.LENGTH_SHORT).show();
 			}
 		};
 	};
@@ -382,7 +383,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 				parsePerList(json);
 				showSubmitDialog();
 			}else if(ERRORCODE != null && ERRORCODE.equalsIgnoreCase("SH0003")){
-				Toast.makeText(getApplicationContext(), "请先签署意见后在提交！", Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), "请先保存意见后在提交！", Toast.LENGTH_LONG).show();
 			}else{
 				//请求下一级审批人列表失败
 				Toast.makeText(getApplicationContext(), "请求提交异常,请稍后重试！", Toast.LENGTH_SHORT).show();
@@ -544,7 +545,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 				Toast.makeText(getApplicationContext(), "提交失败，交易码不存在！", Toast.LENGTH_SHORT).show();
 			}else if(ERRORCODE != null && ERRORCODE.equalsIgnoreCase("SH0003")){
 				//提交失败,提示用户错误
-				Toast.makeText(getApplicationContext(), "提交失败，意见未签署！", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "提交失败，意见未保存！", Toast.LENGTH_SHORT).show();
 			}else if(ERRORCODE != null && ERRORCODE.equalsIgnoreCase("SH0004")){
 				//提交失败,提示用户错误
 				Toast.makeText(getApplicationContext(), "提交失败，无审批权限！", Toast.LENGTH_SHORT).show();
