@@ -602,6 +602,8 @@ public class AfterLoan implements IXListViewListener {
 					}
 				});
 			}
+			isScrolled = false;
+			touchUp = true;
 		}
 	};
 
@@ -648,26 +650,13 @@ public class AfterLoan implements IXListViewListener {
 			HorizontalScrollView headSrcrollView = (HorizontalScrollView) mHead
 					.findViewById(R.id.horizontalScrollView1);
 			headSrcrollView.onTouchEvent(arg1);
-			
-			//100ms内可以进入item单击事件
-			switch (arg1.getAction()) {
-			case MotionEvent.ACTION_UP:
-				long clikTime = arg1.getEventTime() - arg1.getDownTime();
-				Log.d(TAG, "clikTime--" + clikTime);
-				if(clikTime < Constant.IS_SCORLL_TIME){
-					isScrolled = false;
-				}else{
-					isScrolled = true;
-				}
-				break;
-			default:
-				break;
-			}
-			
+			touchUp = false;
 			return false;
 		}
 	}
 
+	private boolean touchUp = false;
+	
 	class OnScrollChangedListenerImp implements OnScrollChangedListener {
 		MyHScrollView mScrollViewArg;
 
@@ -679,6 +668,8 @@ public class AfterLoan implements IXListViewListener {
 		public void onScrollChanged(int l, int t, int oldl, int oldt) {
 			mScrollViewArg.smoothScrollTo(l, t);
 			isScrollLeft = l <= 0;
+			if(Math.abs(l-oldl)>Constant.MAX_SCROLL_DISTANCE&&!touchUp)
+				isScrolled = true;
 		}
 	};
 
