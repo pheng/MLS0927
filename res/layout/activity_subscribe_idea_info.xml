@@ -78,7 +78,7 @@
 	  		android:layout_marginTop="15dip"
 	  		android:text="@string/APPROVEBUSINESSSUM"
 	  		android:layout_below="@id/text_businesssum"/>
-	  	<EditText android:id="@+id/edit_approvebusinesssum_info"
+	  	<TextView android:id="@+id/edit_approvebusinesssum_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
 	  		style="@style/LoanContent"
@@ -86,8 +86,7 @@
 	  		android:layout_toRightOf="@id/text_serialno"
 	  		android:layout_below="@id/text_businesssum"
 	  		android:layout_alignBaseline="@id/text_approvebusinesssum"
-	  		android:inputType="number"
-	  		android:hint="edit"/>
+	  		/>
 	  	
 	  	<TextView android:id="@+id/text_approveratefloat"
 	  		android:layout_width="140dip"
@@ -97,7 +96,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/APPROVERATEFLOAT"
 	  		android:layout_below="@id/edit_approvebusinesssum_info"/>
-	  	<EditText android:id="@+id/edit_approveratefloat_info"
+	  	<TextView android:id="@+id/edit_approveratefloat_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
 	  		style="@style/LoanContent"
@@ -105,8 +104,7 @@
 	  		android:layout_toRightOf="@id/text_serialno"
 	  		android:layout_below="@id/edit_approvebusinesssum_info"
 	  		android:layout_alignBaseline="@id/text_approveratefloat"
-	  		android:inputType="number"
-	  		android:hint="edit"/>
+	  		/>
 	  	
 	  	<TextView android:id="@+id/text_approvebusinessrate"
 	  		android:layout_width="140dip"
@@ -116,7 +114,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/APPROVEBUSINESSRATE"
 	  		android:layout_below="@id/edit_approveratefloat_info"/>
-	  	<EditText android:id="@+id/edit_approvebusinessrate_info"
+	  	<TextView android:id="@+id/edit_approvebusinessrate_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
 	  		style="@style/LoanContent"
@@ -124,8 +122,7 @@
 	  		android:layout_toRightOf="@id/text_serialno"
 	  		android:layout_below="@id/edit_approveratefloat_info"
 	  		android:layout_alignBaseline="@id/text_approvebusinessrate"
-	  		android:inputType="number"
-	  		android:hint="edit"/>
+	  		/>
 	  	
 	  	<TextView android:id="@+id/text_approvetermmonth"
 	  		android:layout_width="140dip"
@@ -135,7 +132,7 @@
 	  		android:layout_marginTop="10dip"
 	  		android:text="@string/APPROVETERMMONTH"
 	  		android:layout_below="@id/edit_approvebusinessrate_info"/>
-	  	<EditText android:id="@+id/edit_approvetermmonth_info"
+	  	<TextView android:id="@+id/edit_approvetermmonth_info"
 	  		android:layout_width="180dip"
 	  		android:layout_height="wrap_content"
 	  		style="@style/LoanContent"
@@ -143,8 +140,7 @@
 	  		android:layout_toRightOf="@id/text_serialno"
 	  		android:layout_below="@id/edit_approvebusinessrate_info"
 	  		android:layout_alignBaseline="@id/text_approvetermmonth"
-	  		android:inputType="number"
-	  		android:hint="edit"/>
+	  		/>
 	  	
 	  	<TextView android:id="@+id/text_phasechoice"
 	  		android:layout_width="140dip"
@@ -193,6 +189,24 @@
 	  		android:layout_below="@id/radiogroup_phasechoice"
 	  		android:layout_alignBaseline="@id/text_phaseopinion"
 	  		android:hint="请签署意见"/>
+	  	
+	  	<Button android:id="@+id/sigBtn"
+	  	    android:layout_width="120dip"
+	  	    android:layout_height="wrap_content"
+	  	    android:gravity="center"
+	  	    android:layout_marginTop="10dip"
+	  	    android:layout_below="@+id/edit_phaseopinion_info"
+	  	    android:layout_alignRight="@id/text_phaseopinion"
+	  	    android:layout_marginRight="10dip"
+	  	    android:text="保存意见"/>
+	  	<Button android:id="@+id/subBtn"
+	  	    android:layout_width="120dip"
+	  	    android:layout_height="wrap_content"
+	  	    android:gravity="center"
+	  	    android:layout_alignTop="@+id/sigBtn"
+	  	    android:layout_toRightOf="@+id/sigBtn"
+	  	    android:layout_marginLeft="10dip"
+	  	    android:text="提    交"/>
 	
 	  </RelativeLayout>
 	</ScrollView>

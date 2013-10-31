@@ -298,6 +298,17 @@ public class MainActivity extends SherlockActivity {
 	}
 
 	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		if(requestCode == Constant.BeforeLoanConstan.REQUEST_CODE 
+				&& resultCode == Constant.BeforeLoanConstan.RESULT_CODE_TRUE){
+			Log.d(TAG, "successful, refresh!");
+			beforeLoan.onRefresh();
+		}
+	}
+
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		submenu = menu.addSubMenu("");
 		if(isDevice){
