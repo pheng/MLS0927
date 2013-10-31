@@ -239,16 +239,12 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 		this.activityClass = activityClass;
 	}
 
-	private boolean touchUp = false;
-	
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long arg3) {
 		// 没有滑动的情况下点击
 		if (!isScrolled) {
 			intentTo(pos);
 		}
-		isScrolled = false;
-		touchUp = true;
 	}
 
 	// 跳转到其他界面
@@ -284,9 +280,6 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 			mScrollViewArg.smoothScrollTo(l, t);
 			// 设置是否滑动到最左边
 			isScrollLeft = l <= 0;
-			// 设置是否滑动过
-			if(Math.abs(l-oldl)>Constant.MAX_SCROLL_DISTANCE&&!touchUp)
-				isScrolled = true;
 		}
 	};
 
