@@ -58,7 +58,7 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 	public static final String PROJECTNAME = "PROJECTNAME";
 	public static final String SUPERORGID = "SUPERORGID";
 	public static final String SUPERORGNAME = "SUPERORGNAME";
-	public static final String BUSSINESSNAME = "BUSSINESSNAME";
+	public static final String BUSSINESSNAME = "BUSINESSNAME";
 	public static final String VOUCHNAME = "VOUCHNAME";
 	public static final String INDUSTRYNAME = "INDUSTRYNAME";
 	public static final String SUM = "SUM";
