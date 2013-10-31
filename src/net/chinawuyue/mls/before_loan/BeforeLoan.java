@@ -406,6 +406,8 @@ public class BeforeLoan implements IXListViewListener {
 					}
 				});
 			}
+			isScrolled = false;
+			touchUp = true;
 		}
 	};
 
@@ -477,6 +479,8 @@ public class BeforeLoan implements IXListViewListener {
 		}
 	}
 
+	private boolean touchUp = false;
+	
 	class OnScrollChangedListenerImp implements OnScrollChangedListener {
 		MyHScrollView mScrollViewArg;
 
@@ -488,6 +492,8 @@ public class BeforeLoan implements IXListViewListener {
 		public void onScrollChanged(int l, int t, int oldl, int oldt) {
 			mScrollViewArg.smoothScrollTo(l, t);
 			isScrollLeft = l <= 0;
+			if(Math.abs(l-oldl)>Constant.MAX_SCROLL_DISTANCE&&!touchUp)
+				isScrolled = true;
 		}
 	};
 
