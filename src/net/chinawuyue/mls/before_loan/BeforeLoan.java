@@ -452,28 +452,27 @@ public class BeforeLoan implements IXListViewListener {
 		return serialNO + "";
 	}
 
+	private double downX,downY,upX,upY;
+	
 	class ListViewAndHeadViewTouchLinstener implements View.OnTouchListener {
 		@Override
 		public boolean onTouch(View arg0, MotionEvent arg1) {
+			//判断是否滚动过
+			if(arg1.getAction()==MotionEvent.ACTION_DOWN){
+				downX = arg1.getX();
+				downY = arg1.getY();
+				isScrolled = false;
+			}else if(arg1.getAction()==MotionEvent.ACTION_UP){
+				upX = arg1.getX();
+				upY = arg1.getY();
+				if(Math.abs(downX-upX)>Constant.MAX_SCROLL_DISTANCE||
+						Math.abs(downY-upY)>Constant.MAX_SCROLL_DISTANCE){
+					isScrolled = true;
+				}
+			}
 			HorizontalScrollView headSrcrollView = (HorizontalScrollView) mHead
 					.findViewById(R.id.horizontalScrollView1);
 			headSrcrollView.onTouchEvent(arg1);
-			
-			//100ms内可以进入item单击事件
-			switch (arg1.getAction()) {
-			case MotionEvent.ACTION_UP:
-				long clikTime = arg1.getEventTime() - arg1.getDownTime();
-				Log.d(TAG, "clikTime--" + clikTime);
-				if(clikTime < Constant.IS_SCORLL_TIME){
-					isScrolled = false;
-				}else{
-					isScrolled = true;
-				}
-				break;
-			default:
-				break;
-			}
-			
 			return false;
 		}
 	}

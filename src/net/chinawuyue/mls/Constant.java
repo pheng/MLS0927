@@ -2,7 +2,7 @@ package net.chinawuyue.mls;
 
 public class Constant {
 
-	public static final int MAX_SCROLL_DISTANCE = 1;
+	public static final double MAX_SCROLL_DISTANCE = 1.5;
 	public static final long IS_SCORLL_TIME = 100;
 	
 	public static class AfterLoanConstan{
