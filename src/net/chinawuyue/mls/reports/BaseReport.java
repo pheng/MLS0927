@@ -151,7 +151,21 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 			HorizontalScrollView headSrcrollView = (HorizontalScrollView) mHead
 					.findViewById(R.id.horizontalScrollView1);
 			headSrcrollView.onTouchEvent(arg1);
-			touchUp = false;
+			
+			switch (arg1.getAction()) {
+			case MotionEvent.ACTION_UP:
+				//100ms内可以进入item单击事件
+				long clikTime = arg1.getEventTime() - arg1.getDownTime();
+				if(clikTime < Constant.IS_SCORLL_TIME){
+					isScrolled = false;
+				}else{
+					isScrolled = true;
+				}
+				break;
+			default:
+				break;
+			}
+			
 			return false;
 		}
 	}
@@ -225,16 +239,12 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 		this.activityClass = activityClass;
 	}
 
-	private boolean touchUp = false;
-	
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long arg3) {
 		// 没有滑动的情况下点击
 		if (!isScrolled) {
 			intentTo(pos);
 		}
-		isScrolled = false;
-		touchUp = true;
 	}
 
 	// 跳转到其他界面
@@ -270,9 +280,6 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 			mScrollViewArg.smoothScrollTo(l, t);
 			// 设置是否滑动到最左边
 			isScrollLeft = l <= 0;
-			// 设置是否滑动过
-			if(Math.abs(l-oldl)>Constant.MAX_SCROLL_DISTANCE&&!touchUp)
-				isScrolled = true;
 		}
 	};
 
