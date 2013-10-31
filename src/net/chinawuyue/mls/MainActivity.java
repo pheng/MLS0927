@@ -49,13 +49,6 @@ public class MainActivity extends SherlockActivity {
 
 	private static final String TAG = "MainActivity";
 	private static final String STATE_ACTIVE_POSITION = "net.chinawuyue.mls.MainActivity.activePosition";
-	private static final int ITEM1 = 1; // 选项菜单项id
-	private static final int ITEM2 = 2;
-	private static final int ITEM3 = 3;
-	private static final int ITEM4 = 4;
-	private static final int ITEM5 = 5;
-	private static final int ITEM6 = 6;
-	private static final int ITEM7 = 7;
 	private MenuDrawer mMenuDrawer; // 滑动菜单
 	private MenuAdapter mAdapter;
 	private ListView mList;
@@ -339,13 +332,17 @@ public class MainActivity extends SherlockActivity {
 		case 2:
 			item.setIcon(R.drawable.ic_menu_view);
 			// 添加报表查询ActionBar菜单
-			submenu.add(0,ITEM1,0,this.getResources().getString(R.string.report_loan_balance));
-			submenu.add(0,ITEM2,0,this.getResources().getString(R.string.report_business_survey));
-			submenu.add(0,ITEM3,0,this.getResources().getString(R.string.report_subject_balance));
-			submenu.add(0,ITEM4,0,this.getResources().getString(R.string.report_loan_analysis1));
-			submenu.add(0,ITEM5,0,this.getResources().getString(R.string.report_loan_analysis2));
-			submenu.add(0,ITEM6,0,this.getResources().getString(R.string.report_loan_analysis3));
-			submenu.add(0,ITEM7,0,this.getResources().getString(R.string.report_report_setting));
+			submenu.add(0,Constant.ReportConstants.ITEM1,0,this.getResources().getString(R.string.report_loan_balance));
+			submenu.add(0,Constant.ReportConstants.ITEM2,0,this.getResources().getString(R.string.report_business_survey));
+			submenu.add(0,Constant.ReportConstants.ITEM3,0,this.getResources().getString(R.string.report_subject_balance));
+			submenu.add(0,Constant.ReportConstants.ITEM4,0,this.getResources().getString(R.string.report_loan_analysis1));
+			submenu.add(0,Constant.ReportConstants.ITEM5,0,this.getResources().getString(R.string.report_loan_analysis2));
+			submenu.add(0,Constant.ReportConstants.ITEM6,0,this.getResources().getString(R.string.report_loan_analysis3));
+			submenu.add(0,Constant.ReportConstants.ITEM7,0,this.getResources().getString(R.string.report_loan_rate1));
+			submenu.add(0,Constant.ReportConstants.ITEM8,0,this.getResources().getString(R.string.report_loan_rate2));
+			submenu.add(0,Constant.ReportConstants.ITEM9,0,this.getResources().getString(R.string.report_loan_rate3));
+			submenu.add(0,Constant.ReportConstants.ITEM10,0,this.getResources().getString(R.string.report_loan_rate4));
+			submenu.add(0,Constant.ReportConstants.ITEM_SETTING,0,this.getResources().getString(R.string.report_report_setting));
 			break;
 		case 3:
 			item.setIcon(R.drawable.ic_menu_view);
@@ -384,31 +381,47 @@ public class MainActivity extends SherlockActivity {
 		case android.R.id.home:
 			mMenuDrawer.toggleMenu();
 			return true;
-		case ITEM1:
+		case Constant.ReportConstants.ITEM1:
 			reportType = ReportType.LoanBalance;
 			setReportView();
 			break;
-		case ITEM2:
+		case Constant.ReportConstants.ITEM2:
 			reportType = ReportType.BusinessSurvey;
 			setReportView();
 			break;
-		case ITEM3:
+		case Constant.ReportConstants.ITEM3:
 			reportType = ReportType.SubjectBalance;
 			setReportView();
 			break;
-		case ITEM4:
+		case Constant.ReportConstants.ITEM4:
 			reportType = ReportType.LoanAnalysis1;
 			setReportView();
 			break;
-		case ITEM5:
+		case Constant.ReportConstants.ITEM5:
 			reportType = ReportType.LoanAnalysis2;
 			setReportView();
 			break;
-		case ITEM6:
+		case Constant.ReportConstants.ITEM6:
 			reportType = ReportType.LoanAnalysis3;
 			setReportView();
 			break;
-		case ITEM7:
+		case Constant.ReportConstants.ITEM7:
+			reportType = ReportType.LoanRate1;
+			setReportView();
+			break;
+		case Constant.ReportConstants.ITEM8:
+			reportType = ReportType.LoanRate2;
+			setReportView();
+			break;
+		case Constant.ReportConstants.ITEM9:
+			reportType = ReportType.LoanRate3;
+			setReportView();
+			break;
+		case Constant.ReportConstants.ITEM10:
+			reportType = ReportType.LoanRate4;
+			setReportView();
+			break;
+		case Constant.ReportConstants.ITEM_SETTING:
 			dialog.showDialog();
 			break;
 		}
@@ -574,20 +587,4 @@ public class MainActivity extends SherlockActivity {
 		showMenu();
 	}
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		clear();
-	}
-	
-	//清空报表静态缓存
-	private void clear(){
-		BusinessSurveyReport.reportItems.clear();
-		BoardReport.reportItems.clear();
-		LoanAnalysis1Report.reportItems.clear();
-		LoanAnalysis2Report.reportItems.clear();
-		LoanAnalysis3Report.reportItems.clear();
-		LoanBalanceReport.reportItems.clear();
-		SubjectBalanceReport.reportItems.clear();
-	}
 }

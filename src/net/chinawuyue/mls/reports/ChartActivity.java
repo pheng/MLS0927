@@ -77,12 +77,23 @@ public class ChartActivity extends SherlockActivity {
 		subMenu1.add(0, ITEM2, 0, balance);
 		if (reportType != ReportType.LoanBalance
 				&& reportType != ReportType.BusinessSurvey
-				&& reportType != ReportType.SubjectBalance) {
+				&& reportType != ReportType.SubjectBalance
+				&& reportType != ReportType.LoanRate1
+				&& reportType != ReportType.LoanRate2
+				&& reportType != ReportType.LoanRate3
+				&& reportType != ReportType.LoanRate4) {
 			subMenu1.add(0, ITEM3, 0, sum);
 		}
 		if (reportType != ReportType.LoanBalance
 				&& reportType != ReportType.SubjectBalance) {
-			subMenu1.add(0, ITEM4, 0, ratio);
+			String strRatio = ratio;
+			if(reportType == ReportType.LoanRate1
+					|| reportType == ReportType.LoanRate2
+					|| reportType == ReportType.LoanRate3
+					|| reportType == ReportType.LoanRate4){
+				strRatio = "ªÿ ’¬ ";
+			}
+			subMenu1.add(0, ITEM4, 0, strRatio);
 		}
 		SubMenu subMenu2 = subMenu1.addSubMenu(0,ITEM5,0,chartType);
 		subMenu1.addSubMenu(0,ITEM9,0,R.string.back);

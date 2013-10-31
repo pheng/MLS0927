@@ -80,4 +80,22 @@
         <item >固定资产贷款</item>
         <item >其它</item>
     </string-array>
+ 	<string-array name="report_loan_rate1">
+        <item >农户小额信用贷款年初至本期末到期贷款总额</item>
+        <item >农户小额信用贷款到期贷款收回额</item>
+        <item >农户小额信用贷款到期贷款未收回额</item>
+        <item >其他贷款年初至本期末到期贷款总额</item>
+        <item >其他贷款到期贷款收回额</item>
+        <item >其他贷款到期贷款未收回额</item>
+    </string-array>
+ 	<string-array name="report_loan_rate1_ratio">
+        <item >农户小额信用贷款到期贷款回收率</item>
+        <item >其他贷款到期贷款回收率</item>
+        <item >贷款综合收回率</item>
+    </string-array>
+ 	<string-array name="report_loan_rate2">
+        <item >年初至本期末到期贷款总额</item>
+        <item >到期贷款收回额</item>
+        <item >到期未收回额</item>
+    </string-array>
 </resources>

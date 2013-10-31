@@ -8,26 +8,26 @@
     android:padding="5dp" >
 
     <TextView
-        android:id="@+id/t_subjectname"
+        android:id="@+id/t_superorgid"
         style="@style/ListTextStyle"
         android:layout_width="@dimen/listview_item_width"
         android:layout_height="wrap_content"
-        android:text="科目名称" />
+        android:text="单位编号"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/t_superorgname"
         style="@style/ListTextStyle"
         android:layout_width="@dimen/listview_item_width"
         android:layout_height="wrap_content"
-        android:text="单位名称"
-        android:visibility="gone" />
+        android:text="单位名称" />
 
     <net.chinawuyue.mls.InterceptScrollContainer
         android:id="@+id/scroollContainter"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/t_subjectname"
+        android:layout_toRightOf="@id/t_superorgname"
         android:focusable="false" >
 
         <net.chinawuyue.mls.MyHScrollView
@@ -44,104 +44,116 @@
                 android:orientation="horizontal" >
 
                 <TextView
-                    android:id="@+id/t_superorgid"
+                    android:id="@+id/t_count7"
                     style="@style/ListTextStyle"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
-                    android:text="单位编号"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/t_subjectno"
-                    style="@style/ListTextStyle"
-                    android:layout_width="@dimen/listview_item_width"
-                    android:layout_height="wrap_content"
-                    android:text="科目编号"
-                    android:visibility="gone" />
+                    android:text="排名" />
 
                 <TextView
                     android:id="@+id/t_count1"
                     style="@style/ListTextStyle"
-                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
-                    android:text="各项贷款笔数" />
+                    android:text="农户小额信用贷款年初至本期末到期贷款总额(笔数)" />
 
                 <TextView
                     android:id="@+id/t_balance1"
                     style="@style/ListTextStyle"
-                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_width="@dimen/listview_item_width_l"
                     android:layout_height="wrap_content"
-                    android:text="各项贷款余额" />
+                    android:text="农户小额信用贷款年初至本期末到期贷款总额(金额)" />
 
                 <TextView
                     android:id="@+id/t_count2"
                     style="@style/ListTextStyle"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
-                    android:text="正常笔数" />
+                    android:text="农户小额信用贷款到期贷款收回额(笔数)" />
 
                 <TextView
                     android:id="@+id/t_balance2"
                     style="@style/ListTextStyle"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
-                    android:text="正常余额" />
+                    android:text="农户小额信用贷款到期贷款收回额(金额)" />
 
                 <TextView
                     android:id="@+id/t_count3"
                     style="@style/ListTextStyle"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
-                    android:text="关注笔数" />
+                    android:text="农户小额信用贷款到期贷款未收回额(笔数)" />
 
                 <TextView
                     android:id="@+id/t_balance3"
                     style="@style/ListTextStyle"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
-                    android:text="关注余额" />
+                    android:text="农户小额信用贷款到期贷款未收回额(金额)" />
+
+                <TextView
+                    android:id="@+id/t_ratio1"
+                    style="@style/ListTextStyle"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="农户小额信用贷款到期贷款回收率" />
 
                 <TextView
                     android:id="@+id/t_count4"
                     style="@style/ListTextStyle"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
-                    android:text="次级笔数" />
+                    android:text="其他贷款年初至本期末到期贷款总额(笔数)" />
 
                 <TextView
                     android:id="@+id/t_balance4"
                     style="@style/ListTextStyle"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
-                    android:text="次级余额" />
+                    android:text="其他贷款年初至本期末到期贷款总额(金额)" />
 
                 <TextView
                     android:id="@+id/t_count5"
                     style="@style/ListTextStyle"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
-                    android:text="可疑笔数" />
+                    android:text="其他贷款到期贷款收回额(笔数)" />
 
                 <TextView
                     android:id="@+id/t_balance5"
                     style="@style/ListTextStyle"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
-                    android:text="可疑余额" />
+                    android:text="其他贷款到期贷款收回额(金额)" />
 
                 <TextView
                     android:id="@+id/t_count6"
                     style="@style/ListTextStyle"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
-                    android:text="损失笔数" />
+                    android:text="其他贷款到期贷款未收回额(笔数)" />
 
                 <TextView
                     android:id="@+id/t_balance6"
                     style="@style/ListTextStyle"
                     android:layout_width="@dimen/listview_item_width"
                     android:layout_height="wrap_content"
-                    android:text="损失余额" />
+                    android:text="其他贷款到期贷款未收回额(金额)" />
+
+                <TextView
+                    android:id="@+id/t_ratio2"
+                    style="@style/ListTextStyle"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="其他贷款到期贷款回收率" />
+
+                <TextView
+                    android:id="@+id/t_ratio3"
+                    style="@style/ListTextStyle"
+                    android:layout_width="@dimen/listview_item_width"
+                    android:layout_height="wrap_content"
+                    android:text="贷款综合收回率" />
             </LinearLayout>
         </net.chinawuyue.mls.MyHScrollView>
     </net.chinawuyue.mls.InterceptScrollContainer>

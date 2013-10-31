@@ -41,6 +41,10 @@
     <string name="report_loan_analysis1">各项贷款分析表一</string>
     <string name="report_loan_analysis2">各项贷款分析表二</string>
     <string name="report_loan_analysis3">各项贷款分析表三</string>
+    <string name="report_loan_rate1">贷款收回率统计表(县市排名)</string>
+    <string name="report_loan_rate2">贷款收回率统计表(业务品种)</string>
+    <string name="report_loan_rate3">贷款收回率统计表(贷款方式)</string>
+    <string name="report_loan_rate4">贷款收回率统计表(行业分类)</string>
     <string name="report_report_setting">报表设置</string>
     <string name="strAfterLoanReport">贷后检查报告</string>
     <string name="wait">正在刷新&#8230;</string>

@@ -100,7 +100,19 @@ public class ReportSettingDialog {
 		} else if (reportType == ReportType.LoanAnalysis3) {
 			report = new LoanAnalysis3Report(context);
 			report.setReportView(R.layout.activity_report_loan_analysis3);
-		}
+		} else if (reportType == ReportType.LoanRate1) {
+			report = new LoanRate1Report(context);
+			report.setReportView(R.layout.activity_report_loan_rate1);
+		} else if (reportType == ReportType.LoanRate2) {
+			report = new LoanRate2Report(context);
+			report.setReportView(R.layout.activity_report_loan_rate2);
+		} else if (reportType == ReportType.LoanRate3) {
+			report = new LoanRate3Report(context);
+			report.setReportView(R.layout.activity_report_loan_rate3);
+		} else if (reportType == ReportType.LoanRate4) {
+			report = new LoanRate4Report(context);
+			report.setReportView(R.layout.activity_report_loan_rate4);
+		} 
 	}
 
 	/**

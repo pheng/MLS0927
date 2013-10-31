@@ -36,7 +36,9 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 
 	// 报表类型
 	public static enum ReportType {
-		LoanBalance, BusinessSurvey, SubjectBalance, LoanAnalysis1, LoanAnalysis2, LoanAnalysis3
+		LoanBalance, BusinessSurvey, SubjectBalance, 
+		LoanAnalysis1, LoanAnalysis2, LoanAnalysis3,
+		LoanRate1, LoanRate2, LoanRate3,LoanRate4
 	};
 
 	// 报表字段
@@ -56,6 +58,9 @@ public abstract class BaseReport implements XListView.IXListViewListener,
 	public static final String PROJECTNAME = "PROJECTNAME";
 	public static final String SUPERORGID = "SUPERORGID";
 	public static final String SUPERORGNAME = "SUPERORGNAME";
+	public static final String BUSSINESSNAME = "BUSSINESSNAME";
+	public static final String VOUCHNAME = "VOUCHNAME";
+	public static final String INDUSTRYNAME = "INDUSTRYNAME";
 	public static final String SUM = "SUM";
 	public static final String RATIO = "RATIO";
 	public static final String SUBJECTNO = "SUBJECTNO";

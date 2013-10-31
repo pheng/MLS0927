@@ -26,4 +26,20 @@ public class Constant {
 		public static final int KIND_FINISH = KIND + 2;
 		public static final int KIND_REJECT = KIND + 3;
 	}
+	
+	public static class ReportConstants{
+		
+		public static final int ITEM = 500; // 选项菜单项id
+		public static final int ITEM1 = ITEM+1; 
+		public static final int ITEM2 = ITEM+2;
+		public static final int ITEM3 = ITEM+3;
+		public static final int ITEM4 = ITEM+4;
+		public static final int ITEM5 = ITEM+5;
+		public static final int ITEM6 = ITEM+6;
+		public static final int ITEM7 = ITEM+7;
+		public static final int ITEM8 = ITEM+8;
+		public static final int ITEM9 = ITEM+9;
+		public static final int ITEM10 = ITEM+10;
+		public static final int ITEM_SETTING = 11;
+	}
 }

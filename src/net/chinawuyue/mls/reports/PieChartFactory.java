@@ -187,7 +187,59 @@ public class PieChartFactory extends AbstractChart {
 							BaseReport.RATIO + (i + 1)).toString());
 				}
 			}
-		}
+		}else if (reportType == ReportType.LoanRate1) {
+			orgName = map.get(BaseReport.SUPERORGNAME).toString() +" 排名" +
+					  map.get(BaseReport.COUNT+7).toString();
+			xLabels = context.getResources().getStringArray(
+					R.array.report_loan_rate1);
+			if (content.equals(balance)) {
+				values = new double[6];
+				for (int i = 0; i < values.length; i++) {
+					values[i] = Double.parseDouble(map.get(
+							BaseReport.BALANCE + (i + 1)).toString());
+				}
+			} else if (content.equals(count)) {
+				values = new double[6];
+				for (int i = 0; i < values.length; i++) {
+					values[i] = Double.parseDouble(map.get(
+							BaseReport.COUNT + (i + 1)).toString());
+				}
+			} else if (content.equals(ratio)) {
+				values = new double[3];
+				xLabels = context.getResources().getStringArray(
+						R.array.report_loan_rate1_ratio);
+				for (int i = 0; i < values.length; i++) {
+					values[i] = Double.parseDouble(map.get(
+							BaseReport.RATIO + (i + 1)).toString());
+				}
+			}
+		} else if (reportType == ReportType.LoanRate2||
+				reportType == ReportType.LoanRate3||reportType == ReportType.LoanRate4) {
+			if(reportType==ReportType.LoanRate2){
+				orgName = map.get(BaseReport.BUSSINESSNAME).toString() +" 回收率" +
+					  map.get(BaseReport.RATIO + 4).toString();
+			}else if(reportType==ReportType.LoanRate3){
+				orgName = map.get(BaseReport.VOUCHNAME).toString() +" 回收率" +
+						  map.get(BaseReport.RATIO + 4).toString();
+			}else if(reportType==ReportType.LoanRate4){
+				orgName = map.get(BaseReport.INDUSTRYNAME).toString() +" 回收率" +
+						  map.get(BaseReport.RATIO + 4).toString();
+			}
+			xLabels = context.getResources().getStringArray(
+					R.array.report_loan_rate2);
+			values = new double[3];
+			if (content.equals(balance)) {
+				for (int i = 0; i < values.length; i++) {
+					values[i] = Double.parseDouble(map.get(
+							BaseReport.BALANCE + (i + 1)).toString());
+				}
+			} else if (content.equals(count)) {
+				for (int i = 0; i < values.length; i++) {
+					values[i] = Double.parseDouble(map.get(
+							BaseReport.COUNT + (i + 1)).toString());
+				}
+			} 
+		} 
 		int[] colors = new int[values.length];
 		for (int i = 0; i < values.length; i++) {
 			colors[i] = (Color.argb(
@@ -207,6 +259,9 @@ public class PieChartFactory extends AbstractChart {
 		}
 		if (content.equals(ratio)) {
 			content = ratio + "\n(百分比)";
+			if(reportType == ReportType.LoanRate1||reportType == ReportType.LoanRate2||
+					reportType == ReportType.LoanRate3||reportType == ReportType.LoanRate4)
+				content = "回收率\n(百分比)";
 		}
 		//保留2位小数
 		DecimalFormat df = new DecimalFormat("0.00");
