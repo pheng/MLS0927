@@ -335,7 +335,13 @@ public class LineChartFactory extends AbstractChart {
 
 		XYMultipleSeriesRenderer renderer = buildRenderer(colors,
 				new PointStyle[] { PointStyle.DIAMOND });
-		setChartSettings(renderer, orgName, "", "", 0.5, 10, minValue,
+		
+		StringBuilder sb = new StringBuilder(orgName);
+		for(int i = 0;i < sb.length();i++){
+			if(i>0&&i%15==0)
+				sb.insert(i, "\n");
+		}
+		setChartSettings(renderer, sb.toString(), "", "", 0.5, 10, minValue,
 				maxValue, Color.GRAY, Color.LTGRAY);
 		renderer.setXLabels(0);// 设置x轴不显示数字
 		renderer.setYLabels(10);// 设置y轴显示10个点,根据setChartSettings的最大值和最小值自动计算点的间隔

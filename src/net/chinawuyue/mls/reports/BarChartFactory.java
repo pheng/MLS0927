@@ -321,7 +321,13 @@ public class BarChartFactory extends AbstractChart {
 		XYMultipleSeriesRenderer renderer = buildBarRenderer(colors);// 获得渲染器
 		List<double[]> valueList = new ArrayList<double[]>();// 图表数据
 		valueList.add(values);
-		setChartSettings(renderer, orgName, "", "", 0, 9, minValue, maxValue,
+		
+		StringBuilder sb = new StringBuilder(orgName);
+		for(int i = 0;i < sb.length();i++){
+			if(i>0&&i%15==0)
+				sb.insert(i, "\n");
+		}
+		setChartSettings(renderer, sb.toString(), "", "", 0, 9, minValue, maxValue,
 				Color.GRAY, Color.LTGRAY); // 设置图表
 		for (int i = 0; i < xLabels.length; i++) { // 添加项目标签
 			renderer.addXTextLabel(i + 1, xLabels[i]);
