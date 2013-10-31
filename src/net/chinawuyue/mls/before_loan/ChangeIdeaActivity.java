@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import net.chinawuyue.mls.Constant;
 import net.chinawuyue.mls.R;
 import net.chinawuyue.mls.login.LoginInfo;
 import net.chinawuyue.mls.util.DoFetchThread;
@@ -48,11 +49,11 @@ public class ChangeIdeaActivity extends SherlockActivity{
 	private TextView text_serialno_info = null;
 	private TextView text_businesssum_info = null;
 	
-	private EditText edit_approvebusinesssum_info = null;
-	private EditText edit_approveratefloat_info=null;
-	private EditText edit_approvebusinessrate_info = null;
-	private EditText edit_approvetermmonth_info = null;
-	private EditText edit_phaseopinion_info = null;
+	private TextView edit_approvebusinesssum_info = null;
+	private TextView edit_approveratefloat_info=null;
+	private TextView edit_approvebusinessrate_info = null;
+	private TextView edit_approvetermmonth_info = null;
+	private TextView edit_phaseopinion_info = null;
 	
 	private RadioButton radio1 = null;
 	private RadioButton radio2 = null;
@@ -101,6 +102,9 @@ public class ChangeIdeaActivity extends SherlockActivity{
 	private ArrayAdapter<String> spiAdapter;
 	
 	private LoginInfo loginInfo;
+	
+	private Button subBtn;
+	private Button sigBtn;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -198,13 +202,13 @@ public class ChangeIdeaActivity extends SherlockActivity{
 		text_businesssum_info =(TextView)this.findViewById(R.id.text_businesssum_info);
 		text_businesssum_info.setText(businessSum + "");
 		
-		edit_approvebusinesssum_info= (EditText)this.findViewById(R.id.edit_approvebusinesssum_info);
+		edit_approvebusinesssum_info= (TextView)this.findViewById(R.id.edit_approvebusinesssum_info);
 		edit_approvebusinesssum_info.setText(approveSum + "");
-		edit_approveratefloat_info = (EditText)this.findViewById(R.id.edit_approveratefloat_info);
+		edit_approveratefloat_info = (TextView)this.findViewById(R.id.edit_approveratefloat_info);
 		edit_approveratefloat_info.setText(rateFloat + "");
-		edit_approvebusinessrate_info = (EditText)this.findViewById(R.id.edit_approvebusinessrate_info);
+		edit_approvebusinessrate_info = (TextView)this.findViewById(R.id.edit_approvebusinessrate_info);
 		edit_approvebusinessrate_info.setText(businessRate + "");
-		edit_approvetermmonth_info = (EditText)this.findViewById(R.id.edit_approvetermmonth_info);
+		edit_approvetermmonth_info = (TextView)this.findViewById(R.id.edit_approvetermmonth_info);
 		edit_approvetermmonth_info.setText(termMonth + "");
 		
 		edit_phaseopinion_info = (EditText)this.findViewById(R.id.edit_phaseopinion_info);
@@ -222,7 +226,20 @@ public class ChangeIdeaActivity extends SherlockActivity{
 				radio2.setChecked(true);
 			}
 		}
-
+		
+		sigBtn = (Button) findViewById(R.id.sigBtn);
+		sigBtn.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				signIdea();
+			}
+		});
+		
+		subBtn = (Button) findViewById(R.id.subBtn);
+		subBtn.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				getSignPersonList();
+			}
+		});
 	}
 	
 	//签署意见
@@ -517,6 +534,8 @@ public class ChangeIdeaActivity extends SherlockActivity{
 			if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("N")){
 				//提交成功
 				Toast.makeText(getApplicationContext(), "提交成功！", Toast.LENGTH_SHORT).show();
+				setResult(Constant.BeforeLoanConstan.RESULT_CODE_TRUE);
+				finish();
 			}else if(ERRORCODE != null && ERRORCODE.equalsIgnoreCase("SH0001")){
 				//提交失败,提示用户错误
 				Toast.makeText(getApplicationContext(), "提交失败，查询用户不存在！", Toast.LENGTH_SHORT).show();

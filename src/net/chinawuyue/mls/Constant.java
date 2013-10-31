@@ -25,5 +25,9 @@ public class Constant {
 		public static final int KIND_UNFINISH = KIND + 1;
 		public static final int KIND_FINISH = KIND + 2;
 		public static final int KIND_REJECT = KIND + 3;
+		
+		public static final int REQUEST_CODE = BERFORE_LOAN + 200;
+		public static final int RESULT_CODE_TRUE = REQUEST_CODE + 1;
+		public static final int RESULT_CODE_FALSE = REQUEST_CODE + 2;
 	}
 }

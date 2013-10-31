@@ -112,6 +112,17 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 	}
 	
 	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		if(requestCode == Constant.BeforeLoanConstan.REQUEST_CODE 
+				&& resultCode == Constant.BeforeLoanConstan.RESULT_CODE_TRUE){
+			setResult(resultCode);
+		    finish();
+		}
+	}
+	
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		Log.d("nOptions", "onOptionsItemSelected:" + item.getItemId());
 		switch (item.getItemId()) {
@@ -244,18 +255,14 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			Intent intent = new Intent();
+			intent.putExtra("loginInfo", (Serializable)loginInfo);
 			if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("N")){
-				Intent intent = new Intent();
-				intent.putExtra("loginInfo", (Serializable)loginInfo);
 				Log.d(TAG, "start cha loginInfo:" + loginInfo.toString());
 				intent.putExtra("signIdea", json);
 				intent.putExtra("BUSINESSSUM", obj.getBusinessSum().toString());
-				intent.setClass(LoanDetailInfoActivity.this, ChangeIdeaActivity.class);
-				startActivity(intent);
 			}else{
 				//显示默认值
-				Intent intent = new Intent();
-				intent.putExtra("loginInfo", (Serializable)loginInfo);
 				Log.d(TAG, "start cha loginInfo:" + loginInfo.toString());
 				intent.putExtra("OBJECTTYPE", OBJECTTYPE);
 				intent.putExtra("PHASENO", PHASENO);
@@ -265,11 +272,9 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 				intent.putExtra("BUSINESSRATE", obj.getBusinessRate());
 				intent.putExtra("TERMMONTH", obj.getTermMonth());
 				intent.putExtra("SERIALNO", obj.getSerialNO());
-				intent.setClass(getApplicationContext(), ChangeIdeaActivity.class);
-				startActivity(intent);
-				//提示用户错误
-//				Toast.makeText(getApplicationContext(), "请求签署意见失败！", Toast.LENGTH_SHORT).show();
 			}
+			intent.setClass(getApplicationContext(), ChangeIdeaActivity.class);
+			startActivityForResult(intent, Constant.BeforeLoanConstan.REQUEST_CODE);
 		};
 	};
 	

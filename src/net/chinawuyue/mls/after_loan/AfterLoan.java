@@ -202,11 +202,11 @@ public class AfterLoan implements IXListViewListener {
 			}
 
 			JSONArray array = obj.optJSONArray("ARRAY1");
-			if (array == null || array.length() < 1) {
-				return true;
-			}
 			if (xItems != null) {
 				xItems.clear();
+			}
+			if (array == null || array.length() < 1) {
+				return true;
 			}
 			for (int i = 0; i < array.length(); i++) {
 				AfterLoanObject loanObj = new AfterLoanObject(array
@@ -232,11 +232,11 @@ public class AfterLoan implements IXListViewListener {
 			}
 
 			JSONArray array = obj.optJSONArray("ARRAY1");
-			if (array == null || array.length() < 1) {
-				return true;
-			}
 			if (xCommonItems != null) {
 				xCommonItems.clear();
+			}
+			if (array == null || array.length() < 1) {
+				return true;
 			}
 			for (int i = 0; i < array.length(); i++) {
 				AfterLoanCommonObject loanObj = new AfterLoanCommonObject(array
@@ -265,12 +265,14 @@ public class AfterLoan implements IXListViewListener {
 				return;
 			}
 
-			if (this.xItems.size() > Integer.parseInt(context
-					.getString(R.string.xlistview_pullload_limit))) {
-				this.afterLoanList.setPullLoadEnable(true);
-			} else {
-				this.afterLoanList.setPullLoadEnable(false);
-			}
+//			if (this.xItems.size() > Integer.parseInt(context
+//					.getString(R.string.xlistview_pullload_limit))) {
+//				this.afterLoanList.setPullLoadEnable(true);
+//			} else {
+//				this.afterLoanList.setPullLoadEnable(false);
+//			}
+			this.afterLoanList.setPullLoadEnable(false);
+			
 			xAdapter = new MyAdapter(xItems);
 			this.afterLoanList.setAdapter(xAdapter);
 			xAdapter.notifyDataSetChanged();
@@ -287,12 +289,13 @@ public class AfterLoan implements IXListViewListener {
 				return;
 			}
 			
-			if (this.xCommonItems.size() > Integer.parseInt(context
-					.getString(R.string.xlistview_pullload_limit))) {
-				this.afterLoanList.setPullLoadEnable(true);
-			} else {
-				this.afterLoanList.setPullLoadEnable(false);
-			}
+//			if (this.xCommonItems.size() > Integer.parseInt(context
+//					.getString(R.string.xlistview_pullload_limit))) {
+//				this.afterLoanList.setPullLoadEnable(true);
+//			} else {
+//				this.afterLoanList.setPullLoadEnable(false);
+//			}
+			this.afterLoanList.setPullLoadEnable(false);
 			xAdapterCommon = new MyAdapterCommon(xCommonItems);
 			this.afterLoanList.setAdapter(xAdapterCommon);
 			xAdapterCommon.notifyDataSetChanged();
@@ -318,7 +321,7 @@ public class AfterLoan implements IXListViewListener {
 				}
 				onLoad();
 			}
-		}, 2000);
+		}, 200);
 	}
 
 	@Override
@@ -338,7 +341,7 @@ public class AfterLoan implements IXListViewListener {
 				}
 				onLoad();
 			}
-		}, 2000);
+		}, 200);
 	}
 
 	class MyAdapter extends BaseAdapter {
@@ -632,6 +635,7 @@ public class AfterLoan implements IXListViewListener {
 				intent.setClass(context, AfterLoanReportActivity.class);
 				intent.putExtra("data", phaseOption);
 				intent.putExtra("title", customerName + "的检查报告");
+				
 				context.startActivity(intent);
 			} else {
 				// 查询报告失败，提示用户查询失败

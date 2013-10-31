@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.chinawuyue.mls.Constant;
+import net.chinawuyue.mls.MainActivity;
 import net.chinawuyue.mls.MyHScrollView;
 import net.chinawuyue.mls.MyHScrollView.OnScrollChangedListener;
 import net.chinawuyue.mls.R;
@@ -77,9 +78,12 @@ public class BeforeLoan implements IXListViewListener {
 	private String OBJECTTYPE = null;
 	private String FLOWNO = null;
 	private String PHASENO = null;
+	
+	private MainActivity mainActivity;
 
 	public BeforeLoan(Context context, LoginInfo loginInfo) {
 		this.context = context;
+		mainActivity = (MainActivity)context;
 		this.loginInfo = loginInfo;
 		xRequest = new BeforeLoanRequest();
 
@@ -87,7 +91,7 @@ public class BeforeLoan implements IXListViewListener {
 		csl = (ColorStateList) resource
 				.getColorStateList(R.color.list_title_color);
 	}
-
+	
 	public View getLoanView() {
 		return layout;
 	}
@@ -124,6 +128,7 @@ public class BeforeLoan implements IXListViewListener {
 	// get loan's data
 	// fetch "info" from service
 	private void getDataForLoan(int kind) {
+		dialog = ProgressDialog.show(context, "", context.getString(R.string.wait), true, true);
 		xListRequest = xRequest.new LoanListRequest();
 		xListRequest.setUSERID(loginInfo.userCode);
 		Log.d(TAG, " xListReqest: " + xListRequest.jsonRequest().toString());
@@ -135,7 +140,6 @@ public class BeforeLoan implements IXListViewListener {
 			xListRequest.setAPPROVETYPE("030");
 		}
 
-		dialog = ProgressDialog.show(context, "", context.getString(R.string.wait), true, true);
 		final DoFetchThread doFetch = new DoFetchThread(xListRequest.getCODENO(),
 				handler, xListRequest.jsonRequest());
 		Thread thread = new Thread(doFetch);
@@ -170,12 +174,13 @@ public class BeforeLoan implements IXListViewListener {
 			return;
 		}
 		setTitle();
-		if (xItems.size() > Integer.parseInt(context
-				.getString(R.string.xlistview_pullload_limit)))
-			this.loanList.setPullLoadEnable(true);
-		else
+//		if (xItems.size() > Integer.parseInt(context
+//				.getString(R.string.xlistview_pullload_limit)))
+//			this.loanList.setPullLoadEnable(true);
+//		else
+//			this.loanList.setPullLoadEnable(false);
 			this.loanList.setPullLoadEnable(false);
-
+		
 		xAdapter = new MyAdapter(xItems);
 		this.loanList.setAdapter(xAdapter);
 		xAdapter.notifyDataSetChanged();
@@ -184,6 +189,7 @@ public class BeforeLoan implements IXListViewListener {
 			//查询结果为空
 			Toast.makeText(context, R.string.empty, Toast.LENGTH_SHORT).show();
 		}
+		onLoad();
 	}
 
 	private void setTitle() {
@@ -207,11 +213,11 @@ public class BeforeLoan implements IXListViewListener {
 			}
 
 			JSONArray array = obj.optJSONArray("ARRAY1");
-			if (array == null || array.length() < 1) {
-				return true;
-			}
 			if (xItems != null) {
 				xItems.clear();
+			}
+			if (array == null || array.length() < 1) {
+				return true;
 			}
 			for (int i = 0; i < array.length(); i++) {
 				LoanDataObject loanObj = new LoanDataObject(array
@@ -238,10 +244,8 @@ public class BeforeLoan implements IXListViewListener {
 			public void run() {
 				// 网络请求
 				getDataForLoan(kind);
-
-				onLoad();
 			}
-		}, 2000);
+		}, 200);
 	}
 
 	@Override
@@ -251,10 +255,8 @@ public class BeforeLoan implements IXListViewListener {
 			public void run() {
 				// 网络请求
 				getDataForLoan(kind);
-
-				onLoad();
 			}
-		}, 2000);
+		}, 200);
 	}
 
 	class MyAdapter extends BaseAdapter {
@@ -439,7 +441,7 @@ public class BeforeLoan implements IXListViewListener {
 				intent.putExtra("PHASENO", PHASENO);
 				intent.putExtra("OBJECTTYPE", OBJECTTYPE);
 				intent.putExtra("FLOWNO", FLOWNO);
-				context.startActivity(intent);
+				mainActivity.startActivityForResult(intent, Constant.BeforeLoanConstan.REQUEST_CODE);
 			} else {
 				// 查询报告失败，提示用户查询失败
 				Toast.makeText(context, "查询贷款详细失败！", Toast.LENGTH_SHORT).show();
