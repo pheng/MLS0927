@@ -233,7 +233,7 @@ public class LoginActivity extends SherlockActivity {
 				AlertDialog.Builder builder = new Builder(LoginActivity.this);
 				builder.setMessage("发现新版本,需要现在升级吗？");
 				builder.setTitle("升级提示");
-				builder.setPositiveButton("是的",
+				builder.setPositiveButton("现在下载",
 						new android.content.DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog,int which) {
