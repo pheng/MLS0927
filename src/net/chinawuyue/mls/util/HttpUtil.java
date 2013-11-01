@@ -32,7 +32,7 @@ public class HttpUtil {
 	private static final String BASE_PATH = "http://27.17.37.100:8002";//
 	private static final String WEB_APP = "/wcf/UserService.svc/ajaxEndpoint/";
 	public static final String URL = BASE_PATH+WEB_APP;
-	private static final String DOWN_PATH = "http://27.17.37.100:8080/download/MLS.apk";
+	private static final String DOWN_PATH = "http://27.17.37.100:8003/download/MLS.apk";
 	private static final String LOCAL_PATH = Environment.getExternalStorageDirectory()+"/MLS.apk";
 	private static final String ENCODING = "UTF-8";
 	public static final int TIMEOUT = 8000;
