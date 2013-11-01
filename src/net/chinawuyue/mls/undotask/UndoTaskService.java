@@ -58,11 +58,13 @@ public class UndoTaskService extends Service{
 	private JSONObject jsonObj_device;
 	
 	private LoginInfo loginInfo;
+	
+	private boolean isExit = true;
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		ActivityUtil.serviceList.add(this);
 		Log.d(TAG, "onCreate");
+		ActivityUtil.serviceList.add(this);
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -70,7 +72,13 @@ public class UndoTaskService extends Service{
 	public void onStart(Intent intent, int startId) {
 		super.onStart(intent, startId);
 		Log.d(TAG, "onStart");
+		isExit = false;
 		notManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+		if(intent == null ||intent.getSerializableExtra("loginInfo") == null){
+			this.stopSelf();
+			return; 
+		}
 		loginInfo = (LoginInfo) intent.getSerializableExtra("loginInfo");
 
 		//for undo task
@@ -110,6 +118,9 @@ public class UndoTaskService extends Service{
 	@SuppressLint("HandlerLeak")
 	Handler handler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
+			if(isExit){
+				return;
+			}
 			handler.postDelayed(new Runnable() {
 				public void run() {
 					Thread undoThread = new Thread(new DoFetchThread("XD0009", handler, jsonObj));
@@ -174,10 +185,8 @@ public class UndoTaskService extends Service{
 	
 	@SuppressWarnings("deprecation")
 	private void showNotification(String message){
-		Log.d(TAG, "showNotification");
 		//dismiss the old notification
 		if(not != null){
-			Log.d(TAG, "notification is not null");
 			notManager.cancel(NOT_ID);
 		}
 		
@@ -201,6 +210,9 @@ public class UndoTaskService extends Service{
 	@SuppressLint("HandlerLeak")
 	Handler deviceHandler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
+			if(isExit){
+				return;
+			}
 			deviceHandler.postDelayed(new Runnable() {
 				public void run() {
 					Thread deviceThread = new Thread(new DoFetchThread("GetMessages", deviceHandler, jsonObj_device));
@@ -220,7 +232,6 @@ public class UndoTaskService extends Service{
 	};
 	
 	private void showDeviceNot(String msg) {
-		Log.d(TAG, "showDeviceNot");
 		//dismiss the old notification
 		if(not_device != null){
 			notManager.cancel(NOT_ID_DEVICE);
@@ -249,14 +260,14 @@ public class UndoTaskService extends Service{
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
+		Log.d(TAG, "onDestroy"); 
+		isExit = true;		
 		if(not_device != null){
 			notManager.cancel(NOT_ID_DEVICE);
 		}
 		if(not != null){
-			Log.d(TAG, "notification is not null");
 			notManager.cancel(NOT_ID);
 		}
-		System.exit(0);
 	}
 
 }

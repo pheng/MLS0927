@@ -306,6 +306,7 @@ public class LoginActivity extends SherlockActivity {
 				// 转向登陆后的页面
 				startActivity(intent);
 				proDialog.dismiss();
+				LoginActivity.this.finish();
 			} else{
 				// 通过调用handler来通知UI主线程更新UI
 				Message message = new Message();
