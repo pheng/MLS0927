@@ -1,34 +1,30 @@
 package net.chinawuyue.mls.util;
 
 import java.io.File;
-import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
-import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.Environment;
+import android.os.Handler;
 import android.os.Message;
 
 /**网络工具类*/
@@ -36,8 +32,11 @@ public class HttpUtil {
 	private static final String BASE_PATH = "http://27.17.37.100:8002";//
 	private static final String WEB_APP = "/wcf/UserService.svc/ajaxEndpoint/";
 	public static final String URL = BASE_PATH+WEB_APP;
-	private static final String DOWN_PATH = "/download/MLS.txt";
+	private static final String DOWN_PATH = "http://27.17.37.100:8003/download/MLS.txt";
+	private static final String LOCAL_PATH = Environment.getExternalStorageDirectory()+"/MLS.apk";
 	private static final String ENCODING = "UTF-8";
+	private static final String USERNAME = "administrator";
+	private static final String PASSWORD = "mls123_";
 	public static final int TIMEOUT = 8000;
 	private HttpPost post = null;
 
@@ -182,35 +181,120 @@ public class HttpUtil {
 		return res.substring(1, res.length() - 1);
 	}
 	
+//	/** 应用自动升级 apk下载 */
+//	public int downAPK() {
+//		/** 0:下载失败，1：下载完成，2：SD卡未就绪 */
+//		int downOK = 0;
+//		URL url = null;
+//		if (Environment.getExternalStorageState().equals(
+//				android.os.Environment.MEDIA_MOUNTED)) {
+//			try {
+//				url = new URL(DOWN_PATH);
+//				HttpURLConnection con = (HttpURLConnection) url
+//						.openConnection();
+////				byte[] auth = (USERNAME+":"+PASSWORD).getBytes();
+////				String basic = Base64.encodeToString(auth, Base64.NO_WRAP);
+////				con.setRequestProperty("Authorization", "Basic "+basic);
+////				con.setConnectTimeout(TIMEOUT);
+//				InputStream in = con.getInputStream();
+//				File fileOut = new File(
+//						Environment.getExternalStorageDirectory(), "MLS.apk");
+//				FileOutputStream out = new FileOutputStream(fileOut);
+//				byte[] bytes = new byte[1024];
+//				int c;
+//				while ((c = in.read(bytes)) != -1) {
+//					out.write(bytes, 0, c);
+//				}
+//				in.close();
+//				out.close();
+//				downOK = 1;
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//				downOK = 0;
+////				if(e.getMessage().contains("unexpected end of stream")){
+////					downOK = 1;
+////				}
+//			}
+//		} else
+//			downOK = 2;
+//		return downOK;
+//	}
+	
 	/** 应用自动升级 apk下载 */
-	public int downAPK() {
-		/** 0:下载失败，1：下载完成，2：SD卡未就绪 */
-		int downOK = 0;
-		URL url = null;
-		if (Environment.getExternalStorageState().equals(
-				android.os.Environment.MEDIA_MOUNTED)) {
+	public void downAPK(Handler handler) {
+		Message msg = handler.obtainMessage();
+		if (!Environment.getExternalStorageState().equals(
+				android.os.Environment.MEDIA_MOUNTED)){
+			msg.arg1 = 2;
+			msg.sendToTarget();
+		}
+		try {
+			URL url = new URL(DOWN_PATH);
+			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+			conn.setConnectTimeout(TIMEOUT);
+			conn.setRequestMethod("GET");
+			int fileSize = conn.getContentLength();
+			//创建本地文件
+			File file = new File(LOCAL_PATH);
+			RandomAccessFile raf = new RandomAccessFile(file,"rwd");
+			//设置本地文件长度
+			raf.setLength(fileSize);
+			raf.close();
+			conn.disconnect();
+			new DownloadThread(handler,0,fileSize).start();
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg.arg1 = 0;
+			msg.sendToTarget();
+		}
+	}
+	
+	//下载线程
+	class DownloadThread extends Thread{
+		
+		private int startPos = 0;
+		private int endPos = 0;
+		private Handler handler = null;
+		public DownloadThread(Handler handler,int startPos,int endPos){
+			this.startPos = startPos;
+			this.endPos = endPos;
+			this.handler = handler;
+		}
+		
+		public void run() {
+			RandomAccessFile raf = null;
+			InputStream input = null;
+			Message msg = handler.obtainMessage();
 			try {
-				url = new URL(BASE_PATH + DOWN_PATH);
-				HttpURLConnection con = (HttpURLConnection) url
-						.openConnection();
-				InputStream in = con.getInputStream();
-				File fileOut = new File(
-						Environment.getExternalStorageDirectory(), "MLS.apk");
-				FileOutputStream out = new FileOutputStream(fileOut);
-				byte[] bytes = new byte[1024];
-				int c;
-				while ((c = in.read(bytes)) != -1) {
-					out.write(bytes, 0, c);
+				URL url = new URL(DOWN_PATH);
+				HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+				conn.setConnectTimeout(TIMEOUT);
+				conn.setRequestMethod("GET");
+				//设置下载范围
+				conn.setRequestProperty("Range", "bytes="+startPos+"-"+endPos);
+				raf = new RandomAccessFile(new File(LOCAL_PATH),"rwd");
+				//设置写入位置
+				raf.seek(startPos);
+				byte[] buffer = new byte[1024];
+				int len;
+				input = conn.getInputStream();
+				while((len=(input.read(buffer)))!=-1){
+					raf.write(buffer,0,len);
 				}
-				in.close();
-				out.close();
-				downOK = 1;
+				msg.arg1 = 1;
+				msg.sendToTarget();
 			} catch (Exception e) {
 				e.printStackTrace();
-				downOK = 0;
+				msg.arg1 = 0;
+				msg.sendToTarget();
+			} finally{
+				try {
+					input.close();
+					raf.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
-		} else
-			downOK = 2;
-		return downOK;
+		}
 	}
 }

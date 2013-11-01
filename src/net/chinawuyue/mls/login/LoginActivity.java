@@ -241,8 +241,12 @@ public class LoginActivity extends SherlockActivity {
 								proDialog = ProgressDialog.show(
 										LoginActivity.this, "应用升级",
 										"正在下载新版本，请稍候....", true, true);
-								Thread downThread = new Thread(new downAPK());
-								downThread.start();
+								Thread thread = new Thread(new Runnable(){
+									@Override
+									public void run() {
+										httpUtil.downAPK(downHandler);
+									}});
+								thread.start();
 							}
 						});
 				builder.setNegativeButton("下次再说", new android.content.DialogInterface.OnClickListener() {
@@ -340,24 +344,12 @@ public class LoginActivity extends SherlockActivity {
 		}
 	};
 
-	class downAPK implements Runnable {
-		@Override
-		public void run() {
-			int downOK = httpUtil.downAPK();
-			Message message = new Message();
-			Bundle bundle = new Bundle();
-			bundle.putInt("downOK", downOK);
-			message.setData(bundle);
-			downHandler.sendMessage(message);
-		}
-	};
-
 	Handler downHandler = new Handler() {
 		public void handleMessage(Message msg) {
 			if (proDialog != null) {
 				proDialog.dismiss();
 			}
-			int isDown = msg.getData().getInt("downOK");
+			int isDown = msg.arg1;
 			switch (isDown) {
 			case 1:
 				downHandler.post(new Runnable() {
