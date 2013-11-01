@@ -253,6 +253,13 @@ public class LoginActivity extends SherlockActivity {
 							@Override
 							public void onClick(DialogInterface dialog,int which) {
 								dialog.dismiss();
+								
+								//启动后台设备、任务轮询服务
+								Intent intentSer = new Intent();
+								intentSer.setClass(LoginActivity.this, UndoTaskService.class);
+								intentSer.putExtra("loginInfo", (Serializable)loginInfo);
+								startService(intentSer);
+								
 								// 需要传输数据到登陆后的界面
 								Intent intent = new Intent();
 								intent.setClass(LoginActivity.this, MainActivity.class);
@@ -309,7 +316,11 @@ public class LoginActivity extends SherlockActivity {
 				intent.putExtra("loginInfo", (Serializable)loginInfo);
 				// 转向登陆后的页面
 				startActivity(intent);
-				proDialog.dismiss();
+				
+				if(proDialog!=null){
+					proDialog.dismiss();
+				}
+				
 				LoginActivity.this.finish();
 			} else{
 				// 通过调用handler来通知UI主线程更新UI
