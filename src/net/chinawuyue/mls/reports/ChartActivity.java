@@ -18,6 +18,12 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.SubMenu;
 
+
+/**
+ * Õº±ÌΩÁ√Ê
+ * @author hp
+ *
+ */
 public class ChartActivity extends SherlockActivity {
 
 	private static final int ITEM1 = 1;

@@ -27,7 +27,9 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 
-/**网络工具类*/
+/**
+ * 网络工具类
+ */
 public class HttpUtil {
 	private static final String BASE_PATH = "http://27.17.37.100:8002";//
 	private static final String WEB_APP = "/wcf/UserService.svc/ajaxEndpoint/";

@@ -25,7 +25,9 @@ import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-/** 产品监测报表 */
+/** 
+ * 产品监测报表 
+ */
 public class BusinessSurveyReport extends BaseReport {
 
 	// 报表静态缓存

@@ -12,7 +12,9 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.SubMenu;
-
+/**
+ * 公告通知界面
+ */
 public class BoardActivity extends SherlockActivity {
 
 	private static final int ITEM1 = 1;

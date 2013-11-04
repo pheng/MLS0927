@@ -105,6 +105,7 @@ public class ChangePwd implements OnFocusChangeListener,OnClickListener{
 		};
 	};
 	
+	/**连接服务器进行修改*/
 	private void changePwd(){
 		JSONObject request = new JSONObject();
 		try {

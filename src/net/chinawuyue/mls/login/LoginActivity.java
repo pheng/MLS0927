@@ -36,7 +36,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockActivity;
-/**登录界面*/
+/**
+ * 登录界面
+ * */
 public class LoginActivity extends SherlockActivity {
 
 	/** 登录信息 */

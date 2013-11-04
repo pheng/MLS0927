@@ -27,7 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * 通知界面
+ * 公告通知类
  * 
  */
 public class BoardReport extends BaseReport {
@@ -46,7 +46,7 @@ public class BoardReport extends BaseReport {
 		this.loginInfo = loginInfo;
 	}
 
-	@Override
+	//获取数据
 	public void fetchData() {
 		progressDialog = ProgressDialog.show(context, "", 
 				context.getResources().getString(R.string.wait),true,true);
@@ -115,6 +115,7 @@ public class BoardReport extends BaseReport {
 		return reportItems;
 	}
 
+	//列表适配器
 	class MyAdapter extends BaseAdapter {
 
 		List<Map<String, Object>> items = null;

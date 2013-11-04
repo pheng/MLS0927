@@ -2,7 +2,9 @@ package net.chinawuyue.mls.login;
 
 import java.io.Serializable;
 
-/**登录信息*/
+/**
+ * 登录信息
+ * */
 public class LoginInfo implements Serializable{
 	public String userCode;
 	public String userName;

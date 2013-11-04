@@ -6,7 +6,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-/** 获取服务器数据线程 */
+/** 
+ * 获取服务器数据线程 
+ */
 public class DoFetchThread implements Runnable {
 	private String fileName;
 	private Handler handler;

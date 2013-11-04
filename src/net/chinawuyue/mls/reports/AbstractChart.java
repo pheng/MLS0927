@@ -32,7 +32,8 @@ import org.achartengine.renderer.XYSeriesRenderer;
 import android.graphics.Color;
 import android.graphics.Paint.Align;
 
-/**
+/** 
+ * Í¼±í³éÏóÀà
  * An abstract class for the demo charts to extend. It contains some methods for
  * building datasets and renderers.
  */

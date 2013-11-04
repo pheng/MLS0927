@@ -9,7 +9,9 @@ import android.content.Context;
 import android.view.View;
 import android.widget.Toast;
 
-/**Activty辅助类*/
+/**
+ * Activty辅助类
+ */
 public class ActivityUtil {
 	/**记录打开的Activity*/
 	public static List<Activity> activityList = new ArrayList<Activity>();
