@@ -536,6 +536,7 @@ public class MainActivity extends SherlockActivity {
 		currentContent = 0;
 		todo.setTodoView();
 		mMenuDrawer.setContentView(todo.getTodoView());
+		showMenu();
 	}
 
 	// 显示贷款审核界面
