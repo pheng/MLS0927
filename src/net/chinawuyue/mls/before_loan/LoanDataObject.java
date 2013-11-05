@@ -4,6 +4,11 @@ package net.chinawuyue.mls.before_loan;
 
 import org.json.JSONObject;
 
+/**
+ * 贷款审批业务列表数据结构
+ * @author Administrator
+ *
+ */
 public class LoanDataObject {
 	
 	/**

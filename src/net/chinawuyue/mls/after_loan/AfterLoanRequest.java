@@ -3,6 +3,11 @@ package net.chinawuyue.mls.after_loan;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * 贷后管理请求报文数据结构
+ * @author Administrator
+ *
+ */
 public class AfterLoanRequest {
 	
 	public AfterLoanRequest() {

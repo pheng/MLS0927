@@ -3,6 +3,11 @@ package net.chinawuyue.mls.before_loan;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * 下级审批人数据结构
+ * @author Administrator
+ *
+ */
 public class NextPersonObj {
 
 	private String SUBMITTYPE = null;

@@ -12,6 +12,11 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 贷款客户详情
+ * @author Administrator
+ *
+ */
 public class CustomInfoActivity extends SherlockActivity{
 	private TextView text_customerid_info = null;
 	private TextView text_customername_info = null;

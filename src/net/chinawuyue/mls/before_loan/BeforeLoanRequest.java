@@ -4,14 +4,22 @@ package net.chinawuyue.mls.before_loan;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
-
+/**
+ * 贷款审批请求报文数据结构
+ * @author Administrator
+ *
+ */
 public class BeforeLoanRequest {
 	
 	public BeforeLoanRequest() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	/**
+	 * 贷款审批业务列表请求报文
+	 * @author Administrator
+	 *
+	 */
 	class LoanListRequest{
 		private String CODENO = "XD0003";
 		private String USERID = null;
@@ -71,6 +79,11 @@ public class BeforeLoanRequest {
 		}
 	}
 	
+	/**
+	 * 贷款详细请求报文
+	 * @author Administrator
+	 *
+	 */
 	class LoanDetailRequest{
 		private String CODENO = "XD0004";
 		private String SERIALNO = null;
@@ -107,6 +120,11 @@ public class BeforeLoanRequest {
 		}
 	}
 	
+	/**
+	 * 贷款客户详情请求报文
+	 * @author Administrator
+	 *
+	 */
 	class CustomerDetailRequest{
 		private String CODENO = "XD0005";
 		private String CUSTOMERID;
@@ -141,6 +159,11 @@ public class BeforeLoanRequest {
 		}
 	}
 	
+	/**
+	 * 审批意见修改请求报文
+	 * @author Administrator
+	 *
+	 */
 	class LoanSignOptionRe{
 		private String CODENO = "XD0006";
 		private String OPINIONTYPE = null;
@@ -310,6 +333,11 @@ public class BeforeLoanRequest {
 		
 	}
 	
+	/**
+	 * 下级审批人列表请求报文
+	 * @author Administrator
+	 *
+	 */
 	class NextSignPerListRe{
 		private String CODENO = "XD0007";
 		private String SERIALNO = null;
@@ -380,6 +408,11 @@ public class BeforeLoanRequest {
 		}
 	}
 	
+	/**
+	 * 审批意见提交请求报文
+	 * @author Administrator
+	 *
+	 */
 	class LoanSubmitRe{
 		private String CODENO = "XD0008";
 		private String SERIALNO = null;

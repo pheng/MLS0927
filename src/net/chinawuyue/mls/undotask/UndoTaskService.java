@@ -20,6 +20,11 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 
+/**
+ * 未处理任务、设备异常登录后台轮询服务
+ * @author Administrator
+ *
+ */
 public class UndoTaskService extends Service{
 	
 	private static final String TAG = "UndoTaskService";

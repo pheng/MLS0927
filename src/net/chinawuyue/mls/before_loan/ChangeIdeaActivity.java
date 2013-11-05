@@ -41,7 +41,11 @@ import android.widget.Spinner;
 
 import android.widget.TextView;
 import android.widget.Toast;
-//签署意见
+/**
+ * 签署意见
+ * @author Administrator
+ *
+ */
 public class ChangeIdeaActivity extends SherlockActivity{
 	
 	private static final String TAG = "ChangeIdeaActivity";

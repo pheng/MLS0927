@@ -39,7 +39,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * ´ûºó¹ÜÀí
+ * 贷后管理
  * 
  * @author Administrator
  * 

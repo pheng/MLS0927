@@ -41,7 +41,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * 贷前审查
+ * 贷款审查
  * 
  */
 public class BeforeLoan implements IXListViewListener {

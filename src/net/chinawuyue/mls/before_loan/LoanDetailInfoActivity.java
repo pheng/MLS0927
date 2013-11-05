@@ -28,7 +28,12 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
-//ด๛ฟ๎ษ๊ว๋
+
+/**
+ * ด๛ฟ๎ฯ๊ว้
+ * @author Administrator
+ *
+ */
 public class LoanDetailInfoActivity extends SherlockActivity{
 	
 	private static final String TAG = "LoanDetailInfoActivity";

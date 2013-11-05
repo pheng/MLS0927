@@ -2,6 +2,11 @@ package net.chinawuyue.mls.before_loan;
 
 import org.json.JSONObject;
 
+/**
+ * 贷款详情数据结构
+ * @author Administrator
+ *
+ */
 public class LoanDetailInfoObject {
 
 	private String serialNO;

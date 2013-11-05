@@ -1,5 +1,10 @@
 package net.chinawuyue.mls;
 
+/**
+ * ³£Á¿
+ * @author Administrator
+ *
+ */
 public class Constant {
 
 	public static final double MAX_SCROLL_DISTANCE = 1.5;

@@ -4,6 +4,11 @@ package net.chinawuyue.mls.after_loan;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * 贷后管理返回报文数据结构（常规）
+ * @author Administrator
+ *
+ */
 public class AfterLoanCommonObject {
 	
 	//数据列表

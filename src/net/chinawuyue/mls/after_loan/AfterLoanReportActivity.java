@@ -10,6 +10,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/**
+ * 贷后管理检查报告
+ * @author Administrator
+ *
+ */
 public class AfterLoanReportActivity extends SherlockActivity{
 	
 	private TextView textTitle;
