@@ -96,7 +96,8 @@ public class SubjectBalanceReport extends BaseReport {
 				map.put(ORGNAME, obj.opt(ORGNAME));
 				for (int j = 1; j <= 6; j++) {
 					map.put(COUNT + j, data.opt(COUNT + j));
-					map.put(BALANCE + j, df.format(data.opt(BALANCE + j)));
+//					map.put(BALANCE + j, df.format(data.opt(BALANCE + j)));
+					map.put(BALANCE + j, data.opt(BALANCE + j));
 				}
 				reportItems.add(map);
 			}

@@ -290,7 +290,8 @@ public class BusinessSurveyReport extends BaseReport {
 				map.put(UNITNAME, obj.opt(UNITNAME));
 				for (int j = 1; j <= 8; j++) {
 					map.put(COUNT + j, data.opt(COUNT + j));
-					map.put(BALANCE + j, df.format(data.opt(BALANCE + j)));
+//					map.put(BALANCE + j, df.format(data.opt(BALANCE + j)));
+					map.put(BALANCE + j, data.opt(BALANCE + j));
 				}
 				for (int j = 6; j <= 8; j++) {
 					map.put(RATIO + j, data.opt(RATIO + j));

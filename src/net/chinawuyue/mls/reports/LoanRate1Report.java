@@ -263,7 +263,8 @@ public class LoanRate1Report extends BaseReport {
 				for (int j = 1; j <= 7; j++) {
 					map.put(COUNT + j, data.opt(COUNT + j));
 					if(j <= 6)
-						map.put(BALANCE + j, df.format(data.opt(BALANCE + j)));
+						map.put(BALANCE + j, data.opt(BALANCE + j));
+					//map.put(BALANCE + j, df.format(data.opt(BALANCE + j)));
 					if(j <= 3)
 						map.put(RATIO + j, data.opt(RATIO + j));
 				}

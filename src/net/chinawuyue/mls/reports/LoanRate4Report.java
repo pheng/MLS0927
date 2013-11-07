@@ -225,7 +225,8 @@ public class LoanRate4Report extends BaseReport {
 				map.put(INDUSTRYNAME, data.opt(INDUSTRYNAME));
 				for (int j = 1; j <= 3; j++) {
 					map.put(COUNT + j, data.opt(COUNT + j));
-					map.put(BALANCE + j, df.format(data.opt(BALANCE + j)));
+					map.put(BALANCE + j, data.opt(BALANCE + j));
+//					map.put(BALANCE + j, df.format(data.opt(BALANCE + j)));
 				}
 				map.put(RATIO + 4, data.opt(RATIO + 4));
 				reportItems.add(map);
