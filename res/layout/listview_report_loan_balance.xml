@@ -20,7 +20,7 @@
         android:id="@+id/t_project_name"
         android:layout_width="@dimen/listview_item_width"
         android:layout_height="wrap_content"
-        android:text="工程名称"
+        android:text="单位名称"
         style="@style/ListTextStyle" />
 
     <net.chinawuyue.mls.InterceptScrollContainer

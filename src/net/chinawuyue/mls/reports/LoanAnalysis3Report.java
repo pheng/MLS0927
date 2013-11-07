@@ -1,5 +1,6 @@
 package net.chinawuyue.mls.reports;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -344,6 +345,8 @@ public class LoanAnalysis3Report extends BaseReport {
 				Toast.makeText(context, R.string.empty, 1).show();
 				return reportItems;
 			}
+			//保留4位小数
+			DecimalFormat df = new DecimalFormat("0.0000");
 			for (int i = 0; i < array.length(); i++) {
 				JSONObject data = array.getJSONObject(i);
 				Map<String, Object> map = new HashMap<String, Object>();
@@ -352,7 +355,7 @@ public class LoanAnalysis3Report extends BaseReport {
 				map.put(UNITNAME, obj.opt(UNITNAME));
 				for (int j = 1; j <= 10; j++) {
 					map.put(COUNT + j, data.opt(COUNT + j));
-					map.put(BALANCE + j, data.opt(BALANCE + j));
+					map.put(BALANCE + j, df.format(data.opt(BALANCE + j)));
 					map.put(RATIO + j, data.opt(RATIO + j));
 					map.put(SUM + j, data.opt(SUM + j));
 				}

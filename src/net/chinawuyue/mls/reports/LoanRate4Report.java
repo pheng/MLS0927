@@ -1,5 +1,6 @@
 package net.chinawuyue.mls.reports;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -216,13 +217,15 @@ public class LoanRate4Report extends BaseReport {
 				Toast.makeText(context, R.string.empty, 1).show();
 				return reportItems;
 			}
+			//保留4位小数
+			DecimalFormat df = new DecimalFormat("0.0000");
 			for (int i = 0; i < array.length(); i++) {
 				JSONObject data = array.getJSONObject(i);
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put(INDUSTRYNAME, data.opt(INDUSTRYNAME));
 				for (int j = 1; j <= 3; j++) {
 					map.put(COUNT + j, data.opt(COUNT + j));
-					map.put(BALANCE + j, data.opt(BALANCE + j));
+					map.put(BALANCE + j, df.format(data.opt(BALANCE + j)));
 				}
 				map.put(RATIO + 4, data.opt(RATIO + 4));
 				reportItems.add(map);
