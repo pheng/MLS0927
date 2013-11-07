@@ -443,7 +443,7 @@ public class LoanAnalysis2Report extends BaseReport {
 					}
 					map.put(BALANCE + j, df.format(data.opt(BALANCE + j)));
 					map.put(RATIO + j, data.opt(RATIO + j));
-					map.put(SUM + j, data.opt(SUM + j));
+					map.put(SUM + j, df.format(data.opt(SUM + j)));
 				}
 				reportItems.add(map);
 			}
