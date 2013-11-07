@@ -157,9 +157,11 @@ public class AfterLoan implements IXListViewListener {
 		xListRequest = xRequest.new ListRequest();
 		xListRequest.setCODENO(codeNo);
 		xListRequest.setUSERID(loginInfo.userCode);
-		if (kind == Constant.AfterLoanConstan.KIND_FIRST_UNFINISH) {
+		if (kind == Constant.AfterLoanConstan.KIND_FIRST_UNFINISH
+				|| kind == Constant.AfterLoanConstan.KIND_COMMON_UNFINISH) {
 			xListRequest.setINSPECTTYPE("010");
-		} else if (kind == Constant.AfterLoanConstan.KIND_FIRST_FINISH) {
+		} else if (kind == Constant.AfterLoanConstan.KIND_FIRST_FINISH
+				|| kind == Constant.AfterLoanConstan.KIND_COMMON_FINISH) {
 			xListRequest.setINSPECTTYPE("020");
 		} else {
 			xListRequest.setINSPECTTYPE("030");
