@@ -95,7 +95,12 @@ public class HttpUtil {
 		if (response.getStatusLine().getStatusCode() == 200) {
 			result = EntityUtils.toString(response.getEntity());
 		}
-		return URLDecoder.decode(result, ENCODING);
+		try {
+			return URLDecoder.decode(result, ENCODING);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return result;
+		}
 	}
 	
 	public void abort(){
