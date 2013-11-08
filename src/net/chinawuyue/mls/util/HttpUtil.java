@@ -51,7 +51,17 @@ public class HttpUtil {
 			result = EntityUtils.toString(response.getEntity());
 		}
 //		return new String(result.getBytes("ISO-8859-1"), ENCODING);
-		return URLDecoder.decode(result, ENCODING);
+		try {
+			return URLDecoder.decode(result, ENCODING);
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				return URLDecoder.decode(result.replaceAll("%", "%25"), ENCODING);
+			} catch (Exception e2) {
+				e.printStackTrace();
+				return result;
+			}
+		}
 	}
 
 	/** 发送Post请求，带参数 */
@@ -72,7 +82,17 @@ public class HttpUtil {
 		if (response.getStatusLine().getStatusCode() == 200) {
 			result = EntityUtils.toString(response.getEntity());
 		}
-		return URLDecoder.decode(result, ENCODING);
+		try {
+			return URLDecoder.decode(result, ENCODING);
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				return URLDecoder.decode(result.replaceAll("%", "%25"), ENCODING);
+			} catch (Exception e2) {
+				e.printStackTrace();
+				return result;
+			}
+		}
 	}
 
 	/** 发送Post请求，带JSON参数 */
@@ -99,7 +119,12 @@ public class HttpUtil {
 			return URLDecoder.decode(result, ENCODING);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return result;
+			try {
+				return URLDecoder.decode(result.replaceAll("%", "%25"), ENCODING);
+			} catch (Exception e2) {
+				e.printStackTrace();
+				return result;
+			}
 		}
 	}
 	
