@@ -27,7 +27,7 @@ import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
+//import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -48,7 +48,7 @@ import android.widget.Toast;
  */
 public class ChangeIdeaActivity extends SherlockActivity{
 	
-	private static final String TAG = "ChangeIdeaActivity";
+//	private static final String TAG = "ChangeIdeaActivity";
 	
 	private TextView text_serialno_info = null;
 	private TextView text_businesssum_info = null;
@@ -121,7 +121,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 		
 		Intent intent = getIntent();
 		loginInfo = (LoginInfo)intent.getSerializableExtra("loginInfo");
-		Log.d(TAG, "loginInfo: " + loginInfo.toString());
+//		Log.d(TAG, "loginInfo: " + loginInfo.toString());
 		
 		businessSum = intent.getStringExtra("BUSINESSSUM");
 		String signIdea = intent.getStringExtra("signIdea");
@@ -249,7 +249,7 @@ public class ChangeIdeaActivity extends SherlockActivity{
 	
 	//Ç©ÊðÒâ¼û
 	private void signIdea(){
-		Log.d(TAG, "signIdea");
+//		Log.d(TAG, "signIdea");
 		ideadetail = edit_phaseopinion_info.getText().toString();
 		businessSum = edit_approvebusinesssum_info.getText().toString();
 		rateFloat = edit_approveratefloat_info.getText().toString();

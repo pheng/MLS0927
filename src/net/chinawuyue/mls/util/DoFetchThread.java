@@ -4,7 +4,7 @@ import org.json.JSONObject;
 
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
+//import android.util.Log;
 
 /** 
  * 获取服务器数据线程 
@@ -19,7 +19,7 @@ public class DoFetchThread implements Runnable {
 		this.handler = handler;
 		this.request = request;
 		httpUtil = new HttpUtil();
-		Log.d("DoFetchThread", "json_request:" + request.toString());
+//		Log.d("DoFetchThread", "json_request:" + request.toString());
 	}
 	@Override
 	public void run() {
@@ -30,7 +30,7 @@ public class DoFetchThread implements Runnable {
 			result = result.replace("\\", "");
 			result = result.substring(1, result.length() - 1);
 			msg.obj = result;
-			Log.d("DoFetch", "response" + result);
+//			Log.d("DoFetch", "response" + result);
 		} catch (Exception e) {
 			msg.what = -1;
 			e.printStackTrace();

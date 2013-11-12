@@ -129,7 +129,7 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		Log.d("nOptions", "onOptionsItemSelected:" + item.getItemId());
+//		Log.d("nOptions", "onOptionsItemSelected:" + item.getItemId());
 		switch (item.getItemId()) {
 		case ITEM1:
 			//客户详情
@@ -140,7 +140,6 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 			signIdea();
 			break;
 		case ITEM3:
-			Log.d(TAG, "back");
 			LoanDetailInfoActivity.this.finish();
 			break;
 
@@ -172,7 +171,7 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 		text_inputdate_info = (TextView)this.findViewById(R.id.text_inputdate_info);
 		
 		if(info != null){
-			Log.d(TAG, "detail info: " + info);
+//			Log.d(TAG, "detail info: " + info);
 			obj = new LoanDetailInfoObject(info);
 			text_serialno_info.setText(obj.getSerialNO());
 			text_serialno_info.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
@@ -219,7 +218,7 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 	}
 	
 	private void signIdea(){
-		Log.d(TAG, "signIdea");
+//		Log.d(TAG, "signIdea");
 		//网络请求数据
 		xSignOptReq = xRequest.new LoanSignOptionRe();
 		//添加请求参数
@@ -263,12 +262,12 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 			Intent intent = new Intent();
 			intent.putExtra("loginInfo", (Serializable)loginInfo);
 			if(RETURNCODE != null && RETURNCODE.equalsIgnoreCase("N")){
-				Log.d(TAG, "start cha loginInfo:" + loginInfo.toString());
+//				Log.d(TAG, "start cha loginInfo:" + loginInfo.toString());
 				intent.putExtra("signIdea", json);
 				intent.putExtra("BUSINESSSUM", obj.getBusinessSum().toString());
 			}else{
 				//显示默认值
-				Log.d(TAG, "start cha loginInfo:" + loginInfo.toString());
+//				Log.d(TAG, "start cha loginInfo:" + loginInfo.toString());
 				intent.putExtra("OBJECTTYPE", OBJECTTYPE);
 				intent.putExtra("PHASENO", PHASENO);
 				intent.putExtra("FLOWNO", FLOWNO);
@@ -284,7 +283,7 @@ public class LoanDetailInfoActivity extends SherlockActivity{
 	};
 	
 	private void moreCustomInfo(){
-		Log.d(TAG, "moreCustomInfo");
+//		Log.d(TAG, "moreCustomInfo");
 		//fetch user info from service 
 		xCusDetReq = xRequest.new CustomerDetailRequest(obj.getCustomerID());
 		

@@ -68,7 +68,6 @@ public class UndoTaskService extends Service{
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		Log.d(TAG, "onCreate");
 		ActivityUtil.serviceList.add(this);
 	}
 	
@@ -76,7 +75,6 @@ public class UndoTaskService extends Service{
 	@Override
 	public void onStart(Intent intent, int startId) {
 		super.onStart(intent, startId);
-		Log.d(TAG, "onStart");
 		isExit = false;
 		notManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -148,7 +146,7 @@ public class UndoTaskService extends Service{
 	};
 	
 	private void parseJsonData(String json){
-		Log.d(TAG, json);
+//		Log.d(TAG, json);
 		try {  
 			JSONObject obj = new JSONObject(json);
 			
@@ -165,7 +163,7 @@ public class UndoTaskService extends Service{
 			e.printStackTrace();
 			return;
 		}
-		Log.d(TAG, "service back count: " + count1 + "--" + count3 + "--" + count4);
+//		Log.d(TAG, "service back count: " + count1 + "--" + count3 + "--" + count4);
 		if((oldCount1 >= 0) && (count1 > oldCount1)){
 			// have new undo loan
 			int num = count1 - oldCount1;
@@ -230,7 +228,7 @@ public class UndoTaskService extends Service{
 			}
 			String deviceMsg = msg.obj.toString();
 			if(deviceMsg != null && deviceMsg.length() > 0){
-				Log.d(TAG, deviceMsg);
+//				Log.d(TAG, deviceMsg);
 				showDeviceNot(deviceMsg);
 			}
 		};
@@ -265,7 +263,6 @@ public class UndoTaskService extends Service{
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
-		Log.d(TAG, "onDestroy"); 
 		isExit = true;		
 		if(not_device != null){
 			notManager.cancel(NOT_ID_DEVICE);

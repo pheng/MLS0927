@@ -25,7 +25,7 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.os.Handler;
-import android.util.Log;
+//import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -47,7 +47,7 @@ import android.widget.Toast;
 @SuppressLint("ShowToast")
 public class AfterLoan implements IXListViewListener {
 
-	private static final String TAG = "AfterLoan";
+//	private static final String TAG = "AfterLoan";
 
 	private Context context;
 	private View layout = null;
@@ -314,8 +314,6 @@ public class AfterLoan implements IXListViewListener {
 		xHandler.postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				Log.d(TAG, "onRefresh");
-
 				if (kind < Constant.AfterLoanConstan.KIND_COMMON) {
 					getDataForAfterLoan("AL0001");
 				} else {
@@ -331,7 +329,7 @@ public class AfterLoan implements IXListViewListener {
 		xHandler.postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				Log.d(TAG, "onLoadMore");
+//				Log.d(TAG, "onLoadMore");
 				if (kind < Constant.AfterLoanConstan.KIND_COMMON) {
 					getDataForAfterLoan("AL0001");
 					// xAdapter = new MyAdapter(xItems);
@@ -480,7 +478,7 @@ public class AfterLoan implements IXListViewListener {
 		public View getView(int position, View convertView, ViewGroup parent) {
 			ViewHolderCommon holder = null;
 			if (convertView == null) {
-				Log.d(TAG, "convertView == null");
+//				Log.d(TAG, "convertView == null");
 				holder = new ViewHolderCommon();
 				View layout = LayoutInflater.from(context).inflate(
 						R.layout.listview_afterloan_common, null);

@@ -9,13 +9,7 @@ import net.chinawuyue.mls.board.BoardReport;
 import net.chinawuyue.mls.login.LoginInfo;
 import net.chinawuyue.mls.reports.BaseReport;
 import net.chinawuyue.mls.reports.BaseReport.ReportType;
-import net.chinawuyue.mls.reports.BusinessSurveyReport;
-import net.chinawuyue.mls.reports.LoanAnalysis1Report;
-import net.chinawuyue.mls.reports.LoanAnalysis2Report;
-import net.chinawuyue.mls.reports.LoanAnalysis3Report;
-import net.chinawuyue.mls.reports.LoanBalanceReport;
 import net.chinawuyue.mls.reports.ReportSettingDialog;
-import net.chinawuyue.mls.reports.SubjectBalanceReport;
 import net.chinawuyue.mls.sys.ChangePwd;
 import net.chinawuyue.mls.todo.Todo;
 import net.chinawuyue.mls.util.ActivityUtil;
@@ -25,7 +19,7 @@ import net.simonvt.menudrawer.Position;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
+//import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.KeyEvent;
@@ -47,7 +41,7 @@ import com.actionbarsherlock.view.SubMenu;
 //主界面
 public class MainActivity extends SherlockActivity {
 
-	private static final String TAG = "MainActivity";
+//	private static final String TAG = "MainActivity";
 	private static final String STATE_ACTIVE_POSITION = "net.chinawuyue.mls.MainActivity.activePosition";
 	private MenuDrawer mMenuDrawer; // 滑动菜单
 	private MenuAdapter mAdapter;
@@ -188,7 +182,6 @@ public class MainActivity extends SherlockActivity {
 	@Override
 	protected void onNewIntent(Intent intent) {
 		// TODO Auto-generated method stub
-		Log.d(TAG, "onNewIntent-------------");
 		super.onNewIntent(intent);
 		// 获得登录信息
 		LoginInfo loginInfo = (LoginInfo)this.getIntent().getSerializableExtra("loginInfo");
@@ -303,7 +296,7 @@ public class MainActivity extends SherlockActivity {
 		super.onActivityResult(requestCode, resultCode, data);
 		if(requestCode == Constant.BeforeLoanConstan.REQUEST_CODE 
 				&& resultCode == Constant.BeforeLoanConstan.RESULT_CODE_TRUE){
-			Log.d(TAG, "successful, refresh!");
+//			Log.d(TAG, "successful, refresh!");
 			beforeLoan.onRefresh();
 		}
 	}

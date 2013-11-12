@@ -27,7 +27,7 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.os.Handler;
-import android.util.Log;
+//import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -46,7 +46,7 @@ import android.widget.Toast;
  */
 public class BeforeLoan implements IXListViewListener {
 
-	private static final String TAG = "BeforeLoan";
+//	private static final String TAG = "BeforeLoan";
 
 	private Context context;
 	private List<LoanDataObject> xItems = null;
@@ -131,7 +131,7 @@ public class BeforeLoan implements IXListViewListener {
 		dialog = ProgressDialog.show(context, "", context.getString(R.string.wait), true, true);
 		xListRequest = xRequest.new LoanListRequest();
 		xListRequest.setUSERID(loginInfo.userCode);
-		Log.d(TAG, " xListReqest: " + xListRequest.jsonRequest().toString());
+//		Log.d(TAG, " xListReqest: " + xListRequest.jsonRequest().toString());
 		if (kind == Constant.BeforeLoanConstan.KIND_UNFINISH) {
 			xListRequest.setAPPROVETYPE("010");
 		} else if (kind == Constant.BeforeLoanConstan.KIND_FINISH) {
