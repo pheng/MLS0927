@@ -22,3 +22,10 @@
 -dontskipnonpubliclibraryclasses
 -dontskipnonpubliclibraryclassmembers
 -libraryjars libs/achartengine-1.1.0.jar
+
+-keep class android.support.v4.app.** { *; } 
+-keep interface android.support.v4.app.** { *; } 
+-keep class com.actionbarsherlock.** { *; } 
+-keep interface com.actionbarsherlock.** { *; } 
+
+-keepattributes *Annotation*
