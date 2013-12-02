@@ -22,6 +22,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -79,9 +80,13 @@ public class LoginActivity extends SherlockActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		//获得设备号
+//		System.out.println("s---DEVICE----" + Build.DEVICE);
+//		System.out.println("s--CPU_ABI-----" + Build.CPU_ABI);
+//		System.out.println("s---HARDWARE----" + Build.HARDWARE);
+//		System.out.println("s---PRODUCT----" + Build.PRODUCT);
+//		System.out.println("s---ID----" + Build.ID);
 		TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE); 
 		deviceId = tm.getDeviceId();
-		System.out.println(deviceId);
 		
 		view_userName = (EditText) findViewById(R.id.login_edit_account);
 		view_password = (EditText) findViewById(R.id.login_edit_pwd);
@@ -162,8 +167,8 @@ public class LoginActivity extends SherlockActivity {
 		boolean loginState = false;	
 		String isLocalUser = null;
 		// 连接webservice
-//		JSONObject jsonRes = HttpUtil.doLoginWithDeviceId(usercode, password,deviceId);
-		JSONObject jsonRes = httpUtil.doLogin(usercode, password);
+		JSONObject jsonRes = httpUtil.doLoginWithDeviceId(usercode, password,deviceId);
+//		JSONObject jsonRes = httpUtil.doLogin(usercode, password);
 		if (jsonRes != null) {
 			try {
 				if(jsonRes.has("logininfo")){
@@ -228,52 +233,55 @@ public class LoginActivity extends SherlockActivity {
 			isNetError = msg.getData().getBoolean("isNetError");
 			isUpdate = msg.getData().getBoolean("isUpdate");
 			isNoBindingUserLogin = msg.getData().getBoolean("isNewUserLogin");
+			boolean loginState = msg.getData().getBoolean("loginState");
 			if (proDialog != null) {
 				proDialog.dismiss();
 			}
-			if (isUpdate) {
-				AlertDialog.Builder builder = new Builder(LoginActivity.this);
-				builder.setMessage("发现新版本,需要现在升级吗？");
-				builder.setTitle("升级提示");
-				builder.setPositiveButton("现在下载",
-						new android.content.DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog,int which) {
-								dialog.dismiss();								
-								proDialog = ProgressDialog.show(
-										LoginActivity.this, "应用升级",
-										"正在下载新版本，请稍候....", true, true);
-								Thread thread = new Thread(new Runnable(){
-									@Override
-									public void run() {
-										httpUtil.downAPK(downHandler);
-									}});
-								thread.start();
-							}
-						});
-				builder.setNegativeButton("下次再说", new android.content.DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog,int which) {
-								dialog.dismiss();
-								
-								//启动后台设备、任务轮询服务
-								Intent intentSer = new Intent();
-								intentSer.setClass(LoginActivity.this, UndoTaskService.class);
-								intentSer.putExtra("loginInfo", (Serializable)loginInfo);
-								startService(intentSer);
-								
-								// 需要传输数据到登陆后的界面
-								Intent intent = new Intent();
-								intent.setClass(LoginActivity.this, MainActivity.class);
-								intent.putExtra("loginInfo", (Serializable)loginInfo);
-								// 转向登陆后的页面
-								startActivity(intent);
-								if(proDialog!=null)
-									proDialog.dismiss();
-							}
-						});
-				builder.create().show();
-			} else {
+			if(loginState){
+				if(isUpdate){
+					AlertDialog.Builder builder = new Builder(LoginActivity.this);
+					builder.setMessage("发现新版本,需要现在升级吗？");
+					builder.setTitle("升级提示");
+					builder.setPositiveButton("现在下载",
+							new android.content.DialogInterface.OnClickListener() {
+								@Override
+								public void onClick(DialogInterface dialog,int which) {
+									dialog.dismiss();								
+									proDialog = ProgressDialog.show(
+											LoginActivity.this, "应用升级",
+											"正在下载新版本，请稍候....", true, true);
+									Thread thread = new Thread(new Runnable(){
+										@Override
+										public void run() { 
+											httpUtil.downAPK(downHandler);
+										}});
+									thread.start();
+								}
+							});
+					builder.setNegativeButton("下次再说", new android.content.DialogInterface.OnClickListener() {
+								@Override
+								public void onClick(DialogInterface dialog,int which) {
+									dialog.dismiss();
+									
+									//启动后台设备、任务轮询服务
+									Intent intentSer = new Intent();
+									intentSer.setClass(LoginActivity.this, UndoTaskService.class);
+									intentSer.putExtra("loginInfo", (Serializable)loginInfo);
+									startService(intentSer);
+									
+									// 需要传输数据到登陆后的界面
+									Intent intent = new Intent();
+									intent.setClass(LoginActivity.this, MainActivity.class);
+									intent.putExtra("loginInfo", (Serializable)loginInfo);
+									// 转向登陆后的页面
+									startActivity(intent);
+									if(proDialog!=null)
+										proDialog.dismiss();
+								}
+							});
+					builder.create().show();
+				}
+			}else{
 				if (isNoBindingUserLogin){
 					Toast.makeText(LoginActivity.this,"非本设备绑定用户不能登录",
 							Toast.LENGTH_SHORT).show();
@@ -330,6 +338,7 @@ public class LoginActivity extends SherlockActivity {
 				Bundle bundle = new Bundle();
 				bundle.putBoolean("isNetError", isNetError);
 				bundle.putBoolean("isUpdate", isUpdate);
+				bundle.putBoolean("loginState", loginState);
 				bundle.putBoolean("isNewUserLogin", isNoBindingUserLogin);
 				message.setData(bundle);
 				loginHandler.sendMessage(message);
