@@ -25,6 +25,9 @@
         <activity android:name="net.chinawuyue.mls.before_loan.ChangeIdeaActivity" />
         <activity android:name="net.chinawuyue.mls.board.BoardActivity" />
         <service android:name="net.chinawuyue.mls.undotask.UndoTaskService"></service>
+        <activity
+            android:name="net.chinawuyue.mls.undotask.DetailActivity"
+            android:theme="@style/detail" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

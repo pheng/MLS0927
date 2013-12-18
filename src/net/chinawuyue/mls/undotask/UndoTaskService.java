@@ -6,6 +6,7 @@ import net.chinawuyue.mls.login.LoginInfo;
 import net.chinawuyue.mls.util.ActivityUtil;
 import net.chinawuyue.mls.util.DoFetchThread;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -59,6 +60,7 @@ public class UndoTaskService extends Service{
 	private Notification not_device;//different device notification
 	//notification ID
 	private static final int NOT_ID_DEVICE = 2000;//different device
+	private int messageId = 3000;
 	//every request form server time
 	private JSONObject jsonObj_device;
 	
@@ -227,31 +229,50 @@ public class UndoTaskService extends Service{
 				return;
 			}
 			String deviceMsg = msg.obj.toString();
-			if(deviceMsg != null && deviceMsg.length() > 0){
-//				Log.d(TAG, deviceMsg);
-				showDeviceNot(deviceMsg);
-			}
+			System.out.println("-------deviceMsg--------" + deviceMsg);
+			parseMessage(deviceMsg);
+//			if(deviceMsg != null && deviceMsg.length() > 0){
+////				Log.d(TAG, deviceMsg);
+//				showDeviceNot(deviceMsg);
+//			}
 		};
 	};
 	
+	private void parseMessage(String msg){
+		try {
+			JSONObject json = new JSONObject(msg);
+			JSONArray array = json.getJSONArray("messages");
+			if (array == null || array.length() < 1) {
+				return;
+			}
+			for(int i = 0; i < array.length(); i++){
+				JSONObject obj = array.getJSONObject(i);
+				String message = obj.optString("message");
+				String time = obj.optString("time");
+				showDeviceNot("  " + message + "\n" + "时间：" + time);
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	private void showDeviceNot(String msg) {
 		//dismiss the old notification
-		if(not_device != null){
-			notManager.cancel(NOT_ID_DEVICE);
-		}
+//		if(not_device != null){
+//			notManager.cancel(NOT_ID_DEVICE);
+//		}
 		
-		not_device = new Notification(R.drawable.ic_notification, "移动信贷账号被异常登录", System.currentTimeMillis());
+		not_device = new Notification(R.drawable.ic_notification, "移动信贷通知", System.currentTimeMillis());
 		not_device.flags = Notification.FLAG_AUTO_CANCEL;
-		Intent intent = new Intent(Intent.ACTION_MAIN);
-		intent.addCategory(Intent.CATEGORY_LAUNCHER);
-		intent.setClass(UndoTaskService.this, MainActivity.class);
-		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+		not_device.defaults = Notification.DEFAULT_ALL;
+		Intent intent = new Intent(UndoTaskService.this, DetailActivity.class);
 		
-		intent.putExtra("loginInfo", loginInfo);
-		intent.putExtra("isDevice", true);
-		PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
+		intent.putExtra("title", "移动信贷通知");
+		intent.putExtra("content", msg);
+		PendingIntent contentIntent = PendingIntent.getActivity(this, messageId, intent, 0);
 		not_device.setLatestEventInfo(this, "移动信贷通知", msg, contentIntent);
-		notManager.notify(NOT_ID_DEVICE, not_device);
+		notManager.notify(messageId++, not_device);
 	}
 	
 	@Override

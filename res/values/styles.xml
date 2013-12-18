@@ -49,4 +49,9 @@
         <item name="android:text">@dimen/listview_text_size</item>
         <item name="android:paddingLeft">10dp</item>
     </style>
+    
+     <style name="detail" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
 </resources>
