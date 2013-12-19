@@ -1,6 +1,5 @@
 package net.chinawuyue.mls.undotask;
 
-import net.chinawuyue.mls.MainActivity;
 import net.chinawuyue.mls.R;
 import net.chinawuyue.mls.login.LoginInfo;
 import net.chinawuyue.mls.util.ActivityUtil;
@@ -33,20 +32,20 @@ public class UndoTaskService extends Service{
 	private NotificationManager notManager;
 	
 	//undo loan count
-	private int count1;
+	private int count1 = -1;
 	private int oldCount1 = -1;
 	
 	//return back loan count
-	private int count3;
+	private int count3 = -1;
 	private int oldCount3 = -1;
 	
 	//unFinish loan report count 
-	private int count4;
+	private int count4 = -1;
 	private int oldCount4 = -1;
 	
-	private static final String UNDO1 = "贷款审批：";
-	private static final String UNDO3 = "\n贷款审批：";
-	private static final String UNDO4 = "\n贷后检查：";
+	private static final String UNDO1 = "  \n贷款审批：";
+	private static final String UNDO3 = "  \n贷款审批：";
+	private static final String UNDO4 = "  \n贷后检查：";
 	private String undoMessage = "";
 	
 	private Notification not;//undo task notification
@@ -136,7 +135,6 @@ public class UndoTaskService extends Service{
 				return;
 			}
 			parseJsonData(msg.obj.toString());
-			
 			if(!undoMessage.equalsIgnoreCase("") && undoMessage.length() > 0){
 				showNotification(undoMessage);
 				
@@ -164,7 +162,7 @@ public class UndoTaskService extends Service{
 			e.printStackTrace();
 			return;
 		}
-//		Log.d(TAG, "service back count: " + count1 + "--" + count3 + "--" + count4);
+//		Log.d(TAG, "service back count: " + count1 + "--" + count3 + "--" + count4 + "--old-" +oldCount4);
 		if((oldCount1 >= 0) && (count1 > oldCount1)){
 			// have new undo loan
 			int num = count1 - oldCount1;
@@ -193,20 +191,19 @@ public class UndoTaskService extends Service{
 		if(not != null){
 			notManager.cancel(NOT_ID);
 		}
-		
-		not = new Notification(R.drawable.ic_notification, "您有新的未处理任务", System.currentTimeMillis());
+		not = new Notification(R.drawable.ic_notification, "移动信贷通知", System.currentTimeMillis());
 		not.flags = Notification.FLAG_AUTO_CANCEL;
-		Intent intent = new Intent(Intent.ACTION_MAIN);
-		intent.addCategory(Intent.CATEGORY_LAUNCHER);
-		intent.setClass(UndoTaskService.this, MainActivity.class);
-		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+		not.defaults = Notification.DEFAULT_ALL;
+		Intent intent = new Intent(UndoTaskService.this, DetailActivity.class);
 		
 		//modify the unfinished things count with the new count
 		loginInfo.count1 = String.valueOf(count1);
 		loginInfo.count2 = String.valueOf(count4);
 		
-		intent.putExtra("loginInfo", loginInfo);
-		PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
+		intent.putExtra("title", "移动信贷通知");
+		intent.putExtra("content", "您有新的未处理任务：" + message);
+		intent.putExtra("loginInfo", loginInfo);   
+		PendingIntent contentIntent = PendingIntent.getActivity(this, ++messageId, intent, 0);
 		not.setLatestEventInfo(this, "移动信贷通知", "您有新的未处理任务：" + message, contentIntent);
 		notManager.notify(NOT_ID, not);
 	}
@@ -267,9 +264,10 @@ public class UndoTaskService extends Service{
 		
 		intent.putExtra("title", "移动信贷通知");
 		intent.putExtra("content", msg);
+		messageId++;
 		PendingIntent contentIntent = PendingIntent.getActivity(this, messageId, intent, 0);
 		not_device.setLatestEventInfo(this, "移动信贷通知", msg, contentIntent);
-		notManager.notify(messageId++, not_device);
+		notManager.notify(messageId, not_device);
 	}
 	
 	@Override
@@ -285,9 +283,9 @@ public class UndoTaskService extends Service{
 //		if(not_device != null){
 //			notManager.cancel(NOT_ID_DEVICE);
 //		}
-		if(not != null){
-			notManager.cancel(NOT_ID);
-		}
+//		if(not != null){
+//			notManager.cancel(NOT_ID);
+//		}
 	}
 
 }
