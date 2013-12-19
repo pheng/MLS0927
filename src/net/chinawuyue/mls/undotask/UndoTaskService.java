@@ -19,7 +19,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import android.util.Log;
 
 /**
  * 未处理任务、设备异常登录后台轮询服务
@@ -28,8 +27,8 @@ import android.util.Log;
  */
 public class UndoTaskService extends Service{
 	
-	private static final String TAG = "UndoTaskService";
 	private static final int REQUEST_TIME = 1800000;
+	private static final int REQUEST_TIME_MESSAGE = 59876;
 
 	private NotificationManager notManager;
 	
@@ -59,7 +58,7 @@ public class UndoTaskService extends Service{
 	
 	private Notification not_device;//different device notification
 	//notification ID
-	private static final int NOT_ID_DEVICE = 2000;//different device
+//	private static final int NOT_ID_DEVICE = 2000;//different device
 	private int messageId = 3000;
 	//every request form server time
 	private JSONObject jsonObj_device;
@@ -223,13 +222,12 @@ public class UndoTaskService extends Service{
 					Thread deviceThread = new Thread(new DoFetchThread("GetMessages", deviceHandler, jsonObj_device));
 					deviceThread.start();
 				}
-			}, REQUEST_TIME);
+			}, REQUEST_TIME_MESSAGE);
 			if (msg.what == -1) {
 				//network disconnect
 				return;
 			}
 			String deviceMsg = msg.obj.toString();
-			System.out.println("-------deviceMsg--------" + deviceMsg);
 			parseMessage(deviceMsg);
 //			if(deviceMsg != null && deviceMsg.length() > 0){
 ////				Log.d(TAG, deviceMsg);
@@ -252,7 +250,6 @@ public class UndoTaskService extends Service{
 				showDeviceNot("  " + message + "\n" + "时间：" + time);
 			}
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -285,9 +282,9 @@ public class UndoTaskService extends Service{
 		// TODO Auto-generated method stub
 		super.onDestroy();
 		isExit = true;		
-		if(not_device != null){
-			notManager.cancel(NOT_ID_DEVICE);
-		}
+//		if(not_device != null){
+//			notManager.cancel(NOT_ID_DEVICE);
+//		}
 		if(not != null){
 			notManager.cancel(NOT_ID);
 		}
