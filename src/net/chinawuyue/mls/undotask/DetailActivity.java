@@ -5,12 +5,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class DetailActivity extends Activity {
 
 	private TextView txt_title;
 	private TextView txt_content;
+	private LinearLayout linearLayout;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -20,13 +23,19 @@ public class DetailActivity extends Activity {
 		
 		txt_content = (TextView) findViewById(R.id.txt_content);
 		txt_title = (TextView) findViewById(R.id.txt_title);
+		linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
+		
+		@SuppressWarnings("deprecation")
+		int height = getWindowManager().getDefaultDisplay().getHeight();
+		LayoutParams lp =linearLayout.getLayoutParams();			
+		lp.height = (int)(height * 0.5);			
+		linearLayout.setLayoutParams(lp);
+//		txt_content.setHeight((int)(height * 0.5));
+		
 		Intent intent = getIntent();
-		String title = intent.getStringExtra("title");
+		String time = intent.getStringExtra("time");
 		String content = intent.getStringExtra("content");
-		System.out.println("title: " + title);
-		System.out.println("content: " + content);
-		txt_title.setVisibility(View.GONE);
 		txt_content.setText(content);
-		txt_title.setText(title);
+		txt_title.setText(time);
 	}
 }

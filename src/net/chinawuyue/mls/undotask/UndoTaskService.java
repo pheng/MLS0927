@@ -200,7 +200,6 @@ public class UndoTaskService extends Service{
 		loginInfo.count1 = String.valueOf(count1);
 		loginInfo.count2 = String.valueOf(count4);
 		
-		intent.putExtra("title", "移动信贷通知");
 		intent.putExtra("content", "您有新的未处理任务：" + message);
 		intent.putExtra("loginInfo", loginInfo);   
 		PendingIntent contentIntent = PendingIntent.getActivity(this, ++messageId, intent, 0);
@@ -244,14 +243,14 @@ public class UndoTaskService extends Service{
 				JSONObject obj = array.getJSONObject(i);
 				String message = obj.optString("message");
 				String time = obj.optString("time");
-				showDeviceNot("  " + message + "\n" + "时间：" + time);
+				showDeviceNot("    " + message, "发布时间:" + time);
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	private void showDeviceNot(String msg) {
+	private void showDeviceNot(String msg,String time) {
 		//dismiss the old notification
 //		if(not_device != null){
 //			notManager.cancel(NOT_ID_DEVICE);
@@ -262,7 +261,7 @@ public class UndoTaskService extends Service{
 		not_device.defaults = Notification.DEFAULT_ALL;
 		Intent intent = new Intent(UndoTaskService.this, DetailActivity.class);
 		
-		intent.putExtra("title", "移动信贷通知");
+		intent.putExtra("time", time);
 		intent.putExtra("content", msg);
 		messageId++;
 		PendingIntent contentIntent = PendingIntent.getActivity(this, messageId, intent, 0);
